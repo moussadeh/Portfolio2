@@ -6,7 +6,24 @@
 {% block stylesheets %}
 {% endblock %}
 {% block body %}
-'test
+
+{# HERO  #}
+<section class="section__padding">
+    <div class="container md:flex-col">
+        <figure>
+            <img src="{{asset('./assets/img/pierrepineau.png')}}" alt="Photo de {{SITE_NAME}}">
+        </figure>
+        <div class="titles">
+            <div class="relative">
+                <h1 class="text-primary text-3xl md:text-4xl lg:text-5xl">{{"hero.title"|trans}}</h1>
+            </div>
+            <p class="">{{"hero.content"|trans}}</p>
+            <a href="#" class="btn-primary btn-full">{{"btn.linkedin"|trans}}</a>
+        </div>
+    </div>
+</section>
+{# END HERO #}
+
 {% endblock %}
 {% block javascripts %}
 {% endblock %}

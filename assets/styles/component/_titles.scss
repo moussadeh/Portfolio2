@@ -1,0 +1,23 @@
+@use "../abstract" as *;
+
+.titles{
+    @extend %flexCenter;
+    flex-direction: column;
+    gap: space(1);
+    align-items: flex-start;
+    text-align: left;
+    
+    // Left is same as default 
+    &-left{
+        align-items: flex-start;
+        text-align: left;
+    }
+    &-center{
+        align-items: center;
+        text-align: center;
+    }
+    &-right{
+        align-items: flex-end;
+        text-align: right;
+    }
+}
