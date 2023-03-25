@@ -5,7 +5,117 @@ twig:
         SITE_NAME: Pierre Pineau
         CONTACT_EMAIL: contact@pierrepineau.fr
 
+        statistics: [
+            {
+                'name': "d'expérience professionnelle",
+                'value': "2 ans",
+            },
+            {
+                'name': "lorem ipusm dolor sit",
+                'value': "15",
+            },
+            {
+                'name': "lorem ipusm dolor sit",
+                'value': "+200 h",
+            },
+        ]
 
+        specialties: [
+            {
+                'icon': "fa-solid",
+                'name': "Lorem ipusm dolor sit",
+                'content': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero non reprehenderit accusamus possimus, voluptatem dolorum minus aliquam ipsam quos!",
+            },
+            {
+                'icon': "fa-solid",
+                'name': "Lorem ipusm dolor sit",
+                'content': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero non reprehenderit accusamus possimus, voluptatem dolorum minus aliquam ipsam quos!",
+            },
+            {
+                'icon': "fa-solid",
+                'name': "Lorem ipusm dolor sit",
+                'content': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero non reprehenderit accusamus possimus, voluptatem dolorum minus aliquam ipsam quos!",
+            },
+            {
+                'icon': "fa-solid",
+                'name': "Lorem ipusm dolor sit",
+                'content': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero non reprehenderit accusamus possimus, voluptatem dolorum minus aliquam ipsam quos!",
+            }
+        ]
+
+        skills: [
+            {
+                'icon': "fa-solid",
+                'name': "Lorem ipusm dolor sit",
+                'value': 70,
+            },
+            {
+                'icon': "fa-solid",
+                'name': "Lorem ipusm dolor sit",
+                'value': 70,
+            },
+            {
+                'icon': "fa-solid",
+                'name': "Lorem ipusm dolor sit",
+                'value': 70,
+            },
+            {
+                'icon': "fa-solid",
+                'name': "Lorem ipusm dolor sit",
+                'value': 70,
+            },
+            {
+                'icon': "fa-solid",
+                'name': "Lorem ipusm dolor sit",
+                'value': 70,
+            },
+        ]
+
+        works: [
+            {
+                'name': "Innov'data",
+                'job': "Développeur web",
+                'type': "Alternance",
+                'startAt': "05-25-2020",
+                'endAt': null,
+                'site': 'url',
+                'content': ''
+                # 'duration': "Alternance"
+            },
+            {
+                'name': "Expert Viséo",
+                'job': "Développeur web",
+                'type': "Stage",
+                'startAt': "05-25-2020",
+                'endAt': "05-25-2020",
+                'site': 'url',
+                'content': ''
+                # 'duration': "Alternance"
+            },
+        ]
+
+        achievements: [
+            {
+                'name': "Innov'data",
+                'job': "Développeur web",
+                'type': "Alternance",
+                'startAt': "05-25-2020",
+                'endAt': null,
+                'site': 'url',
+                'content': ''
+                # 'duration': "Alternance"
+            },
+            {
+                'name': "Expert Viséo",
+                'job': "Développeur web",
+                'type': "Stage",
+                'startAt': "05-25-2020",
+                'endAt': "05-25-2020",
+                'site': 'url',
+                'content': ''
+                # 'duration': "Alternance"
+            },
+        ]
         
 
 
