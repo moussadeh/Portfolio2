@@ -1,61 +1,62 @@
 @use "../abstract" as *;
 @use "../base" as *;
 
-.line{
+
+$calc: calc(((100vw - (1280px - space(4))) / 2) - 16px);
+.custom-line{
     position: relative;
-    height: 1px;
-    flex-grow: 1;
-    width: 100%;
-    border-radius: 100px;
+    &::before,
     &::after{
         position: absolute;
-        top: 0;
-        bottom: 0;
-        width: 0;
-        content: "";
-        background-color: $secondary;
-        @extend %transition;
-        transition-duration: 800ms;
-    }
-
-    &.start-right{
-        &::after{
-            right: 0;
-        }
-    }
-    &.start-left{
-        &::after{
-            left: 0;
-        }
-    }
-    &.start-center{
-        &::after{
-            left: 50%;
-            transform: translateX(-50%);
-        }
-    }
-    &.line-visible{
-        &::after{
-            min-width: 150px;
-        }
-    }
-
-    &.line-primary::after{
+        top: 28px;
+        height: 2px;
+        // width: ;
+        // content: "";
         background-color: $primary;
+        // @extend %transition;
+        // transition-duration: 800ms;
     }
-    &.line-secondary::after{
-        background-color: $secondary;
-    }
-    &.line-dark::after{
-        background-color: $dark;
-    }
-}
 
+    &::before{
+        right: calc(100% + 16px);
+    }
+    &::after{
+        transform-origin: left;
+        left: calc(100% + 16px);
+    }
 
-.line-hover-group{
-    .line{
+    &-left{
+        @extend .custom-line;
+        &::before{
+            content: "";
+            width: space(1);
+            @media screen and (min-width: 1280px){
+                width: $calc;
+            }
+        }
         &::after{
-            width: 100%;
+            display: none;
+        }
+    }
+    &-center{
+        @extend .custom-line;
+        &::before,
+        &::after{
+            content: "";
+            width: 250px;
+        }
+    }
+    &-right{
+        @extend .custom-line;
+        &::after{
+            content: "";
+            width: space(1);
+            @media screen and (min-width: 1280px){
+                width: $calc;
+            }
+        }
+        &::before{
+            display: none;
         }
     }
 }

@@ -1,0 +1,20 @@
+@use "../abstract" as *;
+@use "../base" as *;
+
+.card{
+    padding: space(1);
+    @extend %flexCenter;
+    flex-direction: column;
+    background-color: $secondary;
+    color: white;
+    position: relative;
+    @extend %rounded;
+    &__name{
+        position: absolute;
+        font-weight: 600;
+        color: $primary;
+        top: 0;
+        left: space(1);
+        transform: translateY(-60%);
+    }
+}

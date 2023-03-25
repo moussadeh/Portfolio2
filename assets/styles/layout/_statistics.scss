@@ -1,0 +1,31 @@
+@use "../abstract" as *;
+@use "../base/variables" as *;
+
+.statistics{
+    
+    &__list{
+        @media screen and (min-width: 768px){
+            width: 40%;
+            flex-shrink: 0;
+            gap: space(4);
+        }
+        @extend %flexCenter;
+        flex-direction: column;
+        gap: space(2);
+    }
+    &__item{
+        max-width: 80%;
+        &:nth-child(1){
+            align-self: flex-end;
+        }
+        &:nth-child(2){
+            align-self: flex-start;
+        }
+        &:nth-child(3){
+            align-self: flex-end;
+        }
+    }
+    .card__name{
+        font-size: 2rem;
+    }
+}

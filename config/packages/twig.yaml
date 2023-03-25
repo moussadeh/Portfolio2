@@ -7,7 +7,7 @@ twig:
         
         socials: [
             {
-                'icon': "#about-me",
+                'icon': "fa-brands fa-linkedin-in",
                 'name': "Me contacter sur linkedin",
                 'url': "",
             },

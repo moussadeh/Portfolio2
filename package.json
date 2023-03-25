@@ -17,7 +17,7 @@
     },
     "css": {
       "path": "styles/",
-      "main": "default.scss",
+      "main": "styles.scss",
       "all": "**/*.scss"
     },
     "js": {

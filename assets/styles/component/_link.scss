@@ -2,6 +2,7 @@
 @use "../base" as *;
 
 .link{
+    font-family: 'Barlow Condensed', sans-serif;
     // border: 1px solid red;
     position: relative;
     z-index: 10;
@@ -9,19 +10,20 @@
     @extend %transition;
     width: fit-content;
     display: inline-flex;
-    &::before
+    margin-bottom: 2px;
+    // &::before,
     &::after{
         content: "";
         position: absolute;
         height: 2px;
-        bottom: 0;
+        bottom: -2px;
         left: 0;
         @extend %transition;
     }
-    &::before{
-        z-index: 1;
-        width: 100%;
-    }
+    // &::before{
+    //     z-index: 1;
+    //     width: 100%;
+    // }
     &::after{
         z-index: 2;
         width: 0%;

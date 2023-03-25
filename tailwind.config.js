@@ -8,11 +8,11 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				'primary': "var(--color--primary)",
-				'secondary': "var(--color--secondary)",
+				'primary': "var(--color-primary)",
+				'secondary': "var(--color-secondary)",
 				// 'tertiary': "var(--color--tertiary)",
-				'dark': "var(--color--dark)",
-				'light': "var(--color--light)",
+				'dark': "var(--color-dark)",
+				'light': "var(--color-light)",
 			},
 			zIndex: {
 				"-10": "-10",

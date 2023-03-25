@@ -1,8 +1,9 @@
 @use "../abstract" as *;
 
 .title{
-    font-family: 'Playfair Display', serif;
-    font-weight: 400;
+    font-family: 'Barlow Condensed', sans-serif;
+    // font-weight: 400;
+    color: white;
 }
 
 .title__h1,

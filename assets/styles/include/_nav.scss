@@ -6,7 +6,7 @@
     justify-content: space-between;
     gap: space(1);
     &__list{
-        @extend %flexCenterCenter;
+        @extend %flexCenter;
         gap: space(1);
     }
 }

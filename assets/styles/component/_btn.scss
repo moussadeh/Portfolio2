@@ -2,6 +2,7 @@
 @use "../base" as *;
 
 .btn{
+    font-family: 'Barlow Condensed', sans-serif;
     border: 2px solid;
     position: relative;
     padding: space(.3) space(.5);
@@ -17,6 +18,7 @@
         content: "";
         position: absolute;
         height: 100%;
+        width: 0;
         bottom: 0;
         top: 0;
         left: 0;
@@ -34,6 +36,7 @@
         }
     }
     &-full{
+        border: 0px !important;
         // Si le boutton est plein 
         &::before{
             content: "";
@@ -43,6 +46,7 @@
             top: 0;
             left: 0;
             z-index: -2;
+            @extend %transition;
         }
     }
     &-primary{
@@ -50,24 +54,35 @@
         border-color: $primary;
         color: $primary;
         &:hover,&:focus, &:active, &.is-active{
-            color: white;
             border-color: white;
             &::after{
                 background-color: white;
             }
+            &.btn-full{
+                // Color bg if full 
+                color: white;
+                &::before{
+                    background-color: $primary;
+                }
+            }
+
         }
 
-        // Color bg if full 
-        &::before{
-            background-color: $primary;
+        &.btn-full{
+            // Color bg if full 
+            color: white;
+            &::before{
+                background-color: $primary;
+            }
         }
+
+        
     }
     &-white{
         @extend .btn;
         border-color: white;
         color: white;
         &:hover,&:focus, &:active, &.is-active{
-            color: $primary;
             border-color: $primary;
             &::after{
                 background-color: $primary;

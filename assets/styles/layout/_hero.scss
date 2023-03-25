@@ -1,0 +1,31 @@
+@use "../abstract" as *;
+@use "../base/variables" as *;
+
+.hero{
+    position: relative;
+    height: fit-content;
+    width: 100%;
+    &__img{
+        &-container{
+            min-width: 40%;
+            position: relative;
+            z-index: 1;
+            &::before{
+                content: "";
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                z-index: -1;
+                left: calc((100vw - 100%) / -2);
+                right: 50%;
+                background-color: $primary;
+            }
+        }
+        @extend %imgContain;
+        width: 100%;
+        height: 100%;
+        max-height: 80vh ;
+        max-width: 640px;
+        
+    }
+}

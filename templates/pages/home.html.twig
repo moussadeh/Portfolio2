@@ -8,21 +8,62 @@
 {% block body %}
 
 {# HERO  #}
-<section class="section__padding">
-    <div class="container md:flex-col">
-        <figure>
-            <img src="{{asset('./assets/img/pierrepineau.png')}}" alt="Photo de {{SITE_NAME}}">
+<section class=" bg-secondary hero">
+    <div class="container md:flex-row md:items-center relative">
+        {# <div class="custom-bg-hero"></div> #}
+        <figure class="hero__img-container">
+            <img src="{{asset('./assets/img/pierre-pineau.png')}}" alt="Photo de {{SITE_NAME}}" class="hero__img">
         </figure>
-        <div class="titles">
+        <div class="titles py-4 !text-center md:!text-left !items-center md:!items-start">
             <div class="relative">
-                <h1 class="text-primary text-3xl md:text-4xl lg:text-5xl">{{"hero.title"|trans}}</h1>
+                <h1 class="!text-primary title__h1">{{"hero.title"|trans}}</h1>
             </div>
             <p class="">{{"hero.content"|trans}}</p>
-            <a href="#" class="btn-primary btn-full">{{"btn.linkedin"|trans}}</a>
+            <a href="#" class="btn-white">{{"btn.linkedin"|trans}}</a>
         </div>
     </div>
 </section>
 {# END HERO #}
+{# ABOUT ME #}
+<section class="layout-padding statistics">
+    <div class="container md:flex-row md:items-center gap-4 md:gap-8">
+        <div class="titles">
+            <div class="custom-line-left">
+                <h2 class="title__h2">{{"aboutMe.title"|trans}}</h2>
+            </div>
+            <p class="">{{"hero.content"|trans}}</p>
+            <a href="#" class="btn-white">{{"btn.cv"|trans}}</a>
+        </div>
+        <ul class="statistics__list">
+            {% for stat in statistics %}
+                <li class="statistics__item card">
+                    <h3 class="title__h3"><span class="statistics__value card__name">{{stat.value}}</span> {{stat.name}}</h3>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{# END ABOUT ME #}
+{# WORKS #}
+<section class="layout-padding statistics">
+    <div class="container md:flex-row md:items-center gap-4 md:gap-8">
+        <div class="titles titles-right  md:order-1">
+            <div class="custom-line-right">
+                <h2 class="title__h2">{{"aboutMe.title"|trans}}</h2>
+            </div>
+            <p class="">{{"hero.content"|trans}}</p>
+            <a href="#" class="btn-white">{{"btn.cv"|trans}}</a>
+        </div>
+        <ul class="statistics__list">
+            {% for stat in statistics %}
+                <li class="statistics__item card">
+                    <h3 class="title__h3"><span class="statistics__value card__name">{{stat.value}}</span> {{stat.name}}</h3>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+{# END WORKS #}
 
 {% endblock %}
 {% block javascripts %}
