@@ -9,33 +9,13 @@
 
 
 html, body{
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Open sans', sans-serif;
 }
 body{
-    // background-color: $dark;
-    color: $dark;
+    background-color: $dark;
+    color: $light;
 }
 main{
-    background:var(--color-light);
+    
 }
-#page{
-    min-height:100vh;
-    width: 100%;
-}
-
-
-.checkout-button{
-    @extend .btn;
-    @extend .btn-primary;
-    background-color: transparent !important;
-    color: $primary !important;
-    border: 2px solid $primary!important;
-    overflow: hidden;
-    @extend %rounded;
-    &:hover,&:focus,&.is-active{
-        color: white !important;
-    }
-}
-// Pour les titres/citations/menu
-// font-family: 'Playfair Display', serif;
 

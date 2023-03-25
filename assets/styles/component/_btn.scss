@@ -2,67 +2,97 @@
 @use "../base" as *;
 
 .btn{
-    border: 2px solid $dark;
+    border: 2px solid;
     position: relative;
     padding: space(.3) space(.5);
     @extend %transition;
     @extend %rounded;
     width: fit-content;
     display: inline-flex;
+    align-items: center;
     justify-content: center;
     overflow: hidden;
-    z-index: 1;
-    &::before{
+    z-index: 10;
+    &::after{
         content: "";
         position: absolute;
-        z-index: -1;
+        height: 100%;
         bottom: 0;
         top: 0;
-        width: 0;
         left: 0;
-        background-color: $dark;
         @extend %transition;
     }
+   
+    &::after{
+        z-index: -1;
+    }
+
+
     &:hover,&:focus, &:active, &.is-active{
-        color: white;
-        &::before{
+        &::after{
             width: 100%;
         }
     }
+    &-full{
+        // Si le boutton est plein 
+        &::before{
+            content: "";
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            top: 0;
+            left: 0;
+            z-index: -2;
+        }
+    }
     &-primary{
+        @extend .btn;
         border-color: $primary;
+        color: $primary;
         &:hover,&:focus, &:active, &.is-active{
             color: white;
+            border-color: white;
+            &::after{
+                background-color: white;
+            }
         }
+
+        // Color bg if full 
         &::before{
             background-color: $primary;
         }
     }
-    &-secondary{
-        border-color: $secondary;
-        &:hover,&:focus, &:active, &.is-active{
-            color: white;
-        }
-        &::before{
-            background-color: $secondary;
-        }
-    }
-    &-dark{
-        border-color: $dark;
-        &:hover,&:focus, &:active, &.is-active{
-            color: white;
-        }
-        &::before{
-            background-color: $dark;
-        }
-    }
     &-white{
+        @extend .btn;
         border-color: white;
+        color: white;
         &:hover,&:focus, &:active, &.is-active{
-            color: $dark;
+            color: $primary;
+            border-color: $primary;
+            &::after{
+                background-color: $primary;
+            }
         }
+        // Color bg if full 
         &::before{
             background-color: white;
+        }
+    }
+    &-secondary{
+        @extend .btn;
+        border-color: $secondary;
+        color: $secondary;
+        &:hover,&:focus, &:active, &.is-active{
+            color: white;
+            border-color: white;
+            &::after{
+                background-color: white;
+            }
+        }
+
+        // Color bg if full 
+        &::before{
+            background-color: $secondary;
         }
     }
 }

@@ -1,0 +1,1 @@
+{"version":3,"sources":["global.js"],"names":[],"mappings":"AAAA;AACA","file":"global.js","sourcesContent":["const foo = new Foo();\nfoo.log(\"Hello World\"); // Prints \"Hello World\" to the console."]}

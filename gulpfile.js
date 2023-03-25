@@ -59,13 +59,13 @@ function jsTask(done) {
     src(path.config.source + path.config.js.path + path.config.js.main, { sourcemaps: true })
         .pipe(plumber())
         .pipe(concat(path.config.js.outMain))
-        .pipe(
-            babel({
-                presets: [[
-                        "@babel/env",{ modules: false,},
-                    ],],
-                })
-            )
+        // .pipe(
+        //     babel({
+        //         presets: [[
+        //                 "@babel/env",{ modules: false,},
+        //             ],],
+        //         })
+        //     )
         .pipe(dest(path.config.dist + path.config.js.path, { sourcemaps: '.' }));
 
     src( path.config.source + path.config.js.path + path.config.js.all, { sourcemaps: true })
@@ -133,6 +133,6 @@ task("build", series(cssTask, jsTask, parallel(watchFiles)));
 // task("build-serveur", series(cssTask, jsTask));
 
 // Taches de Prod
-task("manifest", manifestTask);
+// task("manifest", manifestTask);
 task("cssMin", cssMin);
 task("jsMin", jsMin);

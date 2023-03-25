@@ -1,100 +1,12 @@
 @use "../abstract" as *;
 @use "../base" as *;
-@use "../component/link" as *;
 
-.header{
-    &-container{
-        flex-direction: row !important;
-        gap: 1rem;
-    }
-}
-.nav__list{
-    display: flex;
-    align-items: center;
-    gap: .5rem;
-}
-
-.main-navigation{
-
-    position: relative;
+.nav{
     @extend %flexCenter;
-
-    @media screen and (min-width: $breakpoint-mobile) {
-        .menu-toggle{
-            display: none;
-        }
+    justify-content: space-between;
+    gap: space(1);
+    &__list{
+        @extend %flexCenterCenter;
+        gap: space(1);
     }
-
-    .menu-menuheader-container{
-        @extend %transition;
-        @extend %box-shadow;
-        @media screen and (min-width: 768px){
-            box-shadow: unset !important;
-        }
-    }
-
-    @media screen and (max-width: 768px){
-        .menu-menuheader-container{
-            overflow: hidden;
-            right: 0;
-            position: absolute;
-            top: 100%;
-            transform: translateY(10%);
-            height: 0;
-            width: 150px;
-            .nav-menu{
-                overflow: auto;
-                flex-direction: column;
-                align-items: flex-end;
-                padding: space(1);
-                height: 100%;
-            }
-        }
-    }
-
-    .menu-toggle{
-        &-open,
-        &-close{
-            font-size: 1.5rem;
-        }
-        &-open{
-            display: none;
-        }
-        &-close{
-            display: inline;
-        }
-    }
-    &.toggled{
-        @media screen and (max-width: 768px){
-            .menu-menuheader-container{
-                height: 250px;
-            }
-            .menu-toggle{
-                &-open{
-                    display: inline;
-                }
-                &-close{
-                    display: none;
-                }
-            }
-        }
-    }
-    
-}
-
-
-
-.post-navigation{
-    margin-top: space(4);
-    .nav-links{
-        display: flex;
-        justify-content: space-between;
-        a{
-            @extend .link;
-            @extend .link-primary;
-        }
-    }
-}
-.breadcrumbs{
-    margin: space(2) 0 space(1) 0;
 }

@@ -4,45 +4,93 @@
 .link{
     // border: 1px solid red;
     position: relative;
+    z-index: 10;
     // padding: space(.1) 0;
     @extend %transition;
     width: fit-content;
     display: inline-flex;
+    &::before
     &::after{
         content: "";
         position: absolute;
-        z-index: 1;
         height: 2px;
-        border-radius: 100px;
         bottom: 0;
-        left: 2px;
+        left: 0;
         @extend %transition;
     }
-    &::after{
+    &::before{
         z-index: 1;
+        width: 100%;
+    }
+    &::after{
+        z-index: 2;
         width: 0%;
     }
     &:hover,&:focus,&:active, &.is-active{
         &::after{
-            width: calc(100% - 4px);
+            width: calc(100%);
         }
     }
-    &-primary{
-        &:hover,&:focus,&:active, &.is-active{
-            color: $primary;
+    &-white{
+        @extend .link;
+        color: white;
+        &::before{
+            background-color: white;
         }
         &::after{
             background-color: $primary;
         }
+        &:hover,&:focus,&:active, &.is-active{
+            color: $primary;
+        }
+    }
+    &-primary{
+        @extend .link;
+        color: $primary;
+        &::before{
+            background-color: $primary;
+        }
+        &::after{
+            background-color: white;
+        }
+        &:hover,&:focus,&:active, &.is-active{
+            color: white;
+        }
+    }
+    &-dark{
+        @extend .link;
+        color: $dark;
+        &::before{
+            background-color: $dark;
+        }
+        &::after{
+            background-color: white;
+        }
+        &:hover,&:focus,&:active, &.is-active{
+            color: white;
+        }
+    }
+    &-secondary{
+        @extend .link;
+        color: $secondary;
+        &::before{
+            background-color: $secondary;
+        }
+        &::after{
+            background-color: white;
+        }
+        &:hover,&:focus,&:active, &.is-active{
+            color: white;
+        }
     }
 }
 
-.nav-link{
-    @extend .link;
-    @extend .link-primary;
-}
-.current-menu-item{
-    .nav-link{
-        @extend .is-active;
-    }
-}
+// .nav-link{
+//     @extend .link;
+//     @extend .link-primary;
+// }
+// .current-menu-item{
+//     .nav-link{
+//         @extend .is-active;
+//     }
+// }

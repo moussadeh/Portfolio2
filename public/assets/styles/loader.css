@@ -1,0 +1,14 @@
+#loader {
+  position: fixed;
+  background-color: #1F272F;
+  color: #419FCC;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 2rem;
+}
+/*# sourceMappingURL=loader.css.map */

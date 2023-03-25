@@ -1,0 +1,25 @@
+<header class="header">
+    <nav class="nav">
+        <a href="{{path('home')}}">
+            <figure class="logo-container">
+                <img src="{{asset('./assets/img/logo.png')}}" alt="Logo {{SITE_NAME}}" class="logo" title="{{SITE_NAME}}">
+            </figure>
+        </a>
+        <ul class="hidden md:flex nav__list">
+            {% for item in menu %}
+                <li>
+                    <a href="{{item.url}}" class="link-white">{{item.name}}</a>
+                </li>
+            {% endfor %}
+        </ul>
+        <ul class="nav__list">
+            {% for social in socials %}
+                <li>
+                    <a href="{{social.url}}" rel="nofollow" target="_blank" class="btn-white" title="{{social.name}}">
+                        <i class="{{social.icon}}"></i>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>

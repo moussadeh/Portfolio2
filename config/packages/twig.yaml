@@ -4,7 +4,36 @@ twig:
     globals:
         SITE_NAME: Pierre Pineau
         CONTACT_EMAIL: contact@pierrepineau.fr
-
+        
+        socials: [
+            {
+                'icon': "#about-me",
+                'name': "Me contacter sur linkedin",
+                'url': "",
+            },
+        ]
+        menu: [
+            {
+                'name': "À propos de moi",
+                'url': "#about-me",
+            },
+            {
+                'name': "Expériences",
+                'url': "#works",
+            },
+            {
+                'name': "Réalisations",
+                'url': "#project",
+            },
+            {
+                'name': "Compétences",
+                'url': "#skills",
+            },
+            {
+                'name': "Contact",
+                'url': "#contact",
+            }
+        ]
         statistics: [
             {
                 'name': "d'expérience professionnelle",

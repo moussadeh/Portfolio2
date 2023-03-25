@@ -1,11 +1,10 @@
 @use "../abstract" as *;
 @use "../base" as *;
 
-.site-header{
+.header{
     position: sticky;
-
     @extend %flexCenter;
-    justify-content: space-between;
+    // justify-content: space-between;
     gap: space(2);
     padding: space(1);
     width: 100%;
