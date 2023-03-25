@@ -1,0 +1,48 @@
+@use "../abstract" as *;
+@use "../base" as *;
+
+.link{
+    // border: 1px solid red;
+    position: relative;
+    // padding: space(.1) 0;
+    @extend %transition;
+    width: fit-content;
+    display: inline-flex;
+    &::after{
+        content: "";
+        position: absolute;
+        z-index: 1;
+        height: 2px;
+        border-radius: 100px;
+        bottom: 0;
+        left: 2px;
+        @extend %transition;
+    }
+    &::after{
+        z-index: 1;
+        width: 0%;
+    }
+    &:hover,&:focus,&:active, &.is-active{
+        &::after{
+            width: calc(100% - 4px);
+        }
+    }
+    &-primary{
+        &:hover,&:focus,&:active, &.is-active{
+            color: $primary;
+        }
+        &::after{
+            background-color: $primary;
+        }
+    }
+}
+
+.nav-link{
+    @extend .link;
+    @extend .link-primary;
+}
+.current-menu-item{
+    .nav-link{
+        @extend .is-active;
+    }
+}

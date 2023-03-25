@@ -1,0 +1,47 @@
+<!DOCTYPE HTML5>
+<html>
+    <head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="Content-Language" content="fr">
+        <title>{% block title %}{% endblock %} | {{SITE_NAME}}</title>
+        <meta name="description" content="{% block description %}{% endblock %}"/>
+        <link rel="canonical" href="{{ app.request.uri }}">
+        <meta name="robots" content="{% block indexation %}index, follow{% endblock %}">
+        <meta name="MobileOptimized" content="320">
+
+        {# <meta property="og:locale" content="{{app.request.getLocale()|lower}}_{{app.request.getLocale()|upper}}">
+        <meta property="og:site_name" content="{{ block('siteName') }}">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content= "{{ block('title') }} | {{ block('siteName') }}" >
+        <meta property="og:description" content="{{ block('description') }}">
+        <meta property="og:image" content="{% block openGraphImg %}{{asset('./dist/img/opengraph/open-graph.jpg')}}{% endblock %}">
+        <meta property="og:url" content="{{ app.request.uri }}">
+        <meta property="twitter:image" content="{{ block('openGraphImg') }}">
+        <meta property="twitter:card" content="summary_large_image"> #}
+
+        {# Favicon #}
+        {# <link rel="apple-touch-icon" sizes="180x180" href="{{asset('./dist/favicon/apple-touch-icon.png')}}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{asset('./dist/favicon/favicon-32x32.png')}}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{asset('./dist/favicon/favicon-16x16.png')}}">
+        <link rel="manifest" href="{{asset('./dist/favicon/site.webmanifest')}}">
+        <link rel="mask-icon" href="{{asset('./dist/favicon/safari-pinned-tab.svg')}}" color={{ CLIENT_FAVICON_COLOR }}>
+        <meta name="msapplication-TileColor" content={{ CLIENT_FAVICON_BG }}>
+        <meta name="theme-color" content={{ CLIENT_FAVICON_BG }}> #}
+
+		{% include "includes/globalCSS.html.twig" %}
+        {% block stylesheets %}
+	    {% endblock %}
+	</head>
+    <body>
+        {% include "includes/header.html.twig" %}
+        {% include "includes/loader.html.twig" %}
+        <main>
+        {% block body %}{% endblock %}
+        </main>
+        {% include "includes/footer.html.twig" %}
+		{% include "includes/globalJS.html.twig" %}
+        {% block javascripts %}
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,61 @@
+@use "../abstract" as *;
+@use "../base" as *;
+
+.line{
+    position: relative;
+    height: 1px;
+    flex-grow: 1;
+    width: 100%;
+    border-radius: 100px;
+    &::after{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 0;
+        content: "";
+        background-color: $secondary;
+        @extend %transition;
+        transition-duration: 800ms;
+    }
+
+    &.start-right{
+        &::after{
+            right: 0;
+        }
+    }
+    &.start-left{
+        &::after{
+            left: 0;
+        }
+    }
+    &.start-center{
+        &::after{
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    }
+    &.line-visible{
+        &::after{
+            min-width: 150px;
+        }
+    }
+
+    &.line-primary::after{
+        background-color: $primary;
+    }
+    &.line-secondary::after{
+        background-color: $secondary;
+    }
+    &.line-dark::after{
+        background-color: $dark;
+    }
+}
+
+
+.line-hover-group{
+    .line{
+        &::after{
+            width: 100%;
+        }
+    }
+}

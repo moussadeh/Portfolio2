@@ -1,0 +1,68 @@
+@use "../abstract" as *;
+@use "../base" as *;
+
+.btn{
+    border: 2px solid $dark;
+    position: relative;
+    padding: space(.3) space(.5);
+    @extend %transition;
+    @extend %rounded;
+    width: fit-content;
+    display: inline-flex;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 1;
+    &::before{
+        content: "";
+        position: absolute;
+        z-index: -1;
+        bottom: 0;
+        top: 0;
+        width: 0;
+        left: 0;
+        background-color: $dark;
+        @extend %transition;
+    }
+    &:hover,&:focus, &:active, &.is-active{
+        color: white;
+        &::before{
+            width: 100%;
+        }
+    }
+    &-primary{
+        border-color: $primary;
+        &:hover,&:focus, &:active, &.is-active{
+            color: white;
+        }
+        &::before{
+            background-color: $primary;
+        }
+    }
+    &-secondary{
+        border-color: $secondary;
+        &:hover,&:focus, &:active, &.is-active{
+            color: white;
+        }
+        &::before{
+            background-color: $secondary;
+        }
+    }
+    &-dark{
+        border-color: $dark;
+        &:hover,&:focus, &:active, &.is-active{
+            color: white;
+        }
+        &::before{
+            background-color: $dark;
+        }
+    }
+    &-white{
+        border-color: white;
+        &:hover,&:focus, &:active, &.is-active{
+            color: $dark;
+        }
+        &::before{
+            background-color: white;
+        }
+    }
+}

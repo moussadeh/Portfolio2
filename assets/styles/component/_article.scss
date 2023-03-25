@@ -1,0 +1,62 @@
+@use "../abstract" as *;
+@use "../base" as *;
+@use "../component/categorie" as *;
+@use "../component/basic" as *;
+
+.article{
+    max-width: 400px;
+    width: 100%;
+    @extend %flexCol;
+    align-items: flex-start;
+    justify-content: stretch;
+    @extend %rounded;
+    // @extend .border-custom-primary;
+    position: relative;
+    overflow: hidden;
+    color: $primary;
+    &__thumbnail{
+        position: relative;
+        aspect-ratio: 16/9;
+        width: 100%;
+        height: auto;
+        img{
+            object-position: top;
+            @extend %imgCover;
+            @extend %rounded;
+        }
+    }
+    &__header{
+        @extend %flexCol;
+        align-items: flex-start;
+    }
+
+    &__content{
+        @extend %flexCol;
+    }
+
+    &__footer{
+        @extend %flexCol;
+        align-items: flex-end;
+    }
+}
+
+.article-single{
+    max-width: unset;
+    gap: space(1);
+    align-items: center;
+    .article{
+        &__thumbnail{
+            // max-width: 768px;
+            width: 100%;
+        }
+        &__header{
+            align-items: center;
+            text-align: center;
+            padding: space(1);  
+            @extend %rounded;
+        }
+        &__content{
+            width: 100%;
+        }
+    }
+}

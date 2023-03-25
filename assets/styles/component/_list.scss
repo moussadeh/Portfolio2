@@ -1,0 +1,77 @@
+@use "../abstract" as *;
+
+$listgap: space(2);
+$maxWidthItem: calc(100% - $listgap);
+.list-v{
+    display: flex;
+    gap: $listgap;
+    flex-direction: column;
+    justify-content: center;
+    // @media screen and (min-width: 1024px) {
+    //     flex-wrap: nowrap;
+    // }
+}
+.list-h{
+    display: flex;
+    gap: $listgap;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    // @media screen and (min-width: 1024px) {
+    //     flex-wrap: nowrap;
+    // }
+}
+
+.list-col-2{
+    .list__item{
+        @media screen and (min-width: 640px) {
+            max-width: calcMaxW(100%, $listgap, 2);
+        }
+    }
+}
+
+.list-col-3{
+    .list__item{
+        @media screen and (min-width: 640px) {
+            max-width: calcMaxW(100%, $listgap, 2);
+        }
+        @media screen and (min-width: 1024px) {
+            max-width: calcMaxW(100%, $listgap, 3);
+        }
+    }
+}
+
+.list-col-4{
+    .list__item{
+        @media screen and (min-width: 640px) {
+            max-width: calcMaxW(100%, $listgap, 2);
+        }
+        @media screen and (min-width: 768px) {
+            max-width: calcMaxW(100%, $listgap, 3);
+        }
+        @media screen and (min-width: 1024px) {
+            max-width: calcMaxW(100%, $listgap, 4);
+        }
+    }
+}
+// .list-item{
+//     flex-grow: 1;
+// }
+
+
+// @for $i from 2 to 6 {
+//     .list-#{$i}{
+        
+//         @media screen and (min-width: 640px) {
+
+//         }
+
+//         @media screen and (min-width: 768px) {
+
+//         }
+//         @media screen and (min-width: 1280px) {
+//             .list-item{
+//                 width: calc((100% / $i) - $listgap);
+//             }
+//         }
+//     }
+// }

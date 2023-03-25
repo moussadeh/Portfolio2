@@ -1,0 +1,17 @@
+@use "../abstract" as *;
+@use "../base" as *;
+
+.site-header{
+    position: sticky;
+
+    @extend %flexCenter;
+    justify-content: space-between;
+    gap: space(2);
+    padding: space(1);
+    width: 100%;
+    background-color: white;
+    box-shadow: $shadow-b;
+    // background: $gradient-t-b;
+    // background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(0,0,0,0) 100%);
+}
+

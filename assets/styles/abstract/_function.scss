@@ -1,0 +1,11 @@
+@use "sass:math";
+@use "../base" as *;
+@function space($int){
+    $result: $int * $font-base;
+    @return $result;
+}
+
+@function calcMaxW($parentSize, $gap, $nbElement){
+    $result: calc(($parentSize - ($gap * ($nbElement - 1))) / $nbElement);
+    @return $result;
+}

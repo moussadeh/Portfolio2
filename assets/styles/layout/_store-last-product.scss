@@ -1,0 +1,11 @@
+@use "../base" as *;
+@use "../abstract" as *;
+
+.store-last-product{
+    .title-container{
+        color: $primary;
+        .line::after{
+            background-color: $primary;
+        }
+    }
+}

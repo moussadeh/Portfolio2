@@ -1,0 +1,17 @@
+twig:
+    default_path: '%kernel.project_dir%/templates'
+
+    globals:
+        SITE_NAME: Pierre Pineau
+        CONTACT_EMAIL: contact@pierrepineau.fr
+
+
+        
+
+
+
+
+
+when@test:
+    twig:
+        strict_variables: true

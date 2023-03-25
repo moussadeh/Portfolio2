@@ -1,0 +1,94 @@
+@use "../base" as *;
+@use "../abstract" as *;
+
+.kings{
+    .title-container{
+        color: $secondary;
+        .line::after{
+            background-color: $secondary;
+        }
+    }
+}
+.souverains{
+    &__item{
+        display: flex;
+        width: 100%;
+    }
+}
+
+.souverains__list{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 175px 175px 175px 175px;
+    gap: space(1);
+    grid-auto-flow: row;
+    grid-template-areas:
+    "souverains-area-1"
+    "souverains-area-2"
+    "souverains-area-3"
+    "souverains-area-4";
+    @media screen and (min-width: 640px){
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 175px 175px 175px;
+        grid-template-areas:
+        "souverains-area-1 souverains-area-2"
+        "souverains-area-1 souverains-area-3"   
+        "souverains-area-1 souverains-area-4";
+    }
+    
+}
+
+//GRID AREA
+.souverains-area-1 { 
+    grid-area: souverains-area-1;
+    @media screen and (min-width: 640px){
+        .souverain{
+            &__card{
+                height: unset;
+                &:hover,&:focus,&.is-active{
+                    .souverain__title{
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                }
+            }
+            &__thumbnail{
+                max-width: unset;
+            }
+            &__header{
+                position: absolute;
+                height: 100%;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                transform: translateX(-100%);
+                z-index: 5;
+                opacity: 0;
+                &:after{
+                    background-color: $secondary;
+                    z-index: -1;
+                    display: flex;
+                }
+                .title__h3{
+                    text-align: center;
+                }
+                &:hover,&:focus,&.is-active{
+                    transform: translate(0);
+                    opacity:1;
+                }
+            }
+        }
+    }
+    .souverain{
+        &__header{
+            @extend %overlay;
+            &:after{
+                display: none;
+            }
+        }
+    }
+}
+.souverains-area-3 { grid-area: souverains-area-3; }
+.souverains-area-2 { grid-area: souverains-area-2; }
+.souverains-area-4 { grid-area: souverains-area-4; }

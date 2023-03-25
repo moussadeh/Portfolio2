@@ -1,0 +1,48 @@
+@use "../abstract" as *;
+@use "../component/btn" as *;
+
+.form{
+    @extend %flexCenterCenter;
+    margin: 0 auto;
+    padding: space(2) 0;
+    max-width: 640px;
+    align-items: stretch;
+}
+
+.btn-submit-content{
+    @extend %flexCenterCenter;
+    margin-top: space(1);
+    & > p{
+        @extend %flexCenterCenter;
+        gap: space(1);
+    }
+    .wpcf7-submit{
+        @extend .btn;
+        &:hover,&:focus,&.is-active{
+            background-color: var(--color-primary);
+            color: white;
+        }
+    }
+}
+
+
+.field{
+    background-color: white;
+    @extend %rounded;
+    width: 100%;
+}
+
+.field-textarea{
+    @extend .field;
+    resize: vertical;
+    max-height: 250px;
+}
+
+
+.wpcf7-text{
+    @extend .field;
+}
+
+.wpcf7-textarea{
+    @extend .field-textarea;
+}

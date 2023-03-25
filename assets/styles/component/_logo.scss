@@ -1,0 +1,17 @@
+@use "../abstract" as *;
+
+.custom-logo{
+    &-link{
+    }
+    @extend %imgContain;
+    max-width: 250px;
+    max-height: 40px;
+    min-width: 100px;
+}
+
+.custom-logo-footer{
+    @extend %imgContain;
+    max-width: 250px;
+    max-height: 40px;
+    min-width: 100px;
+}

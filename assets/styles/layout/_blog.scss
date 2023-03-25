@@ -1,0 +1,16 @@
+@use "../base" as *;
+
+.blog{
+    .title-container{
+        color: $primary;
+        .line::after{
+            background-color: $primary;
+        }
+    }
+    &__list{
+        // justify-content: center;
+    }
+    &__item{
+        
+    }
+} 

@@ -1,0 +1,110 @@
+{
+  "name": "initgulp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "config": {
+    "source": "./assets/",
+    "dist": "./public/assets/",
+    "serveur": {
+      "url": "https://127.0.0.1:8000/",
+      "path": "",
+      "open": "external"
+    },
+    "html": {
+      "html": "html/**/*.html",
+      "twig": "templates/**/*.twig"
+    },
+    "css": {
+      "path": "styles/",
+      "main": "default.scss",
+      "all": "**/*.scss"
+    },
+    "js": {
+      "path": "js/",
+      "main": "globalJS/*.js",
+      "outMain": "global.js",
+      "all": "*.js"
+    },
+    "favicon": {
+      "name": "favicon",
+      "path": "favicon/",
+      "source": "favicon.png",
+      "colors": {
+        "safari": "favicon",
+        "msapplicationTileColor": "favicon",
+        "themeColor": "favicon"
+      }
+    },
+    "img": {
+      "path": "img/",
+      "name": "img",
+      "formats": [
+        "jpg",
+        "webp",
+        "png"
+      ],
+      "sizes": [
+        {
+          "name": "xs",
+          "size": 320
+        },
+        {
+          "name": "sm",
+          "size": 640
+        },
+        {
+          "name": "md",
+          "size": 768
+        },
+        {
+          "name": "lg",
+          "size": 1024
+        },
+        {
+          "name": "xl",
+          "size": 1280
+        },
+        {
+          "name": "xxl",
+          "size": 2000
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "clean": "node tasks/clean.js",
+    "task-favicon": "node --no-warnings tasks/favicon.js",
+    "task-img": "node --no-warnings tasks/sharp.js",
+    "task-icones": "fantasticon assets/icons -o public/fonts",
+    "start": "yarn task-favicon && yarn task-icones && yarn gulp css && yarn gulp js",
+    "build-dev": "yarn gulp css && yarn gulp js",
+    "build-prod": "node tasks/cleanHash.js && yarn gulp manifest && yarn gulp cssMin && yarn gulp jsMin",
+    "watch-dev": "yarn gulp build"
+  },
+  "author": "Innov-data",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "cross-env": "^7.0.3",
+    "cssnano": "^5.1.15",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-notify": "^4.0.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^9.0.1",
+    "gulp-rename": "^2.0.0",
+    "gulp-rev": "8.0.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.55.0",
+    "sharp": "^0.31.3",
+    "simple-favicon-generator": "^0.0.2",
+    "tailwindcss": "^3.2.4"
+  },
+  "dependencies": {
+    "@babel/core": "^7.21.3"
+  }
+}

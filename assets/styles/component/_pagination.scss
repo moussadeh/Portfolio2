@@ -1,0 +1,10 @@
+@use "../abstract" as *;
+
+.pagination{
+    margin: space(2) 0;
+    .nav-links{
+        @extend %flexCenter;
+        justify-content: center;
+        gap: space(.5);
+    }
+}

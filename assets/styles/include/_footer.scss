@@ -1,0 +1,18 @@
+@use "../abstract" as *;
+@use "../base" as *;
+
+.site-footer{
+    .container{
+        @extend %flexCenterCenter;
+        justify-content: center;
+        gap: space(1);
+        padding: space(1);
+        width: 100%;
+    }
+    .nav__list{
+        flex-wrap: wrap;
+    }
+    @extend %flexCenterCenter;
+    background-color: white;
+}
+

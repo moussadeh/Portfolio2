@@ -1,0 +1,17 @@
+@use "../abstract" as *;
+
+.layout{
+    overflow: hidden;
+    width: 100%;
+    &-padding{
+        padding-top: space(2);
+        padding-bottom: space(2);
+    }
+    &:hover,&:focus{
+        .title-container{
+            .line::after{
+                width: 100%;
+            }
+        }
+    }
+}
