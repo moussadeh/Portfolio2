@@ -29,6 +29,7 @@
         width: 0%;
     }
     &:hover,&:focus,&:active, &.is-active{
+        outline: none;
         &::after{
             width: calc(100%);
         }

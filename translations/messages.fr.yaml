@@ -10,6 +10,10 @@ aboutMe:
   title: "À propos de moi"
   content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum possimus quam autem vel ab iusto architecto non accusamus? Vel dolorum debitis quasi consequatur, id minima voluptatibus aperiam quaerat ducimus repellendus!"
 
+works:
+  title: "Expérience professionnelle"
+  content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum possimus quam autem vel ab iusto architecto non accusamus? Vel dolorum debitis quasi consequatur, id minima voluptatibus aperiam quaerat ducimus repellendus!"
+  list: "Liste de mes expériences professionnelles"
 
 erreur:
   4xx: 
@@ -21,3 +25,6 @@ erreur:
 
 page:
   home: "Accueil"
+
+date:
+  today: "Aujourd'hui"

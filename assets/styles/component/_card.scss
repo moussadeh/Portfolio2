@@ -2,8 +2,10 @@
 @use "../base" as *;
 
 .card{
+    margin-top: space(1);
     padding: space(1);
     @extend %flexCenter;
+    @extend %transition;
     flex-direction: column;
     background-color: $secondary;
     color: white;
@@ -12,9 +14,37 @@
     &__name{
         position: absolute;
         font-weight: 600;
-        color: $primary;
         top: 0;
         left: space(1);
-        transform: translateY(-60%);
+        transform: translate(0%, -60%);
+        font-size: 2rem !important;
+        @extend %transition;
+    }
+
+    &__timeline{
+        width: 100%;
+        height: 1px;
+        border: 1px dashed;
+        border-color: $light;
+        opacity: .8;
+    }
+
+    .text-primary,
+    .text-light{
+        @extend %transition;
+    }
+    &:hover,&:focus,&.is-active, &[aria-selected="true"]{
+        background-color: $primary;
+        outline: none;
+        .text-primary{
+            color: $secondary;
+        }
+        .text-light{
+            color: white;
+        }
+        .card__name{
+            color: white !important;
+            transform: translate(space(1), -60%);
+        }
     }
 }

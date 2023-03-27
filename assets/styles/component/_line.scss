@@ -2,7 +2,7 @@
 @use "../base" as *;
 
 
-$calc: calc(((100vw - (1280px - space(4))) / 2) - 16px);
+$calc: calc(((100vw - (1280px - space(4))) / 2) - 25px);
 .custom-line{
     position: relative;
     &::before,

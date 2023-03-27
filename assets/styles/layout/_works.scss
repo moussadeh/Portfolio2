@@ -1,0 +1,48 @@
+@use "../abstract" as *;
+@use "../base/variables" as *;
+
+
+.works{
+
+    &__content{
+        display: flex;
+        flex-direction: column;
+        gap: space(2);
+        @media screen and (min-width: 768px){
+            flex-direction: row;
+        }
+    }
+    &__list{
+        
+    }
+    &__cards{
+        @extend %flexCenter;
+        gap: space(1);
+        overflow: auto ;
+        margin: 0 space(-2);
+        flex-shrink: 0;
+        @media screen and (min-width: 768px){
+            flex-direction: column;
+            width: 350px;
+            margin: 0;
+        }
+    }
+    &__card{
+        width: 100%;
+        min-width: 300px;
+        &:first-child{
+            margin-left: space(1);
+        }
+        &:last-child{
+            margin-right: space(1);
+        }
+        @media screen and (min-width: 768px){
+            &:first-child{
+                margin-left: 0 !important;
+            }
+            &:last-child{
+                margin-right: 0 !important;
+            }
+        }
+    }
+}

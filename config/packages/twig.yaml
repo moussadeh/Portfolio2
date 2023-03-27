@@ -105,20 +105,20 @@ twig:
                 'name': "Innov'data",
                 'job': "Développeur web",
                 'type': "Alternance",
-                'startAt': "05-25-2020",
+                'startAt': "2020-05-25 00:00:00",
                 'endAt': null,
-                'site': 'url',
-                'content': ''
+                'site': 'https://innov-data.com/',
+                'content': 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt.'
                 # 'duration': "Alternance"
             },
             {
                 'name': "Expert Viséo",
                 'job': "Développeur web",
                 'type': "Stage",
-                'startAt': "05-25-2020",
-                'endAt': "05-25-2020",
-                'site': 'url',
-                'content': ''
+                'startAt': "2020-05-25 00:00:00",
+                'endAt': "2020-05-25 00:00:00",
+                'site': 'https://www.expert-viseo.fr/',
+                'content': 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt.'
                 # 'duration': "Alternance"
             },
         ]
@@ -128,7 +128,7 @@ twig:
                 'name': "Innov'data",
                 'job': "Développeur web",
                 'type': "Alternance",
-                'startAt': "05-25-2020",
+                'startAt': "2020-05-25 00:00:00",
                 'endAt': null,
                 'site': 'url',
                 'content': ''
@@ -138,8 +138,8 @@ twig:
                 'name': "Expert Viséo",
                 'job': "Développeur web",
                 'type': "Stage",
-                'startAt': "05-25-2020",
-                'endAt': "05-25-2020",
+                'startAt': "2020-05-25 00:00:00",
+                'endAt': "2020-05-25 00:00:00",
                 'site': 'url',
                 'content': ''
                 # 'duration': "Alternance"

@@ -1,6 +1,6 @@
 @use "../abstract" as *;
 
-$listgap: space(2);
+$listgap: space(.5);
 $maxWidthItem: calc(100% - $listgap);
 .list-v{
     display: flex;

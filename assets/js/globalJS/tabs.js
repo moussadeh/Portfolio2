@@ -1,5 +1,3 @@
-// const foo = new Foo();
-// foo.log("Hello World"); // Prints "Hello World" to the console.
 tabs = document.querySelectorAll('[ role="tab"]');
 
 tablists = document.querySelectorAll('[ role="tablist"]');
@@ -31,4 +29,3 @@ const toggleTabs= (tabs, activeElement) =>{
     });
 }
 // console.log('efee');
-//# sourceMappingURL=global.js.map

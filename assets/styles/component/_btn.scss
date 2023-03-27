@@ -31,6 +31,8 @@
 
 
     &:hover,&:focus, &:active, &.is-active{
+        outline: none;
+
         &::after{
             width: 100%;
         }
