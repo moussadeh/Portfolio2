@@ -436,17 +436,38 @@ video {
 .block{
   display: block;
 }
+.flex{
+  display: flex;
+}
 .hidden{
   display: none;
+}
+.min-h-\[80vh\]{
+  min-height: 80vh;
+}
+.min-h-screen{
+  min-height: 100vh;
 }
 .w-full{
   width: 100%;
 }
+.flex-col{
+  flex-direction: column;
+}
 .\!items-center{
   align-items: center !important;
 }
+.items-center{
+  align-items: center;
+}
+.justify-center{
+  justify-content: center;
+}
 .gap-4{
   gap: 1rem;
+}
+.gap-8{
+  gap: 2rem;
 }
 .bg-secondary{
   background-color: var(--color-secondary);
@@ -458,8 +479,23 @@ video {
 .\!text-center{
   text-align: center !important;
 }
+.text-center{
+  text-align: center;
+}
+.text-2xl{
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.text-xl{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
 .\!text-primary{
   color: var(--color-primary) !important;
+}
+.text-white{
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 :root {
   --color-primary: #419FCC;
@@ -907,6 +943,14 @@ body {
 @media (min-width: 1024px){
   .lg\:inline-flex{
     display: inline-flex;
+  }
+  .lg\:text-3xl{
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+  .lg\:text-5xl{
+    font-size: 3rem;
+    line-height: 1;
   }
 }
 /*# sourceMappingURL=styles.css.map */

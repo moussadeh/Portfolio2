@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{status_code}}{% endblock %}
+{% block description %}{% endblock %}
+{% block indexation %}noindex, nofollow{% endblock %}
+
+{% block body %}
+
+<section class="layout-padding  min-h-screen flex flex-col justify-center items-center">
+    <div class="container gap-8 items-center">
+        <h1 class="title__h1 text-center">{{status_code}} | {{'erreur.5xx.title'|trans}}</h1>
+        <p class="text-center">{{'erreur.5xx.content'|trans}}</p>
+        <a href="{{path('home')}}" class="btn-white">
+            {{'page.home'|trans}}
+        </a>
+    </div>
+</section>
+{% endblock %}

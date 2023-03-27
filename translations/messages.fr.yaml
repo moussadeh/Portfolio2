@@ -9,3 +9,15 @@ btn:
 aboutMe:
   title: "À propos de moi"
   content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum possimus quam autem vel ab iusto architecto non accusamus? Vel dolorum debitis quasi consequatur, id minima voluptatibus aperiam quaerat ducimus repellendus!"
+
+
+erreur:
+  4xx: 
+    title: "Page non trouvé"
+    content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum possimus quam autem vel ab iusto architecto non accusamus?"
+  5xx: 
+    title: "Erreur Serveur"
+    content: "Le serveur a rencontré un problème inattendu qui l'empêche de répondre à la requête"
+
+page:
+  home: "Accueil"
