@@ -15,19 +15,19 @@ twig:
         menu: [
             {
                 'name': "À propos de moi",
-                'url': "#about-me",
+                'url': "#a-propos",
             },
             {
                 'name': "Expériences",
-                'url': "#works",
+                'url': "#experiences",
             },
             {
                 'name': "Réalisations",
-                'url': "#project",
+                'url': "#realisations",
             },
             {
                 'name': "Compétences",
-                'url': "#skills",
+                'url': "#competences",
             },
             {
                 'name': "Contact",
@@ -51,51 +51,65 @@ twig:
 
         specialties: [
             {
-                'icon': "fa-solid",
+                'icon': "fa-solid fa-layer-group",
                 'name': "Lorem ipusm dolor sit",
                 'content': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero non reprehenderit accusamus possimus, voluptatem dolorum minus aliquam ipsam quos!",
             },
             {
-                'icon': "fa-solid",
+                'icon': "fa-solid fa-layer-group",
                 'name': "Lorem ipusm dolor sit",
                 'content': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero non reprehenderit accusamus possimus, voluptatem dolorum minus aliquam ipsam quos!",
             },
             {
-                'icon': "fa-solid",
+                'icon': "fa-solid fa-layer-group",
                 'name': "Lorem ipusm dolor sit",
                 'content': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero non reprehenderit accusamus possimus, voluptatem dolorum minus aliquam ipsam quos!",
             },
             {
-                'icon': "fa-solid",
+                'icon': "fa-solid fa-layer-group",
                 'name': "Lorem ipusm dolor sit",
                 'content': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero non reprehenderit accusamus possimus, voluptatem dolorum minus aliquam ipsam quos!",
             }
         ]
-
         skills: [
             {
-                'icon': "fa-solid",
-                'name': "Lorem ipusm dolor sit",
+                'icon': "fa-brands fa-symfony",
+                'name': "Symfony",
                 'value': 70,
             },
             {
-                'icon': "fa-solid",
-                'name': "Lorem ipusm dolor sit",
+                'icon': "fa-brands fa-symfony",
+                'name': "Laravel",
                 'value': 70,
             },
             {
-                'icon': "fa-solid",
-                'name': "Lorem ipusm dolor sit",
+                'icon': "fa-brands fa-symfony",
+                'name': "VueJS",
                 'value': 70,
             },
             {
-                'icon': "fa-solid",
-                'name': "Lorem ipusm dolor sit",
+                'icon': "fa-brands fa-symfony",
+                'name': "Tailwind",
                 'value': 70,
             },
             {
-                'icon': "fa-solid",
-                'name': "Lorem ipusm dolor sit",
+                'icon': "fa-brands fa-symfony",
+                'name': "PHP",
+                'value': 70,
+            },
+            {
+                'icon': "fa-brands fa-symfony",
+                'name': "CSS/SCSS",
+                'value': 70,
+            },
+            {
+                'icon': "fa-brands fa-symfony",
+                'name': "Javascript",
+                'value': 70,
+            },
+            {
+                'icon': "fa-brands fa-symfony",
+                'name': "TWIG",
                 'value': 70,
             },
         ]
