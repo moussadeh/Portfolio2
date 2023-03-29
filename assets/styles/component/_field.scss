@@ -1,0 +1,50 @@
+@use "../abstract" as *;
+@use "../base" as *;
+
+$heightInput: 50px;
+.field{
+    position: relative;
+    height: fit-content;
+    z-index: 1;
+    &__input{
+        @extend %transition;
+        @extend %rounded;
+        background-color: transparent;
+        color: $secondary;
+        border: 2px solid white;
+        width: 100%;
+        height: $heightInput;
+        padding: space(.5) space(1);
+        &:focus{
+            border: 2px solid $secondary;
+            outline: none;
+        }
+    }
+    &__label{
+        @extend %transition;
+        padding: space(.2) space(.5);
+        background-color: $primary;
+        color: white;
+        position: absolute;
+        left: space(.8);
+        top: calc($heightInput / 2);
+        transform: translateY(-50%);
+        z-index: -1;
+    }
+    &__input,
+    &__label{
+        font-size: 1.1rem;
+    }
+    .field__input:focus ~ .field__label{
+        top: 0;
+        color: $secondary;
+        font-size: .9rem;
+        z-index: 1;
+        // transform: translateY(-50%);
+    }
+    &__textarea{
+        @extend .field__input;
+        min-height: 150px;
+        resize: none;
+    }
+}

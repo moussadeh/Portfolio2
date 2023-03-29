@@ -19,7 +19,8 @@
         @extend %flexCenter;
         gap: space(1);
         overflow: auto ;
-        margin: 0 space(-2);
+        margin: 0 space(-1);
+
         flex-shrink: 0;
         @media screen and (min-width: 768px){
             flex-direction: column;

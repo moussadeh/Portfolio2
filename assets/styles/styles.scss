@@ -11,9 +11,13 @@
 html, body{
     font-family: 'Open sans', sans-serif;
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     background-color: $dark;
     color: $light;
+    font-size: 1.2rem;
 }
 main{
     

@@ -3,9 +3,12 @@
 
 .btn{
     font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 500;
+    font-size: 1.3rem;
+    letter-spacing: 0.025em;
     border: 2px solid;
     position: relative;
-    padding: space(.3) space(.5);
+    padding: space(.5) space(.8);
     @extend %transition;
     @extend %rounded;
     width: fit-content;
@@ -110,6 +113,23 @@
         // Color bg if full 
         &::before{
             background-color: $secondary;
+        }
+    }
+    &-white-secondary{
+        @extend .btn;
+        border-color: white;
+        color: white;
+        &:hover,&:focus, &:active, &.is-active{
+            color: white;
+            border-color: $secondary;
+            &::after{
+                background-color: $secondary;
+            }
+        }
+
+        // Color bg if full 
+        &::before{
+            background-color: white;
         }
     }
 }

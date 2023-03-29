@@ -5,6 +5,8 @@ hero:
 btn:
   linkedin: "Me contacter"
   cv: "Télécharger mon CV"
+  send: "Envoyer"
+  seeRealisations : "Voir mes réalisations"
 
 aboutMe:
   title: "À propos de moi"
@@ -14,6 +16,18 @@ works:
   title: "Expérience professionnelle"
   content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum possimus quam autem vel ab iusto architecto non accusamus? Vel dolorum debitis quasi consequatur, id minima voluptatibus aperiam quaerat ducimus repellendus!"
   list: "Liste de mes expériences professionnelles"
+
+project:
+  title: "Réalisations"
+  content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum possimus quam autem vel ab iusto architecto non accusamus? Vel dolorum debitis quasi consequatur, id minima voluptatibus aperiam quaerat ducimus repellendus!"
+
+specialties:
+  title: "Spécialités"
+  content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum possimus quam autem vel ab iusto architecto non accusamus?"
+
+contact:
+  title: "Me contacter"
+  content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum possimus quam autem vel ab iusto architecto non accusamus?"
 
 erreur:
   4xx: 
@@ -28,3 +42,16 @@ page:
 
 date:
   today: "Aujourd'hui"
+
+
+field:
+  firstname:
+    label: "Prénom"
+  lastname:
+    label: "Nom"
+  email:
+    label: "Email"
+  subject:
+    label: "Sujet"
+  message:
+    label: "Message"

@@ -1,4 +1,19 @@
 @use "../abstract" as *;
+@use "../base" as *;
+
+.container{
+    max-width: $maxWidthContainer;
+    margin: 0 auto;
+    width: 100%;
+    padding-left: space(1);
+    padding-right: space(1);
+    @media screen and (min-width: 768px){
+        padding-left: space(2);
+        padding-right: space(2);
+    }
+    display: flex;
+    flex-direction: column;
+}
 
 .layout{
     overflow: hidden;

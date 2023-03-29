@@ -1,18 +1,18 @@
 tabs = document.querySelectorAll('[ role="tab"]');
-
 tablists = document.querySelectorAll('[ role="tablist"]');
 tablists.forEach(tablist => {
     tabs = tablist.querySelectorAll('[ role="tab"]');
-
-
     tabs.forEach(tabElement => {
         tabElement.addEventListener("click", ()=> {
             // console.log("Bonjour");
             toggleTabs(tabs, tabElement);
         });
+        tabElement.addEventListener("focus", ()=> {
+            // console.log("Bonjour");
+            toggleTabs(tabs, tabElement);
+        });
     });
 });
-
 const toggleTabs= (tabs, activeElement) =>{
     tabs.forEach(tabElement => {
         // element = tabElement.getAttribute('aria-controls');

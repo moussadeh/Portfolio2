@@ -1,5 +1,6 @@
 @use "../abstract" as *;
 @use "../base" as *;
+@use "../component/link" as *;
 
 .header{
     position: fixed;
@@ -8,11 +9,49 @@
     @extend %flexCenter;
     // justify-content: space-between;
     gap: space(2);
-    padding: space(1) space(2);
+    padding: space(.5) space(1);
+    @media screen and (min-width: 768px){
+        padding: space(.5) space(2);
+    }
     width: 100%;
+    overflow: hidden;
     // background-color: white;
     // box-shadow: $shadow-b;
     // background: $gradient-t-b;
     // background: linear-gradient(180deg, rgba(255,255,255,1) 50%, rgba(0,0,0,0) 100%);
+
+    &-bg{
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: $primary;
+        height: 0;
+        @extend %transition;
+    }
+
+    &.show{
+        .header-bg{
+            height: 100%;
+        }
+        .link-white{
+            &:hover,&:focus,&.is-active{
+                color: white;
+                &::after{
+                    background-color: white;
+                }
+            }
+        }
+        .btn-white{
+            &::after{
+                background-color: white;
+            }
+            &:hover,&:focus,&.is-active{
+                border-color: white !important;
+                color: $primary;
+            }
+        }
+    }
 }
 

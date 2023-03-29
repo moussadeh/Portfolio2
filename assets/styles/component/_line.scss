@@ -1,14 +1,23 @@
 @use "../abstract" as *;
 @use "../base" as *;
 
-
-$calc: calc(((100vw - (1280px - space(4))) / 2) - 25px);
+$m-mobile: space(2);
+$m-destop: space(4);
+$calcMobile: calc($m-mobile);
+$calcTablette: calc($m-mobile + space(3));
+$calcDestop: calc(((100vw - ($maxWidthContainer - space(4))) / 2) + space(1.5));
 .custom-line{
     position: relative;
     &::before,
     &::after{
         position: absolute;
-        top: 28px;
+        top: 22px;
+        // @media screen and (min-width: 768px){
+        //     top: 38px;
+        // }
+        // @media screen and (min-width: 1024px){
+        //     top: 40px;
+        // }
         height: 2px;
         // width: ;
         // content: "";
@@ -18,20 +27,34 @@ $calc: calc(((100vw - (1280px - space(4))) / 2) - 25px);
     }
 
     &::before{
-        right: calc(100% + 16px);
+        right: calc(100% + space(1));
+        @media screen and (min-width: $maxWidthContainer){
+            right: calc(100% + space(2));
+        }
+
     }
     &::after{
+        left: calc(100% + space(1));
+        @media screen and (min-width: $maxWidthContainer){
+            left: calc(100% + space(2));
+        }
         transform-origin: left;
-        left: calc(100% + 16px);
     }
 
     &-left{
         @extend .custom-line;
+        margin-left: $m-mobile;
+        @media screen and (min-width: 768px){
+            margin-left: $m-destop;
+        }
         &::before{
             content: "";
-            width: space(1);
-            @media screen and (min-width: 1280px){
-                width: $calc;
+            width: $calcMobile;
+            @media screen and (min-width: 768px){
+                width: $calcTablette;
+            }
+            @media screen and (min-width: $maxWidthContainer){
+                width: $calcDestop;
             }
         }
         &::after{
@@ -43,20 +66,39 @@ $calc: calc(((100vw - (1280px - space(4))) / 2) - 25px);
         &::before,
         &::after{
             content: "";
-            width: 250px;
+            width: 75px;
+            @media screen and (min-width: 768px){
+                width: 150px;
+            }
+            @media screen and (min-width: 1024px){
+                width: 250px;
+            }
         }
     }
     &-right{
         @extend .custom-line;
+        margin-right: $m-mobile;
+        @media screen and (min-width: 768px){
+            margin-right: $m-destop;
+        }
         &::after{
             content: "";
-            width: space(1);
-            @media screen and (min-width: 1280px){
-                width: $calc;
+            width: $calcMobile;
+            @media screen and (min-width: 768px){
+                width: $calcTablette;
+            }
+            @media screen and (min-width: $maxWidthContainer){
+                width: $calcDestop;
             }
         }
         &::before{
             display: none;
+        }
+    }
+    &-secondary{
+        &::before,
+        &::after{
+            background-color: $secondary;
         }
     }
 }

@@ -2,7 +2,10 @@
 @use "../base" as *;
 
 .footer{
-    padding: space(2) 0;
+    padding: space(1);
+    @media screen and (min-width: 768px){
+        padding: space(1) space(2);
+    }
     background-color: $secondary;
 }
 
