@@ -2,11 +2,13 @@
 
 namespace App\Controller;
 
+use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
 // use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -27,7 +29,7 @@ class AppController extends AbstractController
         ]);
     }
 
-    #[Route('/send-mail', name: 'send_mail')]
+    #[Route('/send-mail', name: 'send_mail', methods: ['POST'])]
     public function sendMail(Request $request, MailerInterface $mailer): JsonResponse
     {
         // $data =
@@ -41,36 +43,28 @@ class AppController extends AbstractController
                 'message' => 'Token Csrf est invalide'
             ]);
         }
+        // dd($request->request->all());
 
-
-        $email = (new Email())
-            ->from($request->request->get('email'))
+        try {
+            $username = $request->request->get('firstname') .' '.$request->request->get('lastname');
+            $email = (new TemplatedEmail())
+            ->from(new Address($request->request->get('email'), 'Contact : '. $username))
             ->to($_ENV['MAILER_CONTACT'])
-            //->cc('cc@example.com')
-            //->bcc('bcc@example.com')
-            //->replyTo('fabien@example.com')
-            //->priority(Email::PRIORITY_HIGH)
-            ->subject('Contact : ' . $request->request->get('sujet'))
-            // ->text()
+            ->subject($request->request->get('subject'))
             ->htmlTemplate('emails/sendEmail.html.twig')
             ->context([
-                'username' => $request->request->get('firstname') .' '.$request->request->get('lastname'),
-                'email' => $request->request->get('email'),
-                'sujet' => $request->request->get('sujet'),
+                'username' => $username,
+                'from' => $request->request->get('email'),
+                'subject' => $request->request->get('subject'),
                 'message' => $request->request->get('message'),
             ]);
-            // ->html('<p>See Twig integration for better HTML integration!</p>');
-
-        $mailer->send($email);
-
-
-
-        if ($success) {
+            
+            $mailer->send($email);
             return $this->json([
                 'success' => true,
                 'message' => 'Votre message a bien été envoyé, je vous répondrai dans les plus brefs délais'
             ]);
-        }else{
+        } catch (\Throwable $th) {
             return $this->json([
                 'success' => false,
                 'message' => 'Une erreur est survenue, veuillez réessayer'

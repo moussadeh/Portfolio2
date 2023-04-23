@@ -35,12 +35,15 @@ $heightInput: 50px;
     &__label{
         font-size: 1.1rem;
     }
+    .field__input.not_empty ~ .field__label,
     .field__input:focus ~ .field__label{
         top: 0;
-        color: $secondary;
         font-size: .9rem;
         z-index: 1;
         // transform: translateY(-50%);
+    }
+    .field__input:focus ~ .field__label{
+        color: $secondary;
     }
     &__textarea{
         @extend .field__input;
