@@ -2,12 +2,31 @@
     position: fixed;
     background-color: #1F272F;
     color: #419FCC;
+    transition: all .5s ease-in-out;
     top: 0;
     left: 0;
     right: 0;
+    bottom: 0;
+    z-index: 500;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 2rem;
+    #loader-animation{
+        height: auto;
+        width: 100px;
+        @media screen and (min-width: 768px){
+            width: 200px;
+        }
+        @media screen and (min-width: 1024px){
+            width: 300px;
+        }
+    }
+    &.hide{
+        opacity: 0;
+    }
+    &.hidden{
+        display: none;
+    }
 }

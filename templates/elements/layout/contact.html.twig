@@ -1,0 +1,40 @@
+{# CONTACT #}
+<section id="contact" class="layout-padding bg-primary">
+    <div class="container gap-4 md:gap-8">
+        <div class="titles titles-center">
+            <div class="custom-line-center custom-line-secondary titles__header">
+                <h2 class="title__h2 text-white">{{"contact.title"|trans}}</h2>
+            </div>
+            <p class=" md:w-2/3 text-white">{{"contact.content"|trans}}</p>
+        </div>
+        <form id="form-contact" action="#" class="flex flex-col gap-4 mx-auto w-full max-w-screen-md">
+            <input type="hidden" name="token" value="{{ csrf_token('send-mail') }}"/>
+            <div class="flex flex-col sm:flex-row gap-4 w-full">
+                <div class="field w-full">
+                    <input type="text" name="firstname" class="field__input" required>
+                    <label for="firstname" class="field__label">{{'field.firstname.label'|trans}}</label>
+                </div>
+                <div class="field w-full">
+                    <input type="text" name="lastname" class="field__input" required>
+                    <label for="lastname" class="field__label">{{'field.lastname.label'|trans}}</label>
+                </div>
+            </div>
+            <div class="field">
+                <input type="email" name="email" class="field__input" required>
+                <label for="email" class="field__label">{{'field.email.label'|trans}}</label>
+            </div>
+            <div class="field">
+                <input type="text" name="subject" class="field__input" required>
+                <label for="subject" class="field__label">{{'field.subject.label'|trans}}</label>
+            </div>
+            <div class="field">
+                <textarea name="message" class="field__textarea" required></textarea>
+                <label for="message" class="field__label">{{'field.message.label'|trans}}</label>
+            </div>
+            <div class="flex justify-center">
+                <button type="submit" class="btn-white-secondary min-w-[150px]">{{'btn.send'|trans}}</button>
+            </div>
+        </form>
+    </div>
+</section>
+{# CONTACT #}

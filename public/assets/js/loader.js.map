@@ -1,0 +1,1 @@
+{"version":3,"names":[],"mappings":"","sources":["loader.js"],"sourcesContent":["const loader = document.querySelector('#loader');\r\nwindow.addEventListener('load', () => {\r\n    loader.addEventListener('transitionend', () => {    \r\n        loader.classList.add('hidden');\r\n    });\r\n    loader.classList.add('hide');\r\n});"],"file":"loader.js"}

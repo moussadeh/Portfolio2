@@ -1,0 +1,120 @@
+@use "../abstract" as *;
+@use "../base" as *;
+$project-close: 100px;
+$project-open: 600px;
+.project{
+    &-slide{
+        overflow: hidden;
+        // @extend %rounded;
+        border: 0 !important;
+        border-radius:  $border-radius !important;
+        width: $project-close;
+        @extend %transition;
+    }
+    // padding: space(1);
+    @extend %flexCenter;
+    @extend %transition;
+    overflow: hidden;
+    flex-direction: column;
+    background-color: $secondary;
+    color: white;
+    position: relative;
+    // width: 600px;
+    width: $project-open;
+    height: 300px;
+    &__name{
+        position: absolute;
+        font-weight: 600;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        // height: $project-close;
+        width: 100px;
+        text-align: center;
+        vertical-align: middle;
+        padding: space(1);
+        transform: rotate(180deg);
+        font-size: 2.2rem !important;
+        @extend %transition;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        @extend %flexCenterCenter;
+        z-index: 3;
+        writing-mode: vertical-rl;
+    }
+    &__content{
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        // background-color: $secondary-overlay;
+        display: flex;
+        flex-direction: column;
+        @extend %transition;
+        justify-content: flex-end;
+        padding: space(1.5);
+        transform: translateX(-100%);
+        opacity: 0;
+        z-index: 2;
+    }
+
+    &__img{
+        width: 100%;
+        height: 100%;
+        img{
+            @extend %imgCover;
+        }
+        &::before{
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1;
+            background-color: $secondary;
+            opacity: .5;
+            @extend %transition;
+        }
+    }
+    &__icon{
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: space(1);
+        z-index: 3;
+        @extend %transition;
+        // transform: translateX(100%);
+        font-size: 1.2rem;
+    }
+}
+
+.project-slide{
+    &.is-active, &[aria-selected="true"]{
+        width: $project-open;
+        .project{
+            .project__name{
+                transform: rotate(180deg) translateX(100%);
+                opacity: 0;
+            }
+            .project__content{
+                transform: translateX(0);
+                opacity: 1;
+            }
+            &__img{
+                width: 100%;
+                height: 100%;
+                img{
+                    @extend %imgCover;
+                }
+                &::before{
+                    opacity: .6;
+                }
+            }
+        }
+       
+    }
+}

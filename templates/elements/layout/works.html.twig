@@ -1,0 +1,70 @@
+{# WORKS #}
+<section id="experiences" class="layout-padding works">
+    <div class="container md:items-center gap-4 md:gap-8">
+        <div class="titles titles-right">
+            <div class="custom-line-right titles__header">
+                <h2 class="title__h2">{{"works.title"|trans}}</h2>
+            </div>
+            <p class=" md:w-1/2">{{"works.content"|trans}}</p>
+        </div>
+        <div class="works__content">
+            <nav>
+                <ul class="works__cards" role="tablist" aria-label="{{"works.list"|trans}}">
+                    {% for work in works %}
+                        {% if work.endAt is not defined or work.endAt == null or work.endAt == "null" %}
+                            {% set endAt = "now"|date() %}
+                        {% else %}
+                            {% set endAt = date(work.endAt) %}
+                        {% endif %}
+                        {% set startAt = date(work.startAt) %}
+                        
+                        {% set duration = date(endAt).diff(date(startAt)) %}
+                        {% if duration.y >= 1 %}
+                            {% set duration = duration.y ~ (duration.y > 1 ? " ans": " an") ~ " et " ~ duration.m ~ " mois" %}
+                        {% else %}
+                            {% set duration = duration.m ~ " mois" %}
+                        {% endif %}
+                        <li class="works__card card cursor-pointer" tabindex="0" role="tab" aria-label="{{work.name}}" aria-selected="{{loop.index == 1 ? 'true' : 'false'}}" aria-controls="works-{{loop.index}}" id="works-tab-{{loop.index}}">
+                            <p class="title__h3 card__name">{{work.name}}</p>
+                            <ul class="list-v font-medium w-full text-lg">
+                                <li class="inline-flex items-center gap-2">
+                                    <i class="fa-solid fa-briefcase icon"></i>
+                                    <p>{{work.type}}</p>
+                                </li>
+                                <li class="inline-flex items-center gap-2">
+                                    <i class="fa-solid fa-user-tie icon"></i>
+                                    <p class="text-primary">{{work.job}}</p>
+                                </li>
+                                <li class="inline-flex items-center gap-2">
+                                    <i class="fa-solid fa-clock icon"></i>
+                                    <p>{{duration}}</p>
+                                </li>
+                                <li class="inline-flex items-center gap-2 font-normal text-base text-light">
+                                    <p>{{startAt|date('d/m/Y')}}</p>
+                                    <span class="card__timeline"></span>
+                                    {% if work.endAt is not defined or work.endAt == null or work.endAt == "null" %}
+                                        <p>{{'date.today'|trans}}</p>
+                                    {% else %}
+                                        <p>{{endAt|date('d/m/Y')}}</p>
+                                    {% endif %}
+                                </li>
+                            </ul>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </nav>
+            <ul class="works__list w-full">
+                {% for work in works %}
+                    <li id="works-{{loop.index}}" class="works__item {{loop.index == 1 ? '' : 'hidden'}}" role="tabpanel" aria-labelledby="works-tab-{{loop.index}}">
+                        <h3 class="title__h3 mb-4 !text-3xl md:!text-4xl !text-primary">{{work.name}}</h3>
+                        <p>{{work.content}}</p>
+                        <div class="w-full flex justify-end mt-8">
+                            <a href="{{work.site}}" rel="nofollow" target="_blank" class="btn-white">{{work.name}} <i class="ml-2 fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+{# END WORKS #}

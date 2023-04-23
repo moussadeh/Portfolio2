@@ -2,10 +2,10 @@
 @use "../base" as *;
 
 $m-mobile: space(2);
-$m-destop: space(4);
+$m-destop: space(6);
 $calcMobile: calc($m-mobile);
-$calcTablette: calc($m-mobile + space(3));
-$calcDestop: calc(((100vw - ($maxWidthContainer - space(4))) / 2) + space(1.5));
+$calcTablette: calc($m-mobile + space(5));
+$calcDestop: calc(((100vw - ($maxWidthContainer - space(4))) / 2) + space(3.5));
 .custom-line{
     position: relative;
     &::before,

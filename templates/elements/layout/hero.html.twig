@@ -1,0 +1,20 @@
+{# HERO  #}
+<section class="bg-secondary hero">
+    <div class="container md:flex-row md:items-center relative">
+        {# <div class="custom-bg-hero"></div> #}
+        <figure class="hero__img-container">
+            <img src="{{asset('./assets/img/pierre-pineau.png')}}" alt="Photo de {{SITE_NAME}}" class="hero__img">
+        </figure>
+        <div class="titles py-4 !text-center md:!text-left !items-center md:!items-start">
+            <div class="relative">
+                <h1 class="!text-primary title__h1">{{"hero.title"|trans}}</h1>
+            </div>
+            <p class="">{{"hero.content"|trans|raw}}</p>
+            <div class="flex gap-4 items-center">
+                <a href="#" class="btn-white">{{"btn.linkedin"|trans}}</a>
+                <a href="#" class="link-primary">{{"btn.seeRealisations"|trans}}</a>
+            </div>
+        </div>
+    </div>
+</section>
+{# END HERO #}

@@ -75,42 +75,32 @@ twig:
             {
                 'icon': "fa-brands fa-symfony",
                 'name': "Symfony",
-                'value': 70,
+                'value': 80,
             },
             {
-                'icon': "fa-brands fa-symfony",
+                'icon': "fa-brands fa-laravel",
                 'name': "Laravel",
                 'value': 70,
             },
             {
-                'icon': "fa-brands fa-symfony",
+                'icon': "fa-brands fa-vuejs",
                 'name': "VueJS",
-                'value': 70,
+                'value': 50,
             },
             {
-                'icon': "fa-brands fa-symfony",
+                'icon': "fa-solid fa-file-code",
                 'name': "Tailwind",
-                'value': 70,
+                'value': 90,
             },
             {
-                'icon': "fa-brands fa-symfony",
-                'name': "PHP",
-                'value': 70,
-            },
-            {
-                'icon': "fa-brands fa-symfony",
-                'name': "CSS/SCSS",
-                'value': 70,
-            },
-            {
-                'icon': "fa-brands fa-symfony",
+                'icon': "fa-brands fa-square-js",
                 'name': "Javascript",
-                'value': 70,
+                'value': 90,
             },
             {
-                'icon': "fa-brands fa-symfony",
+                'icon': "fa-solid fa-code",
                 'name': "TWIG",
-                'value': 70,
+                'value': 80,
             },
         ]
 
@@ -119,7 +109,7 @@ twig:
                 'name': "Innov'data",
                 'job': "Développeur web",
                 'type': "Alternance",
-                'startAt': "2020-05-25 00:00:00",
+                'startAt': "2021-08-25 00:00:00",
                 'endAt': null,
                 'site': 'https://innov-data.com/',
                 'content': 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt.'
@@ -129,34 +119,38 @@ twig:
                 'name': "Expert Viséo",
                 'job': "Développeur web",
                 'type': "Stage",
-                'startAt': "2020-05-25 00:00:00",
-                'endAt': "2020-05-25 00:00:00",
+                'startAt': "2020-04-29 00:00:00",
+                'endAt': "2020-06-29 00:00:00",
                 'site': 'https://www.expert-viseo.fr/',
                 'content': 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt.'
                 # 'duration': "Alternance"
             },
         ]
 
-        achievements: [
+        projects: [
             {
-                'name': "Innov'data",
-                'job': "Développeur web",
-                'type': "Alternance",
-                'startAt': "2020-05-25 00:00:00",
-                'endAt': null,
-                'site': 'url',
-                'content': ''
-                # 'duration': "Alternance"
+                'name': "Find Your Horse",
+                'thumbnail': find-your-horse.png,
+                'url': "https://www.find-your-horse.fr/",
+                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
             },
             {
-                'name': "Expert Viséo",
-                'job': "Développeur web",
-                'type': "Stage",
-                'startAt': "2020-05-25 00:00:00",
-                'endAt': "2020-05-25 00:00:00",
-                'site': 'url',
-                'content': ''
-                # 'duration': "Alternance"
+                'name': "Find Your Horse",
+                'thumbnail': "https://picsum.photos/300/600",
+                'url': "#",
+                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
+            },
+            {
+                'name': "Find Your Horse",
+                'thumbnail': "https://picsum.photos/300/600",
+                'url': "#",
+                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
+            },
+            {
+                'name': "Find Your Horse",
+                'thumbnail': "https://picsum.photos/300/600",
+                'url': "#",
+                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
             },
         ]
         
