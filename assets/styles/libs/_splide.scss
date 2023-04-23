@@ -1,0 +1,6 @@
+@use "../abstract" as *;
+.splide{
+    .splide__pagination{
+        bottom: space(-2);
+    }
+}

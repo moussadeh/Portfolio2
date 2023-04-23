@@ -1,6 +1,6 @@
 const project = new Splide('#project-slider', {
     // type   : 'loop',
-    // perPage: 3,
+    // perPage: 1,
     autoWidth: true,
     autoHeight: true,
     // heightRatio: 0.5,
@@ -8,10 +8,21 @@ const project = new Splide('#project-slider', {
     gap: '2rem',
     arrows:false,
     pauseOnHover: true,
-    pagination: false,
-    isNavigation: true,
+    pagination: true,
+    isNavigation: false,
+    updateOnMove: true,
     drag: true,
+    mediaQuery: 'min',
+    slideFocus: true,
+    breakpoints: {
+        768: {
+            // pagination:false,
+            isNavigation: true,
+            // arrows:true,
+            drag: true,
+        },
+    }
 });
 project.mount();
-console.log('test');
+// console.log('test');
 //# sourceMappingURL=slider.js.map

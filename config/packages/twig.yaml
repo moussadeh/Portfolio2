@@ -80,7 +80,7 @@ twig:
             {
                 'icon': "fa-brands fa-laravel",
                 'name': "Laravel",
-                'value': 70,
+                'value': 55,
             },
             {
                 'icon': "fa-brands fa-vuejs",
@@ -136,20 +136,20 @@ twig:
             },
             {
                 'name': "Find Your Horse",
-                'thumbnail': "https://picsum.photos/300/600",
-                'url': "#",
+                'thumbnail': find-your-horse.png,
+                'url': "https://www.find-your-horse.fr/",
                 'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
             },
             {
                 'name': "Find Your Horse",
-                'thumbnail': "https://picsum.photos/300/600",
-                'url': "#",
+                'thumbnail': find-your-horse.png,
+                'url': "https://www.find-your-horse.fr/",
                 'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
             },
             {
                 'name': "Find Your Horse",
-                'thumbnail': "https://picsum.photos/300/600",
-                'url': "#",
+                'thumbnail': find-your-horse.png,
+                'url': "https://www.find-your-horse.fr/",
                 'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
             },
         ]
