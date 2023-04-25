@@ -9,7 +9,7 @@ twig:
             {
                 'icon': "fa-brands fa-linkedin-in",
                 'name': "Me contacter sur linkedin",
-                'url': "",
+                'url': "https://www.linkedin.com/in/pierre-pineau-pro/",
             },
         ]
         menu: [
@@ -154,10 +154,6 @@ twig:
             },
         ]
         
-
-
-
-
 
 when@test:
     twig:

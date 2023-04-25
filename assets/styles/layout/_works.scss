@@ -1,9 +1,6 @@
 @use "../abstract" as *;
 @use "../base/variables" as *;
-
-
 .works{
-
     &__content{
         display: flex;
         flex-direction: column;
@@ -12,20 +9,50 @@
             flex-direction: row;
         }
     }
-    &__list{
-        
-    }
+    &__list{}
     &__cards{
         @extend %flexCenter;
         gap: space(1);
         overflow: auto ;
         margin: 0 space(-1);
-
+        padding-bottom: space(.5);
         flex-shrink: 0;
         @media screen and (min-width: 768px){
             flex-direction: column;
             width: 350px;
+            max-height: 800px;
             margin: 0;
+            padding-right: space(.5);
+            padding-bottom: space(0);
+        }
+        /* Personnalisation de la barre de défilement */
+        &::-webkit-scrollbar {
+            width: 8px; /* Largeur de la barre */
+        }
+        &::-webkit-scrollbar-track {
+            background-color: transparent; /* Fond de la barre, ici il n'y en a pas */
+        }
+        &::-webkit-scrollbar-thumb {
+            background-color: $light; /* Couleur de la barre */
+            border-radius: 10px; /* Arrondi de la barre */
+            border: none; /* Bordure de la barre, ici il n'y en a pas */
+        }
+        /* Pour Firefox */
+        & {
+            scrollbar-color: $light transparent; /* Couleur de la barre et fond, ici le fond est blanc */
+            scrollbar-width: thin; /* Largeur de la barre */
+        }
+        /* Pour Microsoft Edge et Internet Explorer */
+        &::-ms-scrollbar {
+            width: 8px; /* Largeur de la barre */
+        }
+        &::-ms-scrollbar-track {
+            background-color: transparent; /* Fond de la barre, ici il n'y en a pas */
+        }
+        &::-ms-scrollbar-thumb {
+            background-color: $light; /* Couleur de la barre */
+            border-radius: 10px; /* Arrondi de la barre */
+            border: none; /* Bordure de la barre, ici il n'y en a pas */
         }
     }
     &__card{

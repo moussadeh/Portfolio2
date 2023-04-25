@@ -1,16 +1,20 @@
 @use "../abstract" as *;
 @use "../base" as *;
 
-$m-mobile: space(2);
-$m-destop: space(6);
+$m-mobile: space(.5);
+$m-destop: space(2);
 $calcMobile: calc($m-mobile);
-$calcTablette: calc($m-mobile + space(5));
-$calcDestop: calc(((100vw - ($maxWidthContainer - space(4))) / 2) + space(3.5));
+$calcTablette: calc($m-mobile + space(2.5));
+$calcDestop: calc(((99vw - ($maxWidthContainer - space(4))) / 2));
 .custom-line{
     position: relative;
+    @extend %transition;
+    transition-duration: 600ms;
     &::before,
     &::after{
         position: absolute;
+        @extend %transition;
+        transition-duration: 600ms;
         top: 22px;
         // @media screen and (min-width: 768px){
         //     top: 38px;
@@ -31,7 +35,6 @@ $calcDestop: calc(((100vw - ($maxWidthContainer - space(4))) / 2) + space(3.5));
         @media screen and (min-width: $maxWidthContainer){
             right: calc(100% + space(2));
         }
-
     }
     &::after{
         left: calc(100% + space(1));
@@ -60,18 +63,49 @@ $calcDestop: calc(((100vw - ($maxWidthContainer - space(4))) / 2) + space(3.5));
         &::after{
             display: none;
         }
+        &.title-is-show{
+            margin-left: calc($m-mobile + space(3));
+            @media screen and (min-width: 768px){
+                margin-left: calc($m-destop + space(4));
+            }
+            @media screen and (min-width: $maxWidthContainer){
+                margin-left: calc($m-destop + space(12));
+            }
+            &::before{
+                width: calc($calcMobile + space(3));
+                @media screen and (min-width: 768px){
+                    width: calc($calcTablette + space(4));
+                }
+                @media screen and (min-width: $maxWidthContainer){
+                    width: calc($calcDestop + space(12));
+                }
+            }
+            // transform: translateX(-50px);
+        }
     }
     &-center{
         @extend .custom-line;
         &::before,
         &::after{
             content: "";
-            width: 75px;
+            width: 50px;
             @media screen and (min-width: 768px){
-                width: 150px;
+                width: 100px;
             }
             @media screen and (min-width: 1024px){
-                width: 250px;
+                width: 200px;
+            }
+        }
+        &.title-is-show{
+            &::before,
+            &::after{
+                width: 75px;
+                @media screen and (min-width: 768px){
+                    width: 200px;
+                }
+                @media screen and (min-width: 1024px){
+                    width: 300px;
+                }
             }
         }
     }
@@ -93,6 +127,26 @@ $calcDestop: calc(((100vw - ($maxWidthContainer - space(4))) / 2) + space(3.5));
         }
         &::before{
             display: none;
+        }
+
+        &.title-is-show{
+            margin-right: calc($m-mobile + space(3));
+            @media screen and (min-width: 768px){
+                margin-right: calc($m-destop + space(4));
+            }
+            @media screen and (min-width: $maxWidthContainer){
+                margin-right: calc($m-destop + space(12));
+            }
+            &::after{
+                width: calc($calcMobile + space(3));
+                @media screen and (min-width: 768px){
+                    width: calc($calcTablette + space(4));
+                }
+                @media screen and (min-width: $maxWidthContainer){
+                    width: calc($calcDestop + space(12));
+                }
+            }
+            // transform: translateX(-50px);
         }
     }
     &-secondary{

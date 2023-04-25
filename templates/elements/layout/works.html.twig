@@ -1,11 +1,11 @@
 {# WORKS #}
-<section id="experiences" class="layout-padding works">
-    <div class="container md:items-center gap-4 md:gap-8">
+<section id="experiences" class="layout-padding works relative">
+    <div class="container md:items-center gap-4 md:gap-8 z-10 relative">
         <div class="titles titles-right">
-            <div class="custom-line-right titles__header">
+            <div class="custom-line-right titles__header js-title-move">
                 <h2 class="title__h2">{{"works.title"|trans}}</h2>
             </div>
-            <p class=" md:w-1/2">{{"works.content"|trans}}</p>
+            <p class=" lg:w-2/3">{{"works.content"|trans}}</p>
         </div>
         <div class="works__content">
             <nav>
@@ -64,6 +64,13 @@
                     </li>
                 {% endfor %}
             </ul>
+        </div>
+    </div>
+    <div class="hidden md:flex overflow-hidden w-20 absolute left-0  top-0 lg:top-32">
+        <div class="customIcon__grid-big !relative" aria-hidden="true">
+            {% for i in 1..25 %}
+                <span class="item"></span>
+            {% endfor %}
         </div>
     </div>
 </section>

@@ -1,0 +1,61 @@
+@use "../abstract" as *;
+@use "../base/variables" as *;
+.customIcon{
+    &__grid{
+        // display: none;
+        position: absolute;
+        z-index: 1;
+        // @media screen and (min-width: 768px){
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(5, 1fr);
+            grid-gap: space(1);
+        // }
+        &-tight{
+            @extend .customIcon__grid;
+            // width: 60px;
+            grid-gap: space(.8);
+            .item{
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background-color: white;
+                opacity: .4;
+            }
+        }
+        &-big{
+            @extend .customIcon__grid;
+            // width: 120px;
+            .item{
+                width: 14px;
+                height: 14px;
+                border-radius: 50%;
+                background-color: white;
+                opacity: .4;
+            }
+        }
+        
+    }
+    &__circle{
+        border-radius: 50%;
+        opacity: .2;
+        background-color: $primary;
+        width: space(12);
+        flex-shrink: 0;
+        height: space(12);
+    }
+    &__square{
+        width: space(16);
+        height:  space(16);
+        background-color: $secondary;
+        @extend %rounded;
+        opacity: .6;
+        // @extend %;
+        // clip-path: ;
+    }
+    &-container{
+        position: absolute;
+        overflow: hidden;
+        z-index: 1;
+    }
+}

@@ -1,20 +1,27 @@
 {# ABOUT ME #}
 <section id="a-propos" class="layout-padding statistics">
-    <div class="container md:flex-row md:items-center gap-4 md:gap-8">
+    <div class="container md:flex-row md:items-center gap-4 md:gap-8 relative z-10">
         <div class="titles">
-            <div class="custom-line-left titles__header">
+            <div class="custom-line-left titles__header js-title-move">
                 <h2 class="title__h2">{{"aboutMe.title"|trans}}</h2>
             </div>
             <p class="">{{"hero.content"|trans}}</p>
-            <a href="#" class="btn-white">{{"btn.cv"|trans}} <i class="ml-2 fa-solid fa-download"></i></a>
+            <div class="flex flex-wrap gap-4 items-center">
+                <a href="#" class="btn-white">{{"btn.cv"|trans}} <i class="ml-2 fa-solid fa-download"></i></a>
+                <a href="#" class="link-primary">{{"btn.linkedin"|trans}}</a>
+            </div>
         </div>
-        <ul class="statistics__list">
+        <ul class="statistics__list z-10">
             {% for stat in statistics %}
                 <li class="statistics__item card" tabindex="0" aria-labelledby="{{stat.value ~ ' ' ~ stat.name}}">
                     <h3 class="title__h3"><span class="statistics__value card__name text-primary !font-medium">{{stat.value}}</span> {{stat.name}}</h3>
                 </li>
             {% endfor %}
         </ul>
+        {# <div class="customIcon__circle right-0 top-1/2 w-96 h-96 -translate-y-1/2" aria-hidden="true"></div> #}
+    </div>
+    <div class="customIcon-container left-0 top-28 w-56 h-96 hidden xl:flex" aria-hidden="true">
+        <div class="customIcon__square rotate-[35deg] origin-top-left" ></div>
     </div>
 </section>
 {# END ABOUT ME #}

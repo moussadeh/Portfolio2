@@ -1,11 +1,14 @@
 {# SPÉCIALISATION #}
-<section id="competences" class="layout-padding">
-    <div class="container gap-4 md:gap-8">
+<section id="competences" class="layout-padding relative">
+    <div class="customIcon-container left-0 top-12 w-60 hidden md:flex justify-end" aria-hidden="true">
+        <div class="customIcon__circle !w-96 !h-96" ></div>
+    </div>
+    <div class="container gap-4 md:gap-8 relative z-10">
         <div class="titles titles-right">
-            <div class="custom-line-right titles__header">
+            <div class="custom-line-right titles__header js-title-move">
                 <h2 class="title__h2">{{"specialties.title"|trans}}</h2>
             </div>
-            <p class=" md:w-1/2">{{"specialties.content"|trans}}</p>
+            <p class=" lg:w-2/3">{{"specialties.content"|trans}}</p>
         </div>
         <ul class="grid md:grid-cols-2 gap-x-4 gap-y-2 md:gap-y-4 md:gap-x-8">
             {% for specialtie in specialties %}
@@ -17,7 +20,7 @@
             {% endfor %}
         </ul>
     </div>
-    <ul class="list-h gap-4 mt-8 justify-center px-4">
+    <ul class="list-h gap-4 mt-8 justify-center px-4 relative z-10">
         {% for skill in skills %}
             <li class="skill__item" tabindex="0" aria-label="{{skill.name}} - {{skill.value}}%">
                 <div class="flex gap-4 items-center">
@@ -30,5 +33,12 @@
             </li>
         {% endfor %}
     </ul>
+    <div class="flex overflow-hidden w-32 absolute right-0 top-1/2 2xl:right-1/3 2xl:w-auto 2xl:translate-x-[500px]"  aria-hidden="true">
+        <div class="customIcon__grid-big !relative" aria-hidden="true">
+            {% for i in 1..25 %}
+                <span class="item"></span>
+            {% endfor %}
+        </div>
+    </div>
 </section>
 {# SPÉCIALISATION #}

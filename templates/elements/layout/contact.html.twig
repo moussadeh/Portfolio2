@@ -1,11 +1,12 @@
 {# CONTACT #}
-<section id="contact" class="layout-padding bg-primary">
+<section id="contact" class="layout-padding bg-primary relative">
+    
     <div class="container gap-4 md:gap-8">
         <div class="titles titles-center">
-            <div class="custom-line-center custom-line-secondary titles__header">
+            <div class="custom-line-center custom-line-secondary titles__header js-title-move">
                 <h2 class="title__h2 text-white">{{"contact.title"|trans}}</h2>
             </div>
-            <p class=" md:w-2/3 text-white">{{"contact.content"|trans}}</p>
+            <p class=" lg:w-2/3 text-white">{{"contact.content"|trans}}</p>
         </div>
         <form id="form-contact" action="{{path('send_mail')}}" method="POST" class="flex flex-col gap-4 mx-auto w-full max-w-screen-md">
             <input type="hidden" name="token" value="{{ csrf_token('send-mail') }}"/>
@@ -35,6 +36,16 @@
                 <button type="submit" class="btn-white-secondary min-w-[150px]">{{'btn.send'|trans}}</button>
             </div>
         </form>
+    </div>
+    {# <div class="customIcon-container right-0 bottom-48 w-56 h-96 hidden xl:flex -scale-100" aria-hidden="true">
+        <div class="customIcon__square rotate-[35deg] origin-top-left " ></div>
+    </div> #}
+    <div class="flex overflow-hidden w-20 absolute left-0 top-1/2 justify-end"  aria-hidden="true">
+        <div class="customIcon__grid-big !relative" aria-hidden="true">
+            {% for i in 1..25 %}
+                <span class="item"></span>
+            {% endfor %}
+        </div>
     </div>
 </section>
 {# CONTACT #}
