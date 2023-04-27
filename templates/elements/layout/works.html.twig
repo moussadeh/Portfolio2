@@ -25,7 +25,7 @@
                             {% set duration = duration.m ~ " mois" %}
                         {% endif %}
                         {% set workName = work.name|trans %}
-                        <li class="">
+                        <li class="" role="presentation">
                             <a href="#works-{{loop.index}}" role="tab" aria-label="{{workName}}" aria-selected="{{loop.index == 1 ? 'true' : 'false'}}" aria-controls="works-{{loop.index}}" class="works__card card">
                                 <p class="title__h3 card__name">{{workName}}</p>
                                 <ul class="list-v font-medium w-full text-lg">
@@ -58,11 +58,12 @@
             </nav>
             <ul class="works__list w-full">
                 {% for work in works %}
-                    <li id="works-{{loop.index}}" class="works__item {{loop.index == 1 ? '' : 'hidden'}}" role="tabpanel" aria-labelledby="works-{{loop.index}}">
-                        <h3 class="title__h3 mb-4 !text-3xl md:!text-4xl !text-primary">{{work.name|trans}}</h3>
+                    {% set workName = work.name|trans %}
+                    <li id="works-{{loop.index}}" class="works__item {{loop.index == 1 ? '' : 'hidden'}}" role="tabpanel" aria-label="{{workName}}}">
+                        <h3 class="title__h3 mb-4 !text-3xl md:!text-4xl !text-primary">{{workName}}</h3>
                         <p>{{work.content|trans}}</p>
                         <div class="w-full flex justify-end mt-8">
-                            <a href="{{work.site}}" rel="nofollow" target="_blank" class="btn-white">{{work.name|trans}} <i class="ml-2 fa-solid fa-arrow-up-right-from-square"></i></a>
+                            <a href="{{work.site}}" rel="nofollow" target="_blank" class="btn-white">{{workName}} <i class="ml-2 fa-solid fa-arrow-up-right-from-square"></i></a>
                         </div>
                     </li>
                 {% endfor %}

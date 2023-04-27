@@ -28,8 +28,8 @@
                     <h3 class="skill__name">{{skill.name}}</h3>
                 </div>
                     <div class="skill__progress">
-                    <div class="skill__progress-bar" style="width: {{skill.value}}%" role="progressbar" aria-valuenow="{{skill.value}}" aria-valuemin="0" aria-valuemax="100" aria-valuetext="{{skill.name}} - {{skill.value}}%"></div>
-                </div>
+                        <div class="skill__progress-bar" style="width: {{skill.value}}%" role="progressbar" aria-valuenow="{{skill.value}}" aria-valuemin="0" aria-valuemax="100" aria-valuetext="{{skill.name}} - {{skill.value}}%" aria-label="{{skill.name}} - {{skill.value}}%"></div>
+                    </div>
             </li>
         {% endfor %}
     </ul>

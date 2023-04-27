@@ -9,13 +9,13 @@
         </div>
         {% set baseImgProfil = './assets/img/profil/pierrepineau' %}
         <picture class="hero__img-container await-loading">
-            <source srcset="{{asset(baseImgProfil ~ '-sm.webp')}} 100w,
-                            {{asset(baseImgProfil ~ '-md.webp')}} 250w,
-                            {{asset(baseImgProfil ~ '-lg.webp')}} 350w" type="image/webp">
-            <source srcset="{{asset(baseImgProfil ~ '-sm.png')}} 100w,
-                            {{asset(baseImgProfil ~ '-md.png')}} 250w,
-                            {{asset(baseImgProfil ~ '-lg.png')}} 350w" type="image/png">
-            <img src="{{asset(baseImgProfil ~ '-sm.png')}}" alt="Photo de {{SITE_NAME}}" class="hero__img" lazy->
+            <source srcset="{{asset(baseImgProfil ~ '-sm.webp')}} 280w,
+                            {{asset(baseImgProfil ~ '-md.webp')}} 600w,
+                            {{asset(baseImgProfil ~ '-lg.webp')}} 1200w" type="image/webp">
+            <source srcset="{{asset(baseImgProfil ~ '-sm.png')}} 280w,
+                            {{asset(baseImgProfil ~ '-md.png')}} 600w,
+                            {{asset(baseImgProfil ~ '-lg.png')}} 1200w" type="image/png">
+            <img src="{{asset(baseImgProfil ~ '-sm.png')}}" alt="Photo de {{SITE_NAME}}" class="hero__img">
         </picture>
         <div class="titles py-8 !text-center md:!text-left !items-center md:!items-start">
             <div class="relative lg:mb-4">

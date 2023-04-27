@@ -14,6 +14,7 @@ const project = new Splide('#project-slider', {
     drag: true,
     mediaQuery: 'min',
     slideFocus: true,
+    lazyLoad: 'nearby',
     breakpoints: {
         768: {
             // pagination:false,

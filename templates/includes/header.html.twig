@@ -3,7 +3,7 @@
     <nav class="nav w-full">
         <a href="{{path('home')}}" title="{{'back.title'|trans}}">
             <figure class="logo-container">
-                <img src="{{asset('./assets/img/logo.svg')}}" alt="Logo de {{SITE_NAME}}" class="logo w-12" title="{{SITE_NAME}}">
+                <img src="{{asset('./assets/img/logo.svg')}}" alt="Logo de {{SITE_NAME}}" class="logo" title="{{SITE_NAME}}" width="48px">
             </figure>
         </a>
         <ul class="nav__list">
@@ -15,7 +15,7 @@
             {% for social in socials %}
                 <li>
                     <a href="{{social.url}}" rel="nofollow" target="_blank" class="btn-white" title="{{social.name}}">
-                        <i class="{{social.icon}}"></i>
+                        <i class="{{social.icon}}" role="presentation"></i>
                     </a>
                 </li>
             {% endfor %}
