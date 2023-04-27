@@ -42,12 +42,11 @@ const path = require('./package.json')
 // }
 
 // Fonction css en DEV
-
 function cssTask(done) {
     src( path.config.source + path.config.css.path + path.config.css.all, { sourcemaps: true })
         .pipe(sass())
         .on( 'error', console.error.bind( console ) )
-        .pipe(postcss([require('tailwindcss'), require('autoprefixer')]))
+        .pipe(postcss([require('tailwindcss'), require('autoprefixer'), require('cssnano')]))
         .pipe(dest(path.config.dist + path.config.css.path, { sourcemaps: '.' }))
     done();
 };
@@ -59,6 +58,7 @@ function jsTask(done) {
     src(path.config.source + path.config.js.path + path.config.js.main, { sourcemaps: true })
         .pipe(plumber())
         .pipe(concat(path.config.js.outMain))
+        .pipe(uglify())
         // .pipe(
         //     babel({
         //         presets: [[
@@ -129,7 +129,7 @@ function watchFiles() {
 // task("serveur", browserSyncSart);
 task("css", cssTask);
 task("js", jsTask);
-task("build", series(cssTask, jsTask, parallel(watchFiles)));
+task("build", series(cssTask,cssMin, jsTask, parallel(watchFiles)));
 // task("build-serveur", series(cssTask, jsTask));
 
 // Taches de Prod
