@@ -4,7 +4,8 @@ twig:
     globals:
         SITE_NAME: Pierre Pineau
         CONTACT_EMAIL: contact@pierrepineau.fr
-        
+        CLIENT_FAVICON_COLOR: "#419FCC"
+        CLIENT_FAVICON_BG: "#1f272f"
         socials: [
             {
                 'icon': "fa-brands fa-linkedin-in",

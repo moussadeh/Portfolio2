@@ -1,6 +1,5 @@
 {# HERO  #}
 <section class="bg-secondary hero">
-    
     <div class="container lg:flex-row lg:items-center relative z-10">
         {# <div class="custom-bg-hero"></div> #}
         <div class="customIcon__grid-big left-1/2 top-20 lg:left-56 lg:top-32 xl:left-80 xl:top-48" aria-hidden="true">
@@ -8,10 +7,16 @@
                 <span class="item"></span>
             {% endfor %}
         </div>
-        <figure class="hero__img-container await-loading">
-            {# {% include "elements/svg/undraw_progamming.svg" %} #}
-            <img src="{{asset('./assets/img/pierre-pineau.png')}}" alt="Photo de {{SITE_NAME}}" class="hero__img">
-        </figure>
+        {% set baseImgProfil = './assets/img/profil/pierrepineau' %}
+        <picture class="hero__img-container await-loading">
+            <source srcset="{{asset(baseImgProfil ~ '-sm.webp')}} 100w,
+                            {{asset(baseImgProfil ~ '-md.webp')}} 250w,
+                            {{asset(baseImgProfil ~ '-lg.webp')}} 350w" type="image/webp">
+            <source srcset="{{asset(baseImgProfil ~ '-sm.png')}} 100w,
+                            {{asset(baseImgProfil ~ '-md.png')}} 250w,
+                            {{asset(baseImgProfil ~ '-lg.png')}} 350w" type="image/png">
+            <img src="{{asset(baseImgProfil ~ '-sm.png')}}" alt="Photo de {{SITE_NAME}}" class="hero__img" lazy->
+        </picture>
         <div class="titles py-8 !text-center md:!text-left !items-center md:!items-start">
             <div class="relative lg:mb-4">
                 <h1 class="!text-primary title__h1 flex flex-col">
