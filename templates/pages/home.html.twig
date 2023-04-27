@@ -1,20 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Home{% endblock %}
-{% block description %}{% endblock %}
+{% block title %}Portfolio{% endblock %}
+{% block description %}Découvrez mes réalisations en développement web et design. Explorez mon portfolio pour voir mes projets de sites internet et d'applications. Contactez-moi pour discuter de votre projet{% endblock %}
 
 {% block stylesheets %}
 {% endblock %}
 {% block body %}
 
-
-{% include "elements/layout/hero.html.twig" %}
-{% include "elements/layout/about.html.twig" %}
-{% include "elements/layout/works.html.twig" %}
-{% include "elements/layout/projects.html.twig" %}
-{% include "elements/layout/skills.html.twig" %}
-{% include "elements/layout/contact.html.twig" %}
-
+    {% include "elements/layout/hero.html.twig" %}
+    {% include "elements/layout/about.html.twig" %}
+    {% include "elements/layout/works.html.twig" %}
+    {% include "elements/layout/projects.html.twig" %}
+    {% include "elements/layout/skills.html.twig" %}
+    {% include "elements/layout/contact.html.twig" %}
 
 {% endblock %}
 {% block javascripts %}

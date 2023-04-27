@@ -9,10 +9,10 @@
             <p class=" lg:w-2/3 text-white">{{"contact.content"|trans}}</p>
         </div>
         <form id="form-contact" action="{{path('send_mail')}}" method="POST" class="flex flex-col gap-4 mx-auto w-full max-w-screen-md">
-            <input type="hidden" name="token" value="{{ csrf_token('send-mail') }}"/>
+            <input type="hidden" name="token" value="{{ csrf_token('send-mail') }}" aria-hidden="true"/>
             <div class="flex flex-col sm:flex-row gap-4 w-full">
                 <div class="field w-full">
-                    <input type="text" name="firstname" class="field__input" required value="">
+                    <input id="firstname" type="text" name="firstname" class="field__input" required value="">
                     <label for="firstname" class="field__label">{{'field.firstname.label'|trans}}</label>
                 </div>
                 <div class="field w-full">
@@ -21,15 +21,15 @@
                 </div>
             </div>
             <div class="field">
-                <input type="email" name="email" class="field__input" required>
+                <input id="email" type="email" name="email" class="field__input" required>
                 <label for="email" class="field__label">{{'field.email.label'|trans}}</label>
             </div>
             <div class="field">
-                <input type="text" name="subject" class="field__input" required>
+                <input id="subject" type="text" name="subject" class="field__input" required>
                 <label for="subject" class="field__label">{{'field.subject.label'|trans}}</label>
             </div>
             <div class="field">
-                <textarea name="message" class="field__textarea" required></textarea>
+                <textarea id="message" name="message" class="field__textarea" required></textarea>
                 <label for="message" class="field__label">{{'field.message.label'|trans}}</label>
             </div>
             <div class="flex justify-center">
@@ -40,7 +40,7 @@
     {# <div class="customIcon-container right-0 bottom-48 w-56 h-96 hidden xl:flex -scale-100" aria-hidden="true">
         <div class="customIcon__square rotate-[35deg] origin-top-left " ></div>
     </div> #}
-    <div class="flex overflow-hidden w-20 absolute left-0 top-1/2 justify-end"  aria-hidden="true">
+    <div class="hidden md:flex overflow-hidden w-20 absolute left-0 top-1/2 justify-end"  aria-hidden="true">
         <div class="customIcon__grid-big !relative" aria-hidden="true">
             {% for i in 1..25 %}
                 <span class="item"></span>

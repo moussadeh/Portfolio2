@@ -15,7 +15,7 @@
                 <ul class="splide__list">
                     {% for project in projects %}
                         <li class="splide__slide project-slide">
-                            <article class="project">
+                            <article class="project" aria-label="{{project.name}}" tabindex="0">
                                 <span class="title__h3 project__name">{{project.name}}</span>
                                 <figure class="project__img">
                                     <img src="{{ asset('./assets/img/projects/' ~ project.thumbnail)}}" alt="{{project.name}}">

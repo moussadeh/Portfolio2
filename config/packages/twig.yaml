@@ -106,23 +106,23 @@ twig:
 
         works: [
             {
-                'name': "Innov'data",
-                'job': "Développeur web",
-                'type': "Alternance",
+                'name': work.innovdata.name,
+                'job': work.job.dev,
+                'type': work.type.alternance,
                 'startAt': "2021-08-25 00:00:00",
                 'endAt': null,
                 'site': 'https://innov-data.com/',
-                'content': 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt.'
+                'content': work.innovdata.content
                 # 'duration': "Alternance"
             },
             {
-                'name': "Expert Viséo",
-                'job': "Développeur web",
-                'type': "Stage",
+                'name': work.expertviseo.name,
+                'job': work.job.dev,
+                'type': work.type.stage,
                 'startAt': "2020-04-29 00:00:00",
                 'endAt': "2020-06-29 00:00:00",
                 'site': 'https://www.expert-viseo.fr/',
-                'content': 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt.'
+                'content': work.expertviseo.content
                 # 'duration': "Alternance"
             },
         ]

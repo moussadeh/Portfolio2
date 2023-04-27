@@ -1,5 +1,5 @@
 hero:
-  title: "Pierre Pineau, développeur web"
+  title: "Webdesigner & développeur web"
   content: "Je suis Webdesigner et Développeur fullstack, mes collègues me surnome <strong class=\"text-white\">Le couteau suisse</strong>. Ma curiosité et mon appétence pour le développement ainsi que les autres domaines du web m'ont permis d'aquérir un pannel de compétence diversifié."
 
 btn:
@@ -17,6 +17,7 @@ works:
   title: "Expérience professionnelle"
   content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum possimus quam autem vel ab iusto architecto non accusamus? Vel dolorum debitis quasi consequatur, id minima voluptatibus aperiam quaerat ducimus repellendus!"
   list: "Liste de mes expériences professionnelles"
+    
 
 project:
   title: "Réalisations"
@@ -33,7 +34,7 @@ contact:
 erreur:
   4xx: 
     title: "Page non trouvé"
-    content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum possimus quam autem vel ab iusto architecto non accusamus?"
+    content: "La page que vous recherchez n'existe pas ou a été déplacée."
   5xx: 
     title: "Erreur Serveur"
     content: "Le serveur a rencontré un problème inattendu qui l'empêche de répondre à la requête"
@@ -56,3 +57,22 @@ field:
     label: "Sujet"
   message:
     label: "Message"
+
+github: 
+  title: "Mon profil Github"
+
+work: 
+  type:
+    alternance: "Alternance"
+    stage: "Stage"
+  job:
+    dev: "Développeur web"
+  innovdata:
+    name: "Innov'data"
+    content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt.  obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt.'
+  expertviseo:
+    name: "Expert Viséo"
+    content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt.  obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt. Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt.  obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt.'
+
+back:
+  title: "Retour à l'accueil"
