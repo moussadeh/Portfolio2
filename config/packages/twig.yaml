@@ -131,25 +131,25 @@ twig:
         projects: [
             {
                 'name': "Find Your Horse",
-                'thumbnail': find-your-horse.png,
+                'thumbnail': find-your-horse/find-your-horse,
                 'url': "https://www.find-your-horse.fr/",
                 'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
             },
             {
                 'name': "Find Your Horse",
-                'thumbnail': find-your-horse.png,
+                'thumbnail': find-your-horse/find-your-horse,
                 'url': "https://www.find-your-horse.fr/",
                 'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
             },
             {
                 'name': "Find Your Horse",
-                'thumbnail': find-your-horse.png,
+                'thumbnail': find-your-horse/find-your-horse,
                 'url': "https://www.find-your-horse.fr/",
                 'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
             },
             {
                 'name': "Find Your Horse",
-                'thumbnail': find-your-horse.png,
+                'thumbnail': find-your-horse/find-your-horse,
                 'url': "https://www.find-your-horse.fr/",
                 'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
             },
