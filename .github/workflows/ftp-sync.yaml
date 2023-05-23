@@ -24,5 +24,5 @@ jobs:
           server-dir: '/www/'
       # - name: Install dependencies
       #   run: composer install --no-dev --prefer-dist --no-progress --no-suggest
-      - name: Clear Symfony cache
-        run: php bin/console cache:clear
+      # - name: Clear Symfony cache
+      #   run: php bin/console cache:clear
