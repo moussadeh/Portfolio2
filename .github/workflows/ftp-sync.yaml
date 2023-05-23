@@ -16,10 +16,16 @@ jobs:
 
       - name: FTP-Deploy-Action
         uses: SamKirkland/FTP-Deploy-Action@4.3.3
+        # uses: jakejarvis/ftp-sync-action@v2
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: '/www/'
+          protocol: ftps
+          port: 22
+          args: --deleteOld --onlyUploadChangedFiles
+      - name: Install dependencies
+        run: composer install --no-dev --prefer-dist --no-progress --no-suggest
       - name: Clear Symfony cache
         run: php bin/console cache:clear --env=prod
