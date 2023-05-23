@@ -2,11 +2,14 @@
 
 namespace App\Controller;
 
+use App\Entity\Projects;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Address;
 use Symfony\Component\Mime\Email;
@@ -77,5 +80,24 @@ class AppController extends AbstractController
                 'message' => 'Une erreur est survenue, veuillez réessayer'
             ]);
         }
+    }
+
+
+    #[Route('/projects/{code}', name: 'project')]
+    public function projects(EntityManagerInterface $entityManager, string $code): Response
+    {
+        $project = $entityManager->getRepository(Projects::class)->findOneBy(['code' => $code]);
+        if (!$project) {
+            // Redirect 404 - NotFoundHttpException 
+            throw new NotFoundHttpException();
+        }else{
+            // Similar projects 
+            $projects = $entityManager->getRepository(Projects::class)->findSimilar($project);
+            return $this->render('pages/project.html.twig',[
+                'project' => $project,
+                'projects' => $projects
+            ]);
+        }
+        
     }
 }

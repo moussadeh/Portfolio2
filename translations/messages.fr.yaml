@@ -38,6 +38,9 @@ erreur:
     title: "Erreur Serveur"
     content: "Le serveur a rencontré un problème inattendu qui l'empêche de répondre à la requête"
 
+projectOther:
+  title: "Projets Similaires"
+
 page:
   home: "Accueil"
 

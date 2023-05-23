@@ -1,16 +1,15 @@
 {# RÉALISATIONS #}
-<section id="realisations" class="layout-padding mb-4 relative">
+<section class="layout-padding mb-4 relative">
     <div class="customIcon-container right-0 -top-32 w-56 h-96 hidden xl:flex -scale-x-100" aria-hidden="true">
         <div class="customIcon__square rotate-[35deg] origin-top-left !bg-primary" ></div>
     </div>
-    <div class="container items-center gap-4 md:gap-8 relative z-10">
+    <div class="container gap-4 md:gap-8 relative z-10">
         <div class="titles">
             <div class="custom-line-left titles__header js-title-move">
-                <h2 class="title__h2">{{"project.title"|trans}}</h2>
+                <h2 class="title__h2">{{"projectOther.title"|trans}}</h2>
             </div>
-            <p class="lg:w-2/3">{{"project.content"|trans}}</p>
         </div>
-        <div id="project-slider" class="splide w-full" role="group" aria-label="{{"project.title"|trans}}">
+        <div id="project-slider" class="splide w-full" role="group" aria-label="{{"projectOther.title"|trans}}">
             <div class="splide__track w-full">
                 <ul class="splide__list">
                     {% for project in projects %}

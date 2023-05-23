@@ -1,0 +1,24 @@
+@use "../abstract" as *;
+@use "../base" as *;
+
+.tag{
+    font-size: .8rem;
+    // border: 2px solid;
+    position: relative;
+    padding: space(.3) space(.6);
+    @extend %transition;
+    @extend %rounded;
+    width: fit-content;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 10;
+
+    &-primary{
+        @extend .tag;
+        // border-color: $primary;
+        color: white;
+        background-color: $primary;
+    }
+}

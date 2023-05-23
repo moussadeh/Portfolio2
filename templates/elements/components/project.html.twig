@@ -1,0 +1,17 @@
+<article class="project" aria-label="{{project.name}}">
+    <span class="title__h3 project__name">{{project.name}}</span>
+    {% set baseProject = './assets/img/projects/' ~ project.thumbnail %}
+    <picture class="project__img">
+        <source srcset="{{asset(baseProject ~ '-sm.webp')}} 300w,
+                        {{asset(baseProject ~ '-md.webp')}} 600w" type="image/webp">
+        <source srcset="{{asset(baseProject ~ '-sm.png')}} 300w,
+                        {{asset(baseProject ~ '-md.png')}} 600w" type="image/png">
+        <img src="{{asset(baseProject ~ '-sm.png')}}" alt="{{project.name}}" loading="lazy">
+    </picture>
+    <a href="{{project.url}}" rel="nofollow" target="_blank" class="project__content">
+        <span class="text-left">{{project.categorie}}</span>
+        <h3 class="title__h3">{{project.name}}</h3>
+        <p class="project__description">{{project.content}}</p>
+        <i class="fa-solid fa-arrow-up-right-from-square project__icon"></i>
+    </a>
+</article>

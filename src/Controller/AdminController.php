@@ -23,7 +23,7 @@ use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 class AdminController extends AbstractDashboardController
 {
     private $em;
-    public function __construct(EntityManagerInterface $entityManager, )
+    public function __construct(EntityManagerInterface $entityManager)
     {
         $this->em = $entityManager;
     }

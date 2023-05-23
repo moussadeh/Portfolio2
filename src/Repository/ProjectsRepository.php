@@ -69,6 +69,26 @@ class ProjectsRepository extends ServiceEntityRepository
             ->getSingleScalarResult();
     }   
 
+    /**
+    * @return Projects[] Returns an array of Projects objects
+    */
+    public function findSimilar(Projects $project, $nbResult = 4): array
+    {
+        $categoryIds = array_map(function ($category) {
+            return $category->getId();
+        }, $project->getCategorie());
+        return $this->createQueryBuilder('p')
+            ->andWhere('p.id != :id')
+            ->setParameter('id', $project->getId())
+            ->leftJoin('p.categorie', 'c')
+            ->andWhere('c.id IN (:categories)')
+            ->setParameter('categories', $categoryIds)
+            ->setMaxResults($nbResult)
+            ->orderBy('p.createdAt', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
 //    public function findOneBySomeField($value): ?Projects
 //    {
 //        return $this->createQueryBuilder('p')
