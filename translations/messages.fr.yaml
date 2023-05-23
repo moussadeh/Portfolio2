@@ -17,7 +17,6 @@ works:
   title: "Expérience professionnelle"
   content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum possimus quam autem vel ab iusto architecto non accusamus? Vel dolorum debitis quasi consequatur, id minima voluptatibus aperiam quaerat ducimus repellendus!"
   list: "Liste de mes expériences professionnelles"
-    
 
 project:
   title: "Réalisations"
@@ -44,7 +43,6 @@ page:
 
 date:
   today: "Aujourd'hui"
-
 
 field:
   firstname:
