@@ -7,6 +7,7 @@ use App\Entity\Projects;
 use App\Entity\Skills;
 use App\Entity\Specialties;
 use App\Entity\User;
+use App\Entity\Works;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -222,6 +223,7 @@ class AdminController extends AbstractDashboardController
                 $project->setThumbnail($request->request->get('thumbnail'));
                 $project->setContent($request->request->get('content'));
 
+                $project->setWork($this->em->getRepository(Works::class)->find($request->request->get('work')));
                 $project->addCategorie($this->em->getRepository(Categories::class)->find($request->request->get('categorie')));
                 $project->setCreatedAt(new \DateTime($request->request->get('createdAt')));
 
@@ -235,7 +237,8 @@ class AdminController extends AbstractDashboardController
         }else{
             return $this->render('admin/projects/new.html.twig', 
             [
-                'categories' => $this->em->getRepository(Categories::class)->findAll()
+                'categories' => $this->em->getRepository(Categories::class)->findAll(),
+                'works' => $this->em->getRepository(Works::class)->findAll()
             ]);
         }
     }
@@ -260,6 +263,7 @@ class AdminController extends AbstractDashboardController
                 $project->setThumbnail($request->request->get('thumbnail'));
                 $project->setContent($request->request->get('content'));
 
+                $project->setWork($this->em->getRepository(Works::class)->find($request->request->get('work')));
                 $project->addCategorie($this->em->getRepository(Categories::class)->find($request->request->get('categorie')));
                 $project->setCreatedAt(new \DateTime($request->request->get('createdAt')));
 
@@ -274,7 +278,8 @@ class AdminController extends AbstractDashboardController
             return $this->render('admin/projects/edit.html.twig', 
             [
                 'project' => $project,
-                'categories' => $this->em->getRepository(Categories::class)->findAll()
+                'categories' => $this->em->getRepository(Categories::class)->findAll(),
+                'works' => $this->em->getRepository(Works::class)->findAll()
             ]);
         }
     }
