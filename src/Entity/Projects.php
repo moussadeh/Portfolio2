@@ -33,6 +33,9 @@ class Projects
     #[ORM\Column]
     private ?\DateTimeImmutable $createdAt = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $excerpt = null;
+
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
@@ -123,6 +126,18 @@ class Projects
     public function setCreatedAt(\DateTimeImmutable $createdAt): self
     {
         $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    public function getExcerpt(): ?string
+    {
+        return $this->excerpt;
+    }
+
+    public function setExcerpt(?string $excerpt): self
+    {
+        $this->excerpt = $excerpt;
 
         return $this;
     }

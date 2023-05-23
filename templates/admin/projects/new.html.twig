@@ -1,0 +1,31 @@
+{% extends "@EasyAdmin/page/content.html.twig" %}
+{% block content_title %}New project{% endblock %}
+{% block page_actions %}
+    <a class="btn btn-secondary" href="{{path('admin_projects')}}">Annuler</a>
+{% endblock %}
+
+{% block main %}
+    <form action="{{path('admin_projects_new')}}" method="POST">
+        <div>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name">
+        </div>
+        <div>
+            <label for="thumbnail">Thumbnail</label>
+            <input type="text" name="thumbnail" id="thumbnail">
+        </div>
+        <div>
+            <label for="excerpt">Excerpt</label>
+            <input type="text" name="excerpt" id="excerpt">
+        </div>
+        <div>
+            <label for="createdAt">Created At</label>
+            <input type="time" name="createdAt" id="createdAt">
+        </div>
+        <div>
+            <label for="content">Content</label>
+            <textarea name="content" id="content" cols="30" rows="10"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Créer</button>
+    </form>
+{% endblock %}

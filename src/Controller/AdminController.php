@@ -121,10 +121,40 @@ class AdminController extends AbstractDashboardController
             'page' => $request->query->get('page',1),
         ]);
     }
-    #[Route('/admin/projects/add', name: 'admin_projects_add')]
-    public function addProjects(Request $request): Response
+    #[Route('/admin/projects/new', name: 'admin_projects_new')]
+    public function newProject(Request $request): Response
     {
-        
+        if ($request->isMethod("POST")) {
+            
+            try {
+                $project = new Projects();
+                $project->setName($request->request->get('name'));
+                $code = $request->request->get('name');
+                $code = str_replace(' ', '-', $code);
+                $code = strtolower($code);
+                // Remove accent
+                $code = strtr($code, 'àáâãäåçèéêëìíîïñòóôõöùúûüýÿ', 'aaaaaaceeeeiiiinooooouuuuyy');
+                // Remove special characters
+                $code = preg_replace('/([^.a-z0-9]+)/i', '-', $code);
+                $project->setCode($code);
+
+                $project->setExcerpt($request->request->get('excerpt'));
+                $project->setThumbnail($request->request->get('thumbnail'));
+                $project->setContent($request->request->get('content'));
+
+                $project->addCategorie($this->em->getRepository(Categories::class)->find($request->request->get('categorie')));
+                $project->setCreatedAt(new \DateTime($request->request->get('createdAt')));
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+
+            return $this->redirectToRoute('admin_projects');
+        }else{
+            return $this->render('admin/projects/new.html.twig', 
+            [
+                'categories' => $this->em->getRepository(Categories::class)->findAll()
+            ]);
+        }
     }
 
     #[Route('/admin/specialities', name: 'admin_specialities')]
