@@ -21,4 +21,10 @@
         color: white;
         background-color: $primary;
     }
+
+    &-transparent{
+        @extend .tag;
+        // border-color: $primary;
+        color: white;
+    }
 }

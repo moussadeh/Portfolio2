@@ -41,9 +41,7 @@
     <body>
         {% include "includes/header.html.twig" %}
         {% include "includes/loader.html.twig" %}
-        <main>
         {% block body %}{% endblock %}
-        </main>
         {% include "includes/footer.html.twig" %}
 		{% include "includes/globalJS.html.twig" %}
         {% block javascripts %}

@@ -105,28 +105,7 @@ class AdminController extends AbstractDashboardController
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 
-    #[Route('/register', name: 'register')]
-    public function register(UserPasswordHasherInterface $passwordHasher) : JsonResponse
-    {
-        // ... e.g. get the user data from a registration form
-        $user = new User();
-        $plaintextPassword = 'g!!$v8A29VyEy3';
-
-        $user->setEmail('pierrepineau.pro@gmail.com');
-        $user->setRoles(['ROLE_ADMIN']);
-
-        // hash the password (based on the security.yaml config for the $user class)
-        $hashedPassword = $passwordHasher->hashPassword(
-            $user,
-            $plaintextPassword
-        );
-        $user->setPassword($hashedPassword);
-
-        // $this->em->persist($user);
-        // $this->em->flush();
-
-        return new JsonResponse(['status' => 'ok']);
-    }
+    
     #[Route('/login', name: 'login')]
     public function login(AuthenticationUtils $authenticationUtils): Response
     {

@@ -6,13 +6,14 @@
 {% block stylesheets %}
 {% endblock %}
 {% block body %}
-
+<main>
     {% include "elements/layout/hero.html.twig" %}
     {% include "elements/layout/about.html.twig" %}
     {% include "elements/layout/works.html.twig" %}
     {% include "elements/layout/projects.html.twig" %}
     {% include "elements/layout/skills.html.twig" %}
     {% include "elements/layout/contact.html.twig" %}
+</main>
 {% endblock %}
 {% block javascripts %}
 <script src="{{asset('./assets/js/contact.js')}}"></script>

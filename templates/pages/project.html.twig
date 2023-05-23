@@ -6,30 +6,51 @@
 {% block stylesheets %}
 {% endblock %}
 {% block body %}
-<section class="bg-secondary layout-padding">
-    <div class="container lg:flex-row lg:items-center relative z-10">
-        <div class="titles py-8 !text-center md:!text-left !items-center md:!items-start">
+<section class="bg-secondary layout-padding relative">
+    <div class="container lg:flex-row lg:items-center gap-x-8 relative z-10">
+        {% set baseImg = './assets/img/projects/' %}
+        <div class="w-full mx-auto sm:max-w-[600px] flex-shrink-0 overflow-hidden rounded-md">
+            <picture class="w-full max-w-[600px] max-h-[300px]">
+                <source srcset="{{asset(baseImg ~ project.thumbnail ~ '-sm.webp')}} 280w,
+                            {{asset(baseImg ~ project.thumbnail ~ '-md.webp')}} 600w,
+                            {{asset(baseImg ~ project.thumbnail ~ '-lg.webp')}} 1200w" type="image/webp">
+                <source srcset="{{asset(baseImg ~ project.thumbnail ~ '-sm.png')}} 280w,
+                                {{asset(baseImg ~ project.thumbnail ~ '-md.png')}} 600w,
+                                {{asset(baseImg ~ project.thumbnail ~ '-lg.png')}} 1200w" type="image/png">
+                <img src="{{asset(baseImg ~ project.thumbnail ~ '-sm.png')}}" alt="{{project.name}}" class="object-cover object-center">
+            </picture>
+        </div>
+        <div class="titles py-4 !text-center lg:!text-left !items-center lg:!items-start w-full">
             <div class="relative">
                 {# <p>{{project.work ? project.work.name : "École"}}</p> #}
-                <p class="title__h3 !text-2xl">Ecole</p>
+                <p class="title__h3 !text-2xl">École</p>
                 <h1 class="!text-primary title__h1 flex flex-col text-2xl">
                     {{project.name}}
                 </h1>
             </div>
-            <p class="">{{project.excerpt ?? ""}}</p>
             <ul class="flex gap-4 items-center">
                 {% for categorie in project.categorie %}
                     <li class="tag-primary"><i class="fa-solid fa-tag mr-2"></i>{{categorie.name}}</li>
                 {% endfor %}
             </ul>
+            <p class="mb-8">{{project.excerpt ?? ""}}</p>
+            
+            {% if project.url is defined %}
+                <a href="{{project.url}}" rel="nofollow" target="_blank" class="btn-primary">{{project.name}} <i class="ml-2 fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+            {% else %}
+                <span class="link-primary is-disabled">{{project.name}} <i class="ml-2 fa-solid fa-arrow-up-right-from-square text-xs"></i></span>
+            {% endif %}
+            
         </div>
+        
     </div>
+    
 </section>
 {# content  #}
 <section class="layout-padding relative">
     <div class="container gap-4 md:gap-8 relative z-10">
-        <div class="titles titles-right">
-            <div class="custom-line-right titles__header js-title-move">
+        <div class="titles">
+            <div class="custom-line-left titles__header js-title-move">
                 <h2 class="title__h2">Présentation du projet</h2>
             </div>
         </div>

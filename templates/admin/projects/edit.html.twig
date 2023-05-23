@@ -11,6 +11,14 @@
             <input type="text" name="name" id="name" class="form-control bg-transparent" value="{{project.name ?? ""}}" required>
         </div>
         <div class="mb-3">
+            <label for="work" class="form-label">Work</label>
+            <select class="form-select bg-transparent" name="work" id="work" required> 
+                {% for work in works %}
+                    <option value="{{ work.id }}" {% if work.id == project.work.id %}selected{% endif %}>{{ work.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
             <label for="categorie" class="form-label">Categorie</label>
             <select class="form-select bg-transparent" name="categorie" id="categorie" required multiple>
                 {% for categorie in categories %}

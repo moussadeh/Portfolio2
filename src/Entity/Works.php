@@ -39,9 +39,13 @@ class Works
     #[ORM\ManyToOne(inversedBy: 'works')]
     private ?WorksTypes $type = null;
 
+    #[ORM\OneToMany(mappedBy: 'work', targetEntity: Projects::class)]
+    private Collection $projects;
+
     public function __construct()
     {
         $this->type = new ArrayCollection();
+        $this->projects = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -141,6 +145,36 @@ class Works
     public function setType(?WorksTypes $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Projects>
+     */
+    public function getProjects(): Collection
+    {
+        return $this->projects;
+    }
+
+    public function addProject(Projects $project): self
+    {
+        if (!$this->projects->contains($project)) {
+            $this->projects->add($project);
+            $project->setWork($this);
+        }
+
+        return $this;
+    }
+
+    public function removeProject(Projects $project): self
+    {
+        if ($this->projects->removeElement($project)) {
+            // set the owning side to null (unless already changed)
+            if ($project->getWork() === $this) {
+                $project->setWork(null);
+            }
+        }
 
         return $this;
     }

@@ -36,6 +36,12 @@ class Projects
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $excerpt = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $url = null;
+
+    #[ORM\ManyToOne(inversedBy: 'projects')]
+    private ?Works $work = null;
+
     public function __construct()
     {
         $this->categorie = new ArrayCollection();
@@ -138,6 +144,30 @@ class Projects
     public function setExcerpt(?string $excerpt): self
     {
         $this->excerpt = $excerpt;
+
+        return $this;
+    }
+
+    public function getUrl(): ?string
+    {
+        return $this->url;
+    }
+
+    public function setUrl(?string $url): self
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getWork(): ?string
+    {
+        return $this->work;
+    }
+
+    public function setWork(?string $work): self
+    {
+        $this->work = $work;
 
         return $this;
     }

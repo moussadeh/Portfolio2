@@ -74,9 +74,10 @@ class ProjectsRepository extends ServiceEntityRepository
     */
     public function findSimilar(Projects $project, $nbResult = 4): array
     {
-        $categoryIds = array_map(function ($category) {
-            return $category->getId();
-        }, $project->getCategorie());
+        $categoryIds = [];
+        foreach ($project->getCategorie() as $cat) {
+            array_push($categoryIds, $cat->getId());
+        }
         return $this->createQueryBuilder('p')
             ->andWhere('p.id != :id')
             ->setParameter('id', $project->getId())
