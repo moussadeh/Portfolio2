@@ -22,12 +22,12 @@ class AppController extends AbstractController
         ]);
     }
     
-    #[Route('/mentions-legales', name: 'mentions_legales')]
-    public function mentionLegale(): Response
-    {
-        return $this->render('pages/mentions-legales.html.twig',[         
-        ]);
-    }
+    // #[Route('/mentions-legales', name: 'mentions_legales')]
+    // public function mentionLegale(): Response
+    // {
+    //     return $this->render('pages/mentions-legales.html.twig',[         
+    //     ]);
+    // }
 
     #[Route('/send-mail', name: 'send_mail', methods: ['POST'])]
     public function sendMail(Request $request, MailerInterface $mailer): JsonResponse

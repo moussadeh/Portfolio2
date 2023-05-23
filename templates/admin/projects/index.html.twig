@@ -1,0 +1,42 @@
+{% extends "@EasyAdmin/page/content.html.twig" %}
+{% block content_title %}All projects{% endblock %}
+{% block page_actions %}
+    <a class="btn btn-primary" href="{{path('admin_projects_add')}}">Add</a>
+{% endblock %}
+
+{% block main %}
+    <table class="datagrid">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Categorie</td>
+                <td>Work</td>
+                <td>Action</td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in projects %}
+                <tr>
+                    <td>{{ data.name ?? "" }}</td>
+                    <td>{{ data.categorie ?? "" }}</td>
+                    <td>{{ data.work ?? "École" }}</td>
+                    <td>
+                        <a class="btn btn-primary" href="{{path('admin_projects_edit')}}"><i class="fa-solid fa-pen"></i></a>
+                        <a class="btn btn-secondary" href="{{path('admin_projects_delete')}}"><i class="fa-solid fa-trash"></i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% if nbProjects is defined and nbProjects > 10 %}
+        <nav>
+            <ul>
+            {% set nbPages = (nbProjects / 10)|round(0, 'ceil') %}
+                {% for i in 1..nbPages %}
+                    <li><a href="{{ path('admin_projects', {'page': i}) }}">{{ i }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+    {% endif %}
+    
+{% endblock %}

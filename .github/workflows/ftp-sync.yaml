@@ -22,9 +22,6 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: '/www/'
-          protocol: ftps
-          port: 22
-          args: --deleteOld --onlyUploadChangedFiles
       - name: Install dependencies
         run: composer install --no-dev --prefer-dist --no-progress --no-suggest
       - name: Clear Symfony cache

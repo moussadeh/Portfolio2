@@ -39,20 +39,35 @@ class ProjectsRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Projects[] Returns an array of Projects objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('p.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    /**
+    * @return Projects[] Returns an array of Projects objects
+    */
+    public function findByFilter($filter = [], $perpage = 10): array
+    {
+        $query = $this->createQueryBuilder('p');
+
+        if (isset($filter['page']) && $filter['page'] > 1) {
+            $offset = ($filter['page'] - 1) * $perpage;
+            $query = $query->setFirstResult($offset);
+        }
+
+        return $query
+            ->orderBy('p.createdAt', 'DESC')
+            ->setMaxResults($perpage)
+            ->getQuery()
+            ->getResult();
+    }
+
+    /**
+    * @return int
+    */
+    public function countAll(): int
+    {
+        return $this->createQueryBuilder('p')
+            ->select('count(p.id)')
+            ->getQuery()
+            ->getSingleScalarResult();
+    }   
 
 //    public function findOneBySomeField($value): ?Projects
 //    {
