@@ -1,0 +1,39 @@
+{% extends "@EasyAdmin/page/content.html.twig" %}
+{% block content_title %}{{project.name}}{% endblock %}
+{% block page_actions %}
+    <a class="btn btn-secondary" href="{{path('admin_projects')}}">Annuler</a>
+{% endblock %}
+
+{% block main %}
+    <form action="{{ path('admin_projects_edit', {'id' : project.id}) }}" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="name" id="name" class="form-control bg-transparent" value="{{project.name ?? ""}}" required>
+        </div>
+        <div class="mb-3">
+            <label for="categorie" class="form-label">Categorie</label>
+            <select class="form-select bg-transparent" name="categorie" id="categorie" required multiple>
+                {% for categorie in categories %}
+                    <option value="{{ categorie.id }}" {% if categorie in project.categorie %}selected{% endif %}>{{ categorie.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="thumbnail" class="form-label">Thumbnail (Path)</label>
+            <input type="text" name="thumbnail" id="thumbnail" class="form-control bg-transparent" value="{{project.thumbnail ?? ""}}" required>
+        </div>
+        <div class="mb-3">
+            <label for="excerpt" class="form-label">Excerpt</label>
+            <input type="text" name="excerpt" id="excerpt" class="form-control bg-transparent" value="{{project.excerpt ?? ""}}" required>
+        </div>
+        <div class="mb-3">
+            <label for="createdAt" class="form-label">Created At</label>
+            <input type="date" name="createdAt" id="createdAt" class="form-control bg-transparent" value="{{project.createdAt ? project.createdAt|date('Y-m-d') : ""}}" required>
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            <textarea name="content" id="content" cols="30" rows="10" class="form-control bg-transparent" required>{{project.content ?? ""}}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enregistrer</button>
+    </form>
+{% endblock %}

@@ -5,26 +5,34 @@
 {% endblock %}
 
 {% block main %}
-    <form action="{{path('admin_projects_new')}}" method="POST">
-        <div>
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name">
+    <form action="{{ path('admin_projects_new') }}" method="POST">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="name" id="name" class="form-control bg-transparent" required>
         </div>
-        <div>
-            <label for="thumbnail">Thumbnail</label>
-            <input type="text" name="thumbnail" id="thumbnail">
+        <div class="mb-3">
+            <label for="categorie" class="form-label">Categorie</label>
+            <select class="form-select bg-transparent" name="categorie" id="categorie" required multiple> 
+                {% for categorie in categories %}
+                    <option value="{{ categorie.id }}">{{ categorie.name }}</option>
+                {% endfor %}
+            </select>
         </div>
-        <div>
-            <label for="excerpt">Excerpt</label>
-            <input type="text" name="excerpt" id="excerpt">
+        <div class="mb-3">
+            <label for="thumbnail" class="form-label">Thumbnail (Path)</label>
+            <input type="text" name="thumbnail" id="thumbnail" class="form-control bg-transparent" required>
         </div>
-        <div>
-            <label for="createdAt">Created At</label>
-            <input type="time" name="createdAt" id="createdAt">
+        <div class="mb-3">
+            <label for="excerpt" class="form-label">Excerpt</label>
+            <input type="text" name="excerpt" id="excerpt" class="form-control bg-transparent" required>
         </div>
-        <div>
-            <label for="content">Content</label>
-            <textarea name="content" id="content" cols="30" rows="10"></textarea>
+        <div class="mb-3">
+            <label for="createdAt" class="form-label">Created At</label>
+            <input type="date" name="createdAt" id="createdAt" class="form-control bg-transparent" required>
+        </div>
+        <div class="mb-3">
+            <label for="content" class="form-label">Content</label>
+            <textarea name="content" id="content" cols="30" rows="10" class="form-control bg-transparent" required></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Créer</button>
     </form>

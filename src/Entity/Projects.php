@@ -27,11 +27,11 @@ class Projects
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $thumbnail = null;
 
-    #[ORM\Column(nullable: true)]
-    private array $content = [];
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $content = null;
 
     #[ORM\Column]
-    private ?\DateTimeImmutable $createdAt = null;
+    private ?\DateTime $createdAt = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $excerpt = null;
@@ -106,24 +106,24 @@ class Projects
         return $this;
     }
 
-    public function getContent(): array
+    public function getContent(): string
     {
         return $this->content;
     }
 
-    public function setContent(?array $content): self
+    public function setContent(?string $content): self
     {
         $this->content = $content;
 
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeImmutable
+    public function getCreatedAt(): ?\DateTime
     {
         return $this->createdAt;
     }
 
-    public function setCreatedAt(\DateTimeImmutable $createdAt): self
+    public function setCreatedAt(\DateTime $createdAt): self
     {
         $this->createdAt = $createdAt;
 

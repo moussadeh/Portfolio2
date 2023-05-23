@@ -21,9 +21,6 @@ class Works
     #[ORM\Column(length: 150)]
     private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: Workstypes::class, inversedBy: 'works')]
-    private Collection $type;
-
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $url = null;
 
@@ -38,6 +35,9 @@ class Works
 
     #[ORM\Column(length: 255)]
     private ?string $job = null;
+
+    #[ORM\ManyToOne(inversedBy: 'works')]
+    private ?WorksTypes $type = null;
 
     public function __construct()
     {
@@ -69,30 +69,6 @@ class Works
     public function setName(string $name): self
     {
         $this->name = $name;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection<int, Workstypes>
-     */
-    public function getType(): Collection
-    {
-        return $this->type;
-    }
-
-    public function addType(Workstypes $type): self
-    {
-        if (!$this->type->contains($type)) {
-            $this->type->add($type);
-        }
-
-        return $this;
-    }
-
-    public function removeType(Workstypes $type): self
-    {
-        $this->type->removeElement($type);
 
         return $this;
     }
@@ -153,6 +129,18 @@ class Works
     public function setJob(string $job): self
     {
         $this->job = $job;
+
+        return $this;
+    }
+
+    public function getType(): ?WorksTypes
+    {
+        return $this->type;
+    }
+
+    public function setType(?WorksTypes $type): self
+    {
+        $this->type = $type;
 
         return $this;
     }

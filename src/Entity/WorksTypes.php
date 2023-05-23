@@ -21,7 +21,7 @@ class WorksTypes
     #[ORM\Column(length: 255)]
     private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: Works::class, mappedBy: 'type')]
+    #[ORM\OneToMany(mappedBy: 'type', targetEntity: Works::class)]
     private Collection $works;
 
     public function __construct()
@@ -70,7 +70,7 @@ class WorksTypes
     {
         if (!$this->works->contains($work)) {
             $this->works->add($work);
-            $work->addType($this);
+            $work->setType($this);
         }
 
         return $this;
@@ -79,9 +79,13 @@ class WorksTypes
     public function removeWork(Works $work): self
     {
         if ($this->works->removeElement($work)) {
-            $work->removeType($this);
+            // set the owning side to null (unless already changed)
+            if ($work->getType() === $this) {
+                $work->setType(null);
+            }
         }
 
         return $this;
     }
+
 }
