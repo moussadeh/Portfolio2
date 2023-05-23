@@ -11,24 +11,24 @@ btn:
 
 aboutMe:
   title: "À propos de moi"
-  content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum possimus quam autem vel ab iusto architecto non accusamus? Vel dolorum debitis quasi consequatur, id minima voluptatibus aperiam quaerat ducimus repellendus!"
+  content: "J'aime découvrir et comprendre le fonctionnement des objets, des mécanismes etc. Attiré par la technologie et le numérique je me suis tourné vers le monde du digital. Après le bac j'ai rejoins l'école MyDigitalSchool d'Angers pour y suivre une formation de 3 ans en Webdesign et développement web. J'ai pu y acquérir des compétences en développement web, webdesign, communication, marketing, gestion de projet et bien d'autres."
 
 works:
   title: "Expérience professionnelle"
-  content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum possimus quam autem vel ab iusto architecto non accusamus? Vel dolorum debitis quasi consequatur, id minima voluptatibus aperiam quaerat ducimus repellendus!"
+  content: "Ma formations au sein de MyDigitalSchool m'a permis d'acquérir des expériences professionnelles au sein de plusieurs entreprises que ce soit en alternance ou en stage."
   list: "Liste de mes expériences professionnelles"
 
 project:
   title: "Réalisations"
-  content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum possimus quam autem vel ab iusto architecto non accusamus? Vel dolorum debitis quasi consequatur, id minima voluptatibus aperiam quaerat ducimus repellendus!"
+  content: "Durant ces expériences professionelles et le temps passé à l'école auprès d'intervenant du monde du web, j'ai pu travailler sur des projets de création ou de refonte de site web, de la création de template, du référencement, du motion design ainsi pleins d'autres domaines. Voici quelques exemples de projets sur lesquels j'ai pu travailler."
 
 specialties:
   title: "Spécialités"
-  content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum possimus quam autem vel ab iusto architecto non accusamus?"
+  content: "Mes expériences et mon parcours m'ont permis de solidifier mes compétences dans plusieurs domaines du web. Voici quelques exemples de mes spécialités."
 
 contact:
   title: "Me contacter"
-  content: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsum possimus quam autem vel ab iusto architecto non accusamus?"
+  content: "Vous avez un projet ou une question ? N'hésitez pas à me contacter via le formulaire ci-dessous ou par mail à l'adresse"
 
 erreur:
   4xx: 

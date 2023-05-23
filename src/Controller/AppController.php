@@ -46,6 +46,13 @@ class AppController extends AbstractController
         // dd($request->request->all());
 
         try {
+            $errors = $this->validate($request, [
+                'firstname' => 'required',
+                'lastname' => 'required',
+                'email' => 'required|email',
+                'subject' => 'required',
+                'message' => 'required',
+            ]);
             $username = $request->request->get('firstname') .' '.$request->request->get('lastname');
             $email = (new TemplatedEmail())
             ->from(new Address($request->request->get('email'), 'Contact : '. $username))
