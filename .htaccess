@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Bloquer l'accès à la racine
+RewriteCond %{REQUEST_URI} ^/$
+RewriteRule ^ - [F]
+
+# Autoriser l'accès au répertoire /public/
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^ - [F]

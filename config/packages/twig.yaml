@@ -37,38 +37,39 @@ twig:
         ]
         statistics: [
             {
-                'name': "d'expérience professionnelle",
+                'name': "Expérience professionnelle",
                 'value': "2 ans",
             },
             {
-                'name': "lorem ipusm dolor sit",
-                'value': "15",
+                'name': "Passé en entreprise",
+                'value': "+800 h",
             },
             {
-                'name': "lorem ipusm dolor sit",
-                'value': "+200 h",
+                'name': "de nuit blanche passé sur des projets",
+                'value': "+20h",
             },
+            
         ]
 
         specialties: [
             {
-                'icon': "fa-solid fa-layer-group",
-                'name': "Lorem ipusm dolor sit",
+                'icon': "fa-solid fa-cube",
+                'name': "Web Design",
                 'content': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero non reprehenderit accusamus possimus, voluptatem dolorum minus aliquam ipsam quos!",
             },
             {
-                'icon': "fa-solid fa-layer-group",
-                'name': "Lorem ipusm dolor sit",
+                'icon': "fa-solid fa-microchip",
+                'name': "Web developpement",
                 'content': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero non reprehenderit accusamus possimus, voluptatem dolorum minus aliquam ipsam quos!",
             },
             {
-                'icon': "fa-solid fa-layer-group",
-                'name': "Lorem ipusm dolor sit",
+                'icon': "fa-solid fa-gears",
+                'name': "Référencement",
                 'content': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero non reprehenderit accusamus possimus, voluptatem dolorum minus aliquam ipsam quos!",
             },
             {
-                'icon': "fa-solid fa-layer-group",
-                'name': "Lorem ipusm dolor sit",
+                'icon': "fa-solid fa-film",
+                'name': "Motion design",
                 'content': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero non reprehenderit accusamus possimus, voluptatem dolorum minus aliquam ipsam quos!",
             }
         ]
@@ -132,27 +133,87 @@ twig:
             {
                 'name': "Find Your Horse",
                 'thumbnail': find-your-horse/find-your-horse,
+                'categorie': "Innov'data",
                 'url': "https://www.find-your-horse.fr/",
                 'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
             },
             {
-                'name': "Find Your Horse",
+                'name': "Template Lucie - Centre équestre d'Idoine",
+                'thumbnail': template-lucie/template-lucie,
+                'categorie': "Innov'data",
+                'url': "https://centre-equestre-ecurie-didoine.fr/",
+                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
+            },
+            {
+                'name': "Template Léo - Ecurie d'Estang",
+                'thumbnail': template-leo/template-leo,
+                'categorie': "Innov'data",
+                'url': "https://ecuriesestang.fr/",
+                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
+            },
+            {
+                'name': "Template Arthur - Ecurie d'Estang",
+                'thumbnail': template-arthur/template-arthur,
+                'categorie': "Innov'data",
+                'url': "https://www.lesecuriesdelacanterie.fr/",
+                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
+            },
+            {
+                'name': "French DTF",
+                'thumbnail': french-dtf/french-dtf,
+                'categorie': "Innov'data",
+                'url': "https://www.lesecuriesdelacanterie.fr/",
+                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
+            },
+            {
+                'name': "Maquette pays Basque",
+                'thumbnail': maquettes-ui-pays-basque/maquettes-ui-pays-basque,
+                'categorie': "Projet d'école",
+                'url': "https://www.lesecuriesdelacanterie.fr/",
+                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
+            },
+            {
+                'name': "Maquette Produit Tech",
+                'thumbnail': maquettes-ui-produit-tech/maquettes-ui-produit-tech,
+                'categorie': "Projet d'école",
+                'url': "https://www.lesecuriesdelacanterie.fr/",
+                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
+            },
+            {
+                'name': "Motion design - Logo",
                 'thumbnail': find-your-horse/find-your-horse,
+                'categorie': "Projet d'école",
+                'url': "https://www.lesecuriesdelacanterie.fr/",
+                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
+            },
+            {
+                'name': "Motion design - Rest'au Frigo",
+                'thumbnail': find-your-horse/find-your-horse,
+                'categorie': "Projet d'école",
+                'url': "https://www.lesecuriesdelacanterie.fr/",
+                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
+            },
+            {
+                'name': "Motion design - Kaze",
+                'thumbnail': find-your-horse/find-your-horse,
+                'categorie': "Projet d'école",
+                'url': "https://www.lesecuriesdelacanterie.fr/",
+                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
+            },
+            {
+                'name': "Kaze",
+                'thumbnail': kaze/kaze,
+                'categorie': "Projet d'école",
                 'url': "https://www.find-your-horse.fr/",
                 'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
             },
             {
-                'name': "Find Your Horse",
-                'thumbnail': find-your-horse/find-your-horse,
-                'url': "https://www.find-your-horse.fr/",
+                'name': "Rest'au Frigo",
+                'thumbnail': rest-au-frigo/rest-au-frigo,
+                'categorie': "Projet d'école",
+                'url': "https://rest-au-frigo.netlify.app/",
                 'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
-            },
-            {
-                'name': "Find Your Horse",
-                'thumbnail': find-your-horse/find-your-horse,
-                'url': "https://www.find-your-horse.fr/",
-                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
-            },
+            },                  
         ]
         
 
