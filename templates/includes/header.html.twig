@@ -9,7 +9,7 @@
         <ul class="nav__list">
             {% for item in menu %}
                 <li class="hidden lg:inline-flex">
-                    <a href="{{item.url}}" class=" link-white">{{item.name}}</a>
+                    <a href="{{app.request.getSchemeAndHttpHost() ~ item.url}}" class=" link-white">{{item.name}}</a>
                 </li>
             {% endfor %}
             {% for social in socials %}

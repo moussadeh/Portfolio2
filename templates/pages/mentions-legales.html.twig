@@ -7,6 +7,44 @@
 {% block stylesheets %}
 {% endblock %}
 {% block body %}
+<main class="min-h-screen">
+    <section class="layout-padding bg-secondary">
+        <div class="container">
+            <div class="titles titles-center">
+                <div class="custom-line-center custom-line-secondary titles__header">
+                    <h1 class="title__h1 text-primary">Mentions Légales</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="layout-padding">
+        <div class="container">
+            <div class="titles">
+                <div class="custom-line-left titles__header js-title-move">
+                    <h2 class="title__h2">Éditeur</h2>
+                </div>
+                <ul>
+                    <li>Directeur de publication : Pierre Pineau</li>
+                    <li>Email : {{CONTACT_EMAIL}}</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="layout-padding">
+        <div class="container">
+            <div class="titles titles-right">
+                <div class="custom-line-right titles__header js-title-move">
+                    <h2 class="title__h2">Hébergeur</h2>
+                </div>
+                <ul>
+                    <li>Hébergeur : OVH</li>
+                    <li>Siège social : 2 rue Kellermann - 59100 Roubaix - France</li>
+                    <li>Numéro de téléphone : 09 72 10 10 07</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}
 {% block javascripts %}
 {% endblock %}
