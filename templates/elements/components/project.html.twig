@@ -2,8 +2,8 @@
     <span class="title__h3 project__name">{{project.name}}</span>
     {% set baseProject = './assets/img/projects/' ~ project.thumbnail ~ '/' ~ project.thumbnail %}
     <picture class="project__img">
-        <source srcset="{{asset(baseProject ~ '-sm.webp')}} 300w,
-                        {{asset(baseProject ~ '-md.webp')}} 600w" type="image/webp">
+        {# <source srcset="{{asset(baseProject ~ '-sm.webp')}} 300w,
+                        {{asset(baseProject ~ '-md.webp')}} 600w" type="image/webp"> #}
         <source srcset="{{asset(baseProject ~ '-sm.png')}} 300w,
                         {{asset(baseProject ~ '-md.png')}} 600w" type="image/png">
         <img src="{{asset(baseProject ~ '-sm.png')}}" alt="{{project.name}}" loading="lazy">
