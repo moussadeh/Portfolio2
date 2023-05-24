@@ -8,10 +8,10 @@
                         {{asset(baseProject ~ '-md.png')}} 600w" type="image/png">
         <img src="{{asset(baseProject ~ '-sm.png')}}" alt="{{project.name}}" loading="lazy">
     </picture>
-    <a href="{{project.url}}" rel="nofollow" target="_blank" class="project__content">
-        <span class="text-left">{{project.categorie}}</span>
+    <a href="{{path('project', {'code': project.code})}}" class="project__content">
+        <span class="text-left">{{project.work.name}}</span>
         <h3 class="title__h3">{{project.name}}</h3>
         <p class="project__description">{{project.content}}</p>
-        <i class="fa-solid fa-arrow-up-right-from-square project__icon"></i>
+        {# <i class="fa-solid fa-arrow-up-right-from-square project__icon"></i> #}
     </a>
 </article>

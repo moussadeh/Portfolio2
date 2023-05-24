@@ -55,22 +55,22 @@ twig:
             {
                 'icon': "fa-solid fa-cube",
                 'name': "Web Design",
-                'content': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero non reprehenderit accusamus possimus, voluptatem dolorum minus aliquam ipsam quos!",
+                'content': "Conception d'interfaces attrayantes, intuitives et responsives en utilisant les principes du design graphique et de l'ergonomie pour créer des expériences visuelles captivantes et mémorables",
             },
             {
                 'icon': "fa-solid fa-microchip",
                 'name': "Web developpement",
-                'content': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero non reprehenderit accusamus possimus, voluptatem dolorum minus aliquam ipsam quos!",
+                'content': "Création de sites dynamiques et interactifs en utilisant les dernières technologies front-end et back-end pour offrir des expériences utilisateur exceptionnelles et des fonctionnalités avancées",
             },
             {
                 'icon': "fa-solid fa-gears",
                 'name': "Référencement",
-                'content': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero non reprehenderit accusamus possimus, voluptatem dolorum minus aliquam ipsam quos!",
+                'content': "Amélioration de la visibilité en ligne grâce à des stratégies SEO efficaces et à l'optimisation du site web, incluant la vitesse de chargement, le contenu et les performances globales",
             },
             {
                 'icon': "fa-solid fa-film",
                 'name': "Motion design",
-                'content': "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero non reprehenderit accusamus possimus, voluptatem dolorum minus aliquam ipsam quos!",
+                'content': "Création d'animations visuelles percutantes et engageantes pour dynamiser les contenus et communiquer efficacement les messages clés, apportant ainsi une dimension visuelle et immersive aux projets web.",
             }
         ]
         skills: [

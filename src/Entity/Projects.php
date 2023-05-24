@@ -160,12 +160,12 @@ class Projects
         return $this;
     }
 
-    public function getWork(): ?string
+    public function getWork(): ?Works
     {
         return $this->work;
     }
 
-    public function setWork(?string $work): self
+    public function setWork(?Works $work): self
     {
         $this->work = $work;
 

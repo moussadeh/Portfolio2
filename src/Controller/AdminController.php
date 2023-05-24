@@ -207,32 +207,8 @@ class AdminController extends AbstractDashboardController
     public function newProject(Request $request): Response
     {
         if ($request->isMethod("POST")) {
-            try {
-                $project = new Projects();
-                $project->setName($request->request->get('name'));
-                $code = $request->request->get('name');
-                $code = str_replace(' ', '-', $code);
-                $code = strtolower($code);
-                // Remove accent
-                $code = strtr($code, 'àáâãäåçèéêëìíîïñòóôõöùúûüýÿ', 'aaaaaaceeeeiiiinooooouuuuyy');
-                // Remove special characters
-                $code = preg_replace('/([^.a-z0-9]+)/i', '-', $code);
-                $project->setCode($code);
-
-                $project->setExcerpt($request->request->get('excerpt'));
-                $project->setThumbnail($request->request->get('thumbnail'));
-                $project->setContent($request->request->get('content'));
-
-                $project->setWork($this->em->getRepository(Works::class)->find($request->request->get('work')));
-                $project->addCategorie($this->em->getRepository(Categories::class)->find($request->request->get('categorie')));
-                $project->setCreatedAt(new \DateTime($request->request->get('createdAt')));
-
-                $this->em->persist($project);
-                $this->em->flush();
-            } catch (\Throwable $th) {
-                throw $th;
-            }
-
+            $project = new Projects();
+            $this->createProject($request, $project);
             return $this->redirectToRoute('admin_projects');
         }else{
             return $this->render('admin/projects/new.html.twig', 
@@ -248,31 +224,7 @@ class AdminController extends AbstractDashboardController
     {
         $project = $this->em->getRepository(Projects::class)->find($id);
         if ($request->isMethod("POST")) {
-            try {
-                $project->setName($request->request->get('name'));
-                $code = $request->request->get('name');
-                $code = str_replace(' ', '-', $code);
-                $code = strtolower($code);
-                // Remove accent
-                $code = strtr($code, 'àáâãäåçèéêëìíîïñòóôõöùúûüýÿ', 'aaaaaaceeeeiiiinooooouuuuyy');
-                // Remove special characters
-                $code = preg_replace('/([^.a-z0-9]+)/i', '-', $code);
-                $project->setCode($code);
-
-                $project->setExcerpt($request->request->get('excerpt'));
-                $project->setThumbnail($request->request->get('thumbnail'));
-                $project->setContent($request->request->get('content'));
-
-                $project->setWork($this->em->getRepository(Works::class)->find($request->request->get('work')));
-                $project->addCategorie($this->em->getRepository(Categories::class)->find($request->request->get('categorie')));
-                $project->setCreatedAt(new \DateTime($request->request->get('createdAt')));
-
-                $this->em->persist($project);
-                $this->em->flush();
-            } catch (\Throwable $th) {
-                throw $th;
-            }
-
+            $this->createProject($request, $project);
             return $this->redirectToRoute('admin_projects');
         }else{
             return $this->render('admin/projects/edit.html.twig', 
@@ -324,5 +276,34 @@ class AdminController extends AbstractDashboardController
     #[Route('/logout', name: 'app_logout')]
     public function logout(): Response
     {
+    }
+
+    public function createProject(Request $request, Projects $project)
+    {
+        try {
+            $project->setName($request->request->get('name'));
+            $code = $request->request->get('name');
+            $code = str_replace(' ', '-', $code);
+            $code = strtolower($code);
+            // Remove accent
+            $code = strtr($code, 'àáâãäåçèéêëìíîïñòóôõöùúûüýÿ', 'aaaaaaceeeeiiiinooooouuuuyy');
+            // Remove special characters
+            $code = preg_replace('/([^.a-z0-9]+)/i', '-', $code);
+            $project->setCode($code);
+
+            $project->setExcerpt($request->request->get('excerpt'));
+            $project->setThumbnail($request->request->get('thumbnail'));
+            $project->setUrl($request->request->get('url'));
+            $project->setContent($request->request->get('content'));
+
+            $project->setWork($this->em->getRepository(Works::class)->find($request->request->get('work')));
+            $project->addCategorie($this->em->getRepository(Categories::class)->find($request->request->get('categorie')));
+            $project->setCreatedAt(new \DateTime($request->request->get('createdAt')));
+
+            $this->em->persist($project);
+            $this->em->flush();
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }

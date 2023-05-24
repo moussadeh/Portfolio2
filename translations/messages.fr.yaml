@@ -1,6 +1,6 @@
 hero:
   title: "Webdesigner & développeur web"
-  content: "Je suis Webdesigner et Développeur fullstack, mes collègues me surnomme <strong class=\"text-white\">Le couteau suisse</strong>. Ma curiosité et mon appétence pour le développement ainsi que les autres domaines du web m'ont permis d'aquérir un pannel de compétence diversifié."
+  content: "Je suis Webdesigner et Développeur fullstack, mes collègues me surnomme <strong class=\"text-white\">Le couteau suisse</strong>. Ma curiosité et mon appétence pour le développement ainsi que les autres domaines du web m'ont permis d'acquérir un panel de compétence diversifié"
 
 btn:
   linkedin: "Me contacter sur Linkedin"
@@ -11,7 +11,7 @@ btn:
 
 aboutMe:
   title: "À propos de moi"
-  content: "J'aime découvrir et comprendre le fonctionnement des objets, des mécanismes etc. Attiré par la technologie et le numérique je me suis tourné vers le monde du digital. Après le bac j'ai rejoins l'école MyDigitalSchool d'Angers pour y suivre une formation de 3 ans en Webdesign et développement web. J'ai pu y acquérir des compétences en développement web, webdesign, communication, marketing, gestion de projet et bien d'autres."
+  content: "Je suis passionné par la découverte et la compréhension du fonctionnement des objets, des mécanismes et des technologies. Attiré par le monde de la technologie et du numérique, j'ai décidé de me diriger vers le domaine du digital.<br><br> Après le bac j'ai intégré l'école MyDigitalSchool d'Angers, où j'ai suivi une formation de 3 ans en Webdesign et développement web. J'ai pu y acquérir des compétences en développement web, webdesign, communication, marketing, gestion de projet et bien d'autres."
 
 works:
   title: "Expérience professionnelle"
@@ -20,15 +20,15 @@ works:
 
 project:
   title: "Réalisations"
-  content: "Durant ces expériences professionelles et le temps passé à l'école auprès d'intervenant du monde du web, j'ai pu travailler sur des projets de création ou de refonte de site web, de la création de template, du référencement, du motion design ainsi pleins d'autres domaines. Voici quelques exemples de projets sur lesquels j'ai pu travailler."
+  content: "Au cours de ces expériences professionnelles et de ma formation à l'école aux côtés d'intervenants spécialisés dans le domaine du web, j'ai eu l'opportunité de travailler sur divers projets de création ou de refonte de sites web"
 
 specialties:
   title: "Spécialités"
-  content: "Mes expériences et mon parcours m'ont permis de solidifier mes compétences dans plusieurs domaines du web. Voici quelques exemples de mes spécialités."
+  content: "Grâce à mes expériences professionnelles et à mon parcours, j'ai pu consolider mes compétences dans plusieurs domaines du web. Voici quelques exemples de mes domaines d'expertise."
 
 contact:
   title: "Me contacter"
-  content: "Vous avez un projet ou une question ? N'hésitez pas à me contacter via le formulaire ci-dessous ou par mail à l'adresse"
+  content: "Si vous avez un projet ou une question, n'hésitez pas à me contacter en utilisant le formulaire ci-dessous ou en m'envoyant un e-mail à l'adresse suivante"
 
 erreur:
   4xx: 
@@ -70,10 +70,10 @@ work:
     dev: "Développeur web"
   innovdata:
     name: "Innov'data"
-    content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt.  obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt.'
+    content: "J'ai réalisé 2 ans d'alternance au sein d'INNOV'DATA, une agence de développement de solutions numériques basée au Ponts-de-cé. <br><br> Au cours de cette alternance, j'ai pu enrichir mes connaissances et découvrir de nouvelles méthodes de développement. Mon objectif était d'explorer des approches de développement plus performantes tout en continuant à développer mes compétences en design, développement web, motion design et référencement. J'ai dépassé mes attentes en apprenant les frameworks Symfony/Tailwind, en acquérant de nouveaux langages et en maîtrisant la méthodologie BEM. Mes missions de développement ont été très diversifié, me permetant renforcer mes connaissances que ce soit en Front-End ou Back-End"
   expertviseo:
     name: "Expert Viséo"
-    content: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt.  obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt. Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt.  obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt.'
+    content: "J'ai réalisé mon stage au sein d'Expert VISEO, une agence de référencement web basée à Angers. L'agence a été fondée par Kévin GAMBIN en septembre 2014. <br><br> Ce stage m'a permis de découvrir et d'approfondir mes connaissances dans les domaines du référencement et du développement web. J'ai dépassé mes attentes en apprenant davantage sur le référencement et en acquérant des compétences en gestion du temps et en travail d'équipe. Bien que mes missions de développement web aient été limitées, j'ai pu améliorer mes compétences sur WordPress. J'ai également renforcé mes compétences en rédaction et en organisation grâce à la rédaction de rapports de stage. En résumé, ce stage m'a apporté une solide compréhension du référencement, ainsi que des compétences précieuses pour mon parcours professionnel."
 
 back:
   title: "Retour à l'accueil"
