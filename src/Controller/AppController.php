@@ -19,9 +19,11 @@ use Symfony\Component\Routing\Annotation\Route;
 class AppController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function index(): Response
+    public function index(EntityManagerInterface $entityManager): Response
     {
+        $projects = $entityManager->getRepository(Projects::class)->findByFilter();
         return $this->render('pages/home.html.twig',[
+            'projects' => $projects
         ]);
     }
     

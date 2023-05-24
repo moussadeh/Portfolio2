@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\ProjectsRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ProjectsRepository::class)]
@@ -27,7 +28,7 @@ class Projects
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $thumbnail = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $content = null;
 
     #[ORM\Column]
