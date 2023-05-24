@@ -11,8 +11,8 @@
         {% set baseImg = './assets/img/projects/' ~ project.thumbnail ~ "/"~ project.thumbnail %}
         <div class="w-full mx-auto sm:max-w-[600px] flex-shrink-0 overflow-hidden rounded-md">
             <picture class="w-full max-w-[600px] max-h-[300px]">
-                <source srcset="{{asset(baseImg ~ '-sm.webp')}} 280w,
-                            {{asset(baseImg ~ '-md.webp')}} 600w" type="image/webp">
+                {# <source srcset="{{asset(baseImg ~ '-sm.webp')}} 280w,
+                            {{asset(baseImg ~ '-md.webp')}} 600w" type="image/webp"> #}
                 <source srcset="{{asset(baseImg ~ '-sm.png')}} 280w,
                                 {{asset(baseImg ~ '-md.png')}} 600w" type="image/png">
                 <img src="{{asset(baseImg ~ '-sm.png')}}" alt="{{project.name}}" class="object-cover object-center">
