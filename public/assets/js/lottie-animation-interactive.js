@@ -24,7 +24,7 @@ icons.forEach(icon => {
     icon.addEventListener('mouseleave', ()=> {
         stopAnimation(lottie);
     });
-    icon.addEventListener('mouseleave', ()=> {
+    icon.addEventListener('blur', ()=> {
         stopAnimation(lottie);
     });
 
