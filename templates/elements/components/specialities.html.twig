@@ -1,0 +1,17 @@
+<ul class="grid md:grid-cols-2 gap-x-4 gap-y-2 md:gap-y-4 md:gap-x-8">
+    {% for specialtie in specialties %}
+        <li class="card !items-start js-lottie-interactive" tabindex="0" aria-label="{{specialtie.name}}">
+            <span class="card__name text-primary">
+                {# <i class="{{specialtie.icon}} icon"></i> #}
+                <lottie-player
+                    class="js-lottie-icon w-12 h-12 lottie-icon"
+                    loop
+                    mode="normal"
+                    src="{{asset('assets/animation/' ~ specialtie.animation ~ '.json')}}">
+                </lottie-player>
+            </span>
+            <h3 class="title__h3 mb-4">{{specialtie.name}}</h3>
+            <p class="text-light">{{specialtie.content}}</p>
+        </li>
+    {% endfor %}
+</ul>

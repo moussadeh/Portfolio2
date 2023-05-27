@@ -45,30 +45,33 @@ twig:
                 'value': "+800 h",
             },
             {
-                'name': "de nuit blanche passé sur des projets",
+                'name': "Nuit blanche passé sur des projets",
                 'value': "+20h",
-            },
-            
+            }, 
         ]
 
         specialties: [
             {
-                'icon': "fa-solid fa-cube",
+                'icon': "fa-solid fa-pen-to-square",
+                'animation': "web-design",
                 'name': "Web Design",
                 'content': "Conception d'interfaces attrayantes, intuitives et responsives en utilisant les principes du design graphique et de l'ergonomie pour créer des expériences visuelles captivantes et mémorables",
             },
             {
                 'icon': "fa-solid fa-microchip",
+                'animation': "dev",
                 'name': "Web developpement",
                 'content': "Création de sites dynamiques et interactifs en utilisant les dernières technologies front-end et back-end pour offrir des expériences utilisateur exceptionnelles et des fonctionnalités avancées",
             },
             {
                 'icon': "fa-solid fa-gears",
+                'animation': "seo",
                 'name': "Référencement",
                 'content': "Amélioration de la visibilité en ligne grâce à des stratégies SEO efficaces et à l'optimisation du site web, incluant la vitesse de chargement, le contenu et les performances globales",
             },
             {
                 'icon': "fa-solid fa-film",
+                'animation': "motion-design",
                 'name': "Motion design",
                 'content': "Création d'animations visuelles percutantes et engageantes pour dynamiser les contenus et communiquer efficacement les messages clés, apportant ainsi une dimension visuelle et immersive aux projets web.",
             }

@@ -102,4 +102,13 @@ class AppController extends AbstractController
         }
         
     }
+
+
+
+    #[Route('/animation-lottie', name: 'lottie')]
+    public function animationLottie(): Response
+    {
+        return $this->render('pages/animation-lottie.html.twig',[         
+        ]);
+    }
 }

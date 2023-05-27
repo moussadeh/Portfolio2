@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Portfolio{% endblock %}
+{% block description %}Découvrez mes réalisations en développement web et design. Explorez mon portfolio pour voir mes projets de sites internet et d'applications. Contactez-moi pour discuter de votre projet{% endblock %}
+{% block indexation %}noindex, nofollow{% endblock %}
+
+{% block stylesheets %}
+{% endblock %}
+{% block body %}
+<main>
+    <section class="layout-padding  min-h-screen flex flex-col justify-start items-center">
+        <div class="container items-center">
+            <h1 class="title__h1 text-center mb-8">Animations</h1>
+            <h2 class="title__h2">Logo</h2> 
+            <div class="max-w-[300px] max-h-[300px]">
+                <lottie-player
+                    id="loader-animation"
+                    autoplay
+                    loop
+                    mode="normal"
+                    src="{{asset('assets/animation/logo.json')}}">
+                </lottie-player>
+            </div>
+            <h2 class="title__h2 mt-8">404</h2>
+            <div class="max-w-[400px] max-h-[400px]">
+                <lottie-player
+                    id="404-animation"
+                    autoplay
+                    loop
+                    mode="normal"
+                    src="{{asset('assets/animation/404.json')}}">
+                </lottie-player>
+            </div>
+            <i class="text-sm">Illustration réalisée par <a href="https://storyset.com/web" rel="nofollow" target="_blank" class="link-primary !text-sm">Web illustrations by Storyset</a>, animation faite par <a href="{{path('home')}}" class="link-white !text-sm">Pierre Pineau</a></i>
+            <h2 class="title__h2 mt-8">Grid</h2>
+            <div class="max-w-[125px] max-h-[125px] mt-8">
+                <lottie-player
+                    id="grid-animation"
+                    autoplay
+                    loop
+                    mode="normal"
+                    src="{{asset('assets/animation/grid.json')}}">
+                </lottie-player>
+            </div>
+            <h2 class="title__h2 my-8">Animation intéractive (Hover des cards)</h2>
+            {% include "elements/components/specialities.html.twig" %}
+        </div>
+        
+
+        
+    </section>
+</main>
+{% endblock %}
+{% block javascripts %}
+<script src="{{asset('assets/js/lottie-animation-interactive.js')}}"></script>
+{% endblock %}

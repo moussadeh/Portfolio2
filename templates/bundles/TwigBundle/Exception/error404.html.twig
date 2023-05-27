@@ -6,8 +6,18 @@
 
 {% block body %}
 
-    <section class="layout-padding  min-h-screen flex flex-col justify-center items-center">
+    <section class="layout-padding  min-h-screen flex flex-col justify-start items-center">
+        <div class="max-w-[400px] max-h-[400px]">
+            <lottie-player
+                id="404-animation"
+                autoplay
+                loop
+                mode="normal"
+                src="{{asset('assets/animation/404.json')}}">
+            </lottie-player>
+        </div>
         <div class="container gap-8 items-center">
+            <i class="text-sm text-center">Illustration réalisée par <a href="https://storyset.com/web" rel="nofollow" target="_blank" class="link-primary !text-sm">Web illustrations by Storyset</a>, animation faite par <a href="{{path('home')}}" class="link-white !text-sm">Pierre Pineau</a></i>
             <h1 class="title__h1 text-center">{{status_code}} | {{'erreur.4xx.title'|trans}}</h1>
             <p class="text-center">{{'erreur.4xx.content'|trans}}</p>
             <a href="{{path('home')}}" class="btn-white">

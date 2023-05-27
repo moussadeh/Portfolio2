@@ -30,6 +30,9 @@
                 font-size: 3rem;
             }
         }
+        .lottie-icon{
+            fill: $primary;
+        }
     }
 
     &__timeline{
@@ -56,6 +59,9 @@
         .card__name{
             color: white !important;
             transform: translate(space(1), -60%);
+            .lottie-icon{
+                fill: white;
+            }
         }
     }
 }
