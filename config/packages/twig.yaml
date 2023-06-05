@@ -41,12 +41,12 @@ twig:
                 'value': "2 ans",
             },
             {
-                'name': "Passé en entreprise",
+                'name': "Passées en entreprise",
                 'value': "+800 h",
             },
             {
-                'name': "Nuit blanche passé sur des projets",
-                'value': "+20h",
+                'name': "Nuit blanche passée sur des projets",
+                'value': "+20 h",
             }, 
         ]
 

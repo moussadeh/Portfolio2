@@ -36,7 +36,7 @@
         </tbody>
     </table>
     {% if nbProjects is defined and nbProjects > 10 %}
-        <nav>
+        <nav aria-label="Navigation secondaire autres projets">
             <ul>
             {% set nbPages = (nbProjects / 10)|round(0, 'ceil') %}
                 {% for i in 1..nbPages %}
