@@ -208,7 +208,7 @@ class AdminController extends AbstractDashboardController
     {
         if ($request->isMethod("POST")) {
             $project = new Projects();
-            $this->createProject($request, $project);
+            $this->saveProject($request, $project);
             return $this->redirectToRoute('admin_projects');
         }else{
             return $this->render('admin/projects/new.html.twig', 
@@ -224,7 +224,9 @@ class AdminController extends AbstractDashboardController
     {
         $project = $this->em->getRepository(Projects::class)->find($id);
         if ($request->isMethod("POST")) {
-            $this->createProject($request, $project);
+            // $project->getCategorie()->clear();
+            // $this->em->flush();
+            $this->saveProject($request, $project);
             return $this->redirectToRoute('admin_projects');
         }else{
             return $this->render('admin/projects/edit.html.twig', 
@@ -278,7 +280,7 @@ class AdminController extends AbstractDashboardController
     {
     }
 
-    public function createProject(Request $request, Projects $project)
+    public function saveProject(Request $request, Projects $project)
     {
         try {
             $project->setName($request->request->get('name'));
@@ -295,9 +297,12 @@ class AdminController extends AbstractDashboardController
             $project->setThumbnail($request->request->get('thumbnail'));
             $project->setUrl($request->request->get('url'));
             $project->setContent($request->request->get('content'));
-
             $project->setWork($this->em->getRepository(Works::class)->find($request->request->get('work')));
-            $project->addCategorie($this->em->getRepository(Categories::class)->find($request->request->get('categorie')));
+
+            $project->getCategorie()->clear();
+            foreach ($request->request->all('categories') as $idCategorie) {
+                $project->addCategorie($this->em->getRepository(Categories::class)->find($idCategorie));
+            }
             $project->setCreatedAt(new \DateTime($request->request->get('createdAt')));
 
             $this->em->persist($project);

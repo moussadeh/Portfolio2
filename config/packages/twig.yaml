@@ -134,13 +134,6 @@ twig:
 
         projects: [
             {
-                'name': "Find Your Horse",
-                'thumbnail': find-your-horse/find-your-horse,
-                'categorie': "Innov'data",
-                'url': "https://www.find-your-horse.fr/",
-                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
-            },
-            {
                 'name': "Template Lucie - Centre équestre d'Idoine",
                 'thumbnail': template-lucie/template-lucie,
                 'categorie': "Innov'data",
@@ -169,17 +162,10 @@ twig:
                 'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
             },
             {
-                'name': "Maquette pays Basque",
-                'thumbnail': maquettes-ui-pays-basque/maquettes-ui-pays-basque,
-                'categorie': "Projet d'école",
-                'url': "https://www.lesecuriesdelacanterie.fr/",
-                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
-            },
-            {
                 'name': "Maquette Produit Tech",
                 'thumbnail': maquettes-ui-produit-tech/maquettes-ui-produit-tech,
                 'categorie': "Projet d'école",
-                'url': "https://www.lesecuriesdelacanterie.fr/",
+                'url': "",
                 'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
             },
             {
@@ -188,35 +174,7 @@ twig:
                 'categorie': "Projet d'école",
                 'url': "https://www.lesecuriesdelacanterie.fr/",
                 'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
-            },
-            {
-                'name': "Motion design - Rest'au Frigo",
-                'thumbnail': find-your-horse/find-your-horse,
-                'categorie': "Projet d'école",
-                'url': "https://www.lesecuriesdelacanterie.fr/",
-                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
-            },
-            {
-                'name': "Motion design - Kaze",
-                'thumbnail': find-your-horse/find-your-horse,
-                'categorie': "Projet d'école",
-                'url': "https://www.lesecuriesdelacanterie.fr/",
-                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
-            },
-            {
-                'name': "Kaze",
-                'thumbnail': kaze/kaze,
-                'categorie': "Projet d'école",
-                'url': "https://www.find-your-horse.fr/",
-                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
-            },
-            {
-                'name': "Rest'au Frigo",
-                'thumbnail': rest-au-frigo/rest-au-frigo,
-                'categorie': "Projet d'école",
-                'url': "https://rest-au-frigo.netlify.app/",
-                'content': "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsa, rem repellat? Veniam obcaecati in eius, architecto nisi explicabo id amet? Quasi ipsa quod sapiente aperiam dolorum quam molestias, nam nesciunt"
-            },                  
+            },                 
         ]
         
 

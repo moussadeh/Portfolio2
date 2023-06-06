@@ -20,7 +20,7 @@
         </div>
         <div class="mb-3">
             <label for="categorie" class="form-label">Categorie</label>
-            <select class="form-select bg-transparent" name="categorie" id="categorie" required multiple> 
+            <select class="form-select bg-transparent" name="categories[]" id="categorie" required multiple> 
                 {% for categorie in categories %}
                     <option value="{{ categorie.id }}">{{ categorie.name }}</option>
                 {% endfor %}
