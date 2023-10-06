@@ -181,15 +181,64 @@ class AdminController extends AbstractDashboardController
             'remember_me_label' => 'Se souvenir de moi',
         ]);
     }
-    
 
     #[Route('/admin/categories', name: 'admin_categories')]
     public function indexCategories(): Response
     {
         $categories = $this->em->getRepository(Categories::class)->findAll();
+        // dd($categories);
         return $this->render('admin/categories/index.html.twig', [
             'categories' => $categories
         ]);
+    }
+
+    #[Route('/admin/categories/new', name: 'admin_categories_new')]
+    public function newCategories(Request $request): Response
+    {
+        if ($request->isMethod("POST")) {
+            $categorie = new Categories();
+            $this->saveCategorie($request, $categorie);
+            return $this->redirectToRoute('admin_categories');
+        }else{
+            return $this->render('admin/categories/new.html.twig', 
+            [
+            ]);
+        }
+    }
+
+    // #[Route('/admin/categories/{id}/edit', name: 'admin_categories_edit')]
+    // public function editCategories(): Response
+    // {
+    //     $categorie = $this->em->getRepository(Categories::class)->find($id);
+    //     if ($request->isMethod("POST")) {
+    //         $this->saveCategorie($request, $categorie);
+    //         return $this->redirectToRoute('admin_categories');
+    //     }else{
+    //         return $this->render('admin/categories/edit.html.twig', 
+    //         [
+    //             'categorie' => $categorie,
+    //         ]);
+    //     }
+    // }
+
+    #[Route('/admin/categories/{id}/delete', name: 'admin_categories_delete')]
+    public function deleteCategories($id, Request $request): Response
+    {
+        $categorie = $this->em->getRepository(Categories::class)->find($id);
+        if ($request->isMethod("POST")) {
+            try {
+                $this->em->remove($categorie);
+                $this->em->flush();
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+            return $this->redirectToRoute('admin_categories');
+        }else{
+            return $this->render('admin/categories/delete.html.twig', 
+            [
+                'categorie' => $categorie,
+            ]);
+        }
     }
 
     #[Route('/admin/projects', name: 'admin_projects')]
@@ -219,7 +268,7 @@ class AdminController extends AbstractDashboardController
         }
     }
 
-    #[Route('/admin/projects/edit/{id}', name: 'admin_projects_edit')]
+    #[Route('/admin/projects/{id}/edit', name: 'admin_projects_edit')]
     public function editProject(Request $request, $id): Response
     {
         $project = $this->em->getRepository(Projects::class)->find($id);
@@ -237,7 +286,7 @@ class AdminController extends AbstractDashboardController
             ]);
         }
     }
-    #[Route('/admin/projects/delete/{id}', name: 'admin_projects_delete')]
+    #[Route('/admin/projects/{id}/delete', name: 'admin_projects_delete')]
     public function deleteProject(Request $request, $id): Response
     {
         $project = $this->em->getRepository(Projects::class)->find($id);
@@ -266,6 +315,54 @@ class AdminController extends AbstractDashboardController
         ]);
     }
 
+    #[Route('/admin/specialities/new', name: 'admin_specialities_new')]
+    public function newSpecialties(Request $request): Response
+    {
+        if ($request->isMethod("POST")) {
+            $specialities = new Specialties();
+            $this->saveSpecialities($request, $specialities);
+            return $this->redirectToRoute('admin_specialities');
+        }else{
+            return $this->render('admin/specialities/new.html.twig', [
+            ]);
+        }
+        
+    }
+
+    #[Route('/admin/specialities/{id}', name: 'admin_specialities_edit')]
+    public function editSpecialties($id, Request $request): Response
+    {
+        $specialities = $this->em->getRepository(Specialties::class)->find($id);
+        if ($request->isMethod("POST")) {
+            $this->saveSpecialities($request, $specialities);
+            return $this->redirectToRoute('admin_specialities');
+        }else{
+            return $this->render('admin/specialities/edit.html.twig', [
+                'specialities' => $specialities
+            ]);
+        }
+    }
+
+    #[Route('/admin/specialities/{id}/delete', name: 'admin_specialities_delete')]
+    public function deleteSpecialties($id, Request $request): Response
+    {
+        $specialities = $this->em->getRepository(Specialties::class)->find($id);
+        if ($request->isMethod("POST")) {
+            try {
+                $this->em->remove($specialities);
+                $this->em->flush();
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+            return $this->redirectToRoute('admin_specialities');
+        }else{
+            return $this->render('admin/specialities/delete.html.twig',
+            [
+                'specialities' => $specialities
+            ]);
+        }
+    }
+
     #[Route('/admin/skills', name: 'admin_skills')]
     public function indexSkills(): Response
     {
@@ -275,23 +372,103 @@ class AdminController extends AbstractDashboardController
         ]);
     }
 
+    #[Route('/admin/skills/new', name: 'admin_skills_new')]
+    public function newSkills(Request $request): Response
+    {
+        if ($request->isMethod("POST")) {
+            $skills = new Skills();
+            $this->saveSkills($request, $skills);
+            return $this->redirectToRoute('admin_skills');
+        }else{
+            return $this->render('admin/skills/new.html.twig', [
+            ]);
+        }
+    }
+
+    #[Route('/admin/skills/{id}', name: 'admin_skills_edit')]
+    public function editSkills($id, Request $request): Response
+    {
+        $skills = $this->em->getRepository(Skills::class)->find($id);
+        if ($request->isMethod("POST")) {
+            $this->saveSkills($request, $skills);
+            return $this->redirectToRoute('admin_skills');
+        }else{
+            return $this->render('admin/skills/edit.html.twig', [
+                'skills' => $skills
+            ]);
+        }
+    }
+
+    #[Route('/admin/skills/{id}/delete', name: 'admin_skills_delete')]
+    public function deleteSkills($id, Request $request): Response
+    {
+        $skills = $this->em->getRepository(Skills::class)->find($id);
+        if ($request->isMethod("POST")) {
+            try {
+                $this->em->remove($skills);
+                $this->em->flush();
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+            return $this->redirectToRoute('admin_skills');
+        }else{
+            return $this->render('admin/skills/delete.html.twig',
+            [
+                'skills' => $skills
+            ]);
+        }
+    }
+
     #[Route('/logout', name: 'app_logout')]
     public function logout(): Response
     {
     }
 
-    public function saveProject(Request $request, Projects $project)
+    private function saveCategorie(Request $request, Categories $categorie)
+    {
+        try {
+            $categorie->setName($request->request->get('name'));
+            $categorie->setCode($this->getCode($request->request->get('name')));
+            $this->em->persist($categorie);
+            $this->em->flush();
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    private function saveSpecialities(Request $request, Specialties $specialitie)
+    {
+        try {
+            $specialitie->setName($request->request->get('name'));
+            $specialitie->setIcon($request->request->get('icon'));
+            $specialitie->setPosition($request->request->get('position'));
+            $specialitie->setContent($request->request->get('content'));
+            $this->em->persist($specialitie);
+            $this->em->flush();
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    private function saveSkills(Request $request, Skills $skill)
+    {
+        try {
+            $skill->setName($request->request->get('name'));
+            $skill->setIcon($request->request->get('icon'));
+            $skill->setPosition($request->request->get('position'));
+            $skill->setPercent($request->request->get('percent'));
+            $this->em->persist($skill);
+            $this->em->flush();
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    private function saveProject(Request $request, Projects $project)
     {
         try {
             $project->setName($request->request->get('name'));
-            $code = $request->request->get('name');
-            $code = str_replace(' ', '-', $code);
-            $code = strtolower($code);
-            // Remove accent
-            $code = strtr($code, 'àáâãäåçèéêëìíîïñòóôõöùúûüýÿ', 'aaaaaaceeeeiiiinooooouuuuyy');
-            // Remove special characters
-            $code = preg_replace('/([^.a-z0-9]+)/i', '-', $code);
-            $project->setCode($code);
+            $project->setCode($this->getCode($request->request->get('name')));
 
             $project->setExcerpt($request->request->get('excerpt'));
             $project->setThumbnail($request->request->get('thumbnail'));
@@ -310,5 +487,16 @@ class AdminController extends AbstractDashboardController
         } catch (\Throwable $th) {
             throw $th;
         }
+    }
+
+    private function getCode($string)
+    {
+        $code = str_replace(' ', '-', $string);
+        $code = strtolower($code);
+        // Remove accent
+        $code = strtr($code, 'àáâãäåçèéêëìíîïñòóôõöùúûüýÿ', 'aaaaaaceeeeiiiinooooouuuuyy');
+        // Remove special characters
+        $code = preg_replace('/([^.a-z0-9]+)/i', '-', $code);
+        return $code;
     }
 }

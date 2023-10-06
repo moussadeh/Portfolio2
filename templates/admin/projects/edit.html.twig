@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block main %}
-    <form action="{{ path('admin_projects_edit', {'id' : project.id}) }}" method="POST">
+    <form action="{{ path('admin_projects_edit', {'id' : project.id}) }}" method="POST" class="mb-3">
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input type="text" name="name" id="name" class="form-control bg-transparent" value="{{project.name ?? ""}}" required>

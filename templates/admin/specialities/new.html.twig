@@ -1,0 +1,12 @@
+{% extends "@EasyAdmin/page/content.html.twig" %}
+{% block content_title %}New Spécialités{% endblock %}
+{% block page_actions %}
+    <a class="btn btn-secondary" href="{{path('admin_specialities')}}">Annuler</a>
+{% endblock %}
+
+{% block main %}
+    {% include "admin/specialities/form.twig" with {
+        'formAction': path('admin_specialities_new'),
+        'btn': 'Créer'
+    } %}
+{% endblock %}

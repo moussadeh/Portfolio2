@@ -1,0 +1,15 @@
+{% extends "@EasyAdmin/page/content.html.twig" %}
+{% block content_title %}{{skills.name}}{% endblock %}
+{% block page_actions %}
+    <a class="btn btn-secondary" href="{{path('admin_skills')}}">Annuler</a>
+{% endblock %}
+
+{% block main %}
+    <form action="{{ path('admin_skills_delete', {'id' : skills.id}) }}" method="POST">
+        <label for="name" class="form-label">Confirmation de suppression : </label>
+        <div class="mb-3">
+            <a class="btn btn-secondary" href="{{path('admin_skills')}}">Annuler</a>
+            <button type="submit" class="btn btn-danger">Supprimer</button>
+        </div>
+    </form>
+{% endblock %}

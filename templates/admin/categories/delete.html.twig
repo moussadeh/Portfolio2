@@ -1,0 +1,15 @@
+{% extends "@EasyAdmin/page/content.html.twig" %}
+{% block content_title %}{{categorie.name}}{% endblock %}
+{% block page_actions %}
+    <a class="btn btn-secondary" href="{{path('admin_categories')}}">Annuler</a>
+{% endblock %}
+
+{% block main %}
+    <form action="{{ path('admin_categories_delete', {'id' : categorie.id}) }}" method="POST">
+        <label for="name" class="form-label">Confirmation de suppression : </label>
+        <div class="mb-3">
+            <a class="btn btn-secondary" href="{{path('admin_categories')}}">Annuler</a>
+            <button type="submit" class="btn btn-danger">Supprimer</button>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,19 @@
+<form action="{{ formAction }}" method="POST" class="mb-3">
+    <div class="mb-3">
+        <label for="position" class="form-label">Position</label>
+        <input type="number" name="position" id="position" class="form-control bg-transparent" required value="{{specialities.position ?? ''}}">
+    </div>
+    <div class="mb-3">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" name="name" id="name" class="form-control bg-transparent" required value="{{specialities.name ?? ''}}">
+    </div>
+    <div class="mb-3">
+        <label for="icon" class="form-label">Icon (Animation lottie)</label>
+        <input type="text" name="icon" id="icon" class="form-control bg-transparent" required value="{{specialities.icon ?? ''}}">
+    </div>
+    <div class="mb-3">
+        <label for="content" class="form-label">Content</label>
+        <textarea name="content" id="content" cols="30" rows="10" class="form-control bg-transparent" required>{{specialities.content ?? ''}}</textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">{{btn}}</button>
+</form>

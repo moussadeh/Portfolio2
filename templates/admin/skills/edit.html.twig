@@ -1,0 +1,12 @@
+{% extends "@EasyAdmin/page/content.html.twig" %}
+{% block content_title %}{{skills.name}}{% endblock %}
+{% block page_actions %}
+    <a class="btn btn-secondary" href="{{path('admin_skills')}}">Annuler</a>
+{% endblock %}
+
+{% block main %}
+    {% include "admin/skills/form.twig" with {
+        'formAction': path('admin_skills_edit', {'id' : skills.id}),
+        'btn': 'Enregistrer'
+    } %}
+{% endblock %}

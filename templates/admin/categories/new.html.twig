@@ -1,0 +1,15 @@
+{% extends "@EasyAdmin/page/content.html.twig" %}
+{% block content_title %}New categorie{% endblock %}
+{% block page_actions %}
+    <a class="btn btn-secondary" href="{{path('admin_categories')}}">Annuler</a>
+{% endblock %}
+
+{% block main %}
+    <form action="{{ path('admin_categories_new') }}" method="POST" class="mb-3">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="name" id="name" class="form-control bg-transparent" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Créer</button>
+    </form>
+{% endblock %}
