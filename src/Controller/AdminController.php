@@ -8,6 +8,7 @@ use App\Entity\Skills;
 use App\Entity\Specialties;
 use App\Entity\User;
 use App\Entity\Works;
+use App\Service\AppManager;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -182,22 +183,29 @@ class AdminController extends AbstractDashboardController
         ]);
     }
 
-    #[Route('/admin/categories', name: 'admin_categories')]
-    public function indexCategories(): Response
+    #[Route('/logout', name: 'app_logout')]
+    public function logout(): Response
     {
-        $categories = $this->em->getRepository(Categories::class)->findAll();
-        // dd($categories);
+    }
+
+
+    // ----- CATEGORIES -----
+
+    #[Route('/admin/categories', name: 'admin_categories')]
+    public function indexCategories(AppManager $appManager): Response
+    {
+        $categories = $appManager->getCategories();
         return $this->render('admin/categories/index.html.twig', [
             'categories' => $categories
         ]);
     }
 
     #[Route('/admin/categories/new', name: 'admin_categories_new')]
-    public function newCategories(Request $request): Response
+    public function newCategories(Request $request, AppManager $appManager): Response
     {
         if ($request->isMethod("POST")) {
             $categorie = new Categories();
-            $this->saveCategorie($request, $categorie);
+            $appManager->saveCategorie($request, $categorie);
             return $this->redirectToRoute('admin_categories');
         }else{
             return $this->render('admin/categories/new.html.twig', 
@@ -222,9 +230,9 @@ class AdminController extends AbstractDashboardController
     // }
 
     #[Route('/admin/categories/{id}/delete', name: 'admin_categories_delete')]
-    public function deleteCategories($id, Request $request): Response
+    public function deleteCategories($id, Request $request, AppManager $appManager): Response
     {
-        $categorie = $this->em->getRepository(Categories::class)->find($id);
+        $categorie = $appManager->getCategorie($id);
         if ($request->isMethod("POST")) {
             try {
                 $this->em->remove($categorie);
@@ -242,10 +250,10 @@ class AdminController extends AbstractDashboardController
     }
 
     #[Route('/admin/projects', name: 'admin_projects')]
-    public function indexProjects(Request $request): Response
+    public function indexProjects(Request $request, AppManager $appManager): Response
     {
-        $projects = $this->em->getRepository(Projects::class)->findByFilter($request->query->all());
-        $nbProjects = $this->em->getRepository(Projects::class)->countAll();
+        $projects = $appManager->getProjects($request->query->all());
+        $nbProjects = $appManager->getProjectsCount();
         return $this->render('admin/projects/index.html.twig', [
             'projects' => $projects,
             'nbProjects' => $nbProjects,
@@ -253,43 +261,43 @@ class AdminController extends AbstractDashboardController
         ]);
     }
     #[Route('/admin/projects/new', name: 'admin_projects_new')]
-    public function newProject(Request $request): Response
+    public function newProject(Request $request, AppManager $appManager): Response
     {
         if ($request->isMethod("POST")) {
             $project = new Projects();
-            $this->saveProject($request, $project);
+            $appManager->saveProject($request, $project);
             return $this->redirectToRoute('admin_projects');
         }else{
             return $this->render('admin/projects/new.html.twig', 
             [
-                'categories' => $this->em->getRepository(Categories::class)->findAll(),
-                'works' => $this->em->getRepository(Works::class)->findAll()
+                'categories' => $appManager->getCategories(),
+                'works' => $appManager->getWorks()
             ]);
         }
     }
 
     #[Route('/admin/projects/{id}/edit', name: 'admin_projects_edit')]
-    public function editProject(Request $request, $id): Response
+    public function editProject(Request $request, $id, AppManager $appManager): Response
     {
-        $project = $this->em->getRepository(Projects::class)->find($id);
+        $project = $appManager->getProject($id);
         if ($request->isMethod("POST")) {
             // $project->getCategorie()->clear();
             // $this->em->flush();
-            $this->saveProject($request, $project);
+            $appManager->saveProject($request, $project);
             return $this->redirectToRoute('admin_projects');
         }else{
             return $this->render('admin/projects/edit.html.twig', 
             [
                 'project' => $project,
-                'categories' => $this->em->getRepository(Categories::class)->findAll(),
-                'works' => $this->em->getRepository(Works::class)->findAll()
+                'categories' => $appManager->getCategories(),
+                'works' => $appManager->getWorks()
             ]);
         }
     }
     #[Route('/admin/projects/{id}/delete', name: 'admin_projects_delete')]
-    public function deleteProject(Request $request, $id): Response
+    public function deleteProject(Request $request, $id, AppManager $appManager): Response
     {
-        $project = $this->em->getRepository(Projects::class)->find($id);
+        $project = $appManager->getProject($id);
         if ($request->isMethod("POST")) {
             try {
                 $this->em->remove($project);
@@ -306,78 +314,22 @@ class AdminController extends AbstractDashboardController
         }
     }
 
-    #[Route('/admin/specialities', name: 'admin_specialities')]
-    public function indexSpecialties(): Response
-    {
-        $specialities = $this->em->getRepository(Specialties::class)->findAll();
-        return $this->render('admin/specialities/index.html.twig', [
-            'specialities' => $specialities
-        ]);
-    }
-
-    #[Route('/admin/specialities/new', name: 'admin_specialities_new')]
-    public function newSpecialties(Request $request): Response
-    {
-        if ($request->isMethod("POST")) {
-            $specialities = new Specialties();
-            $this->saveSpecialities($request, $specialities);
-            return $this->redirectToRoute('admin_specialities');
-        }else{
-            return $this->render('admin/specialities/new.html.twig', [
-            ]);
-        }
-        
-    }
-
-    #[Route('/admin/specialities/{id}', name: 'admin_specialities_edit')]
-    public function editSpecialties($id, Request $request): Response
-    {
-        $specialities = $this->em->getRepository(Specialties::class)->find($id);
-        if ($request->isMethod("POST")) {
-            $this->saveSpecialities($request, $specialities);
-            return $this->redirectToRoute('admin_specialities');
-        }else{
-            return $this->render('admin/specialities/edit.html.twig', [
-                'specialities' => $specialities
-            ]);
-        }
-    }
-
-    #[Route('/admin/specialities/{id}/delete', name: 'admin_specialities_delete')]
-    public function deleteSpecialties($id, Request $request): Response
-    {
-        $specialities = $this->em->getRepository(Specialties::class)->find($id);
-        if ($request->isMethod("POST")) {
-            try {
-                $this->em->remove($specialities);
-                $this->em->flush();
-            } catch (\Throwable $th) {
-                throw $th;
-            }
-            return $this->redirectToRoute('admin_specialities');
-        }else{
-            return $this->render('admin/specialities/delete.html.twig',
-            [
-                'specialities' => $specialities
-            ]);
-        }
-    }
 
     #[Route('/admin/skills', name: 'admin_skills')]
-    public function indexSkills(): Response
+    public function indexSkills(AppManager $appManager): Response
     {
-        $skills = $this->em->getRepository(Skills::class)->findAll();
+        $skills = $appManager->getSkills();
         return $this->render('admin/skills/index.html.twig', [
             'skills' => $skills
         ]);
     }
 
     #[Route('/admin/skills/new', name: 'admin_skills_new')]
-    public function newSkills(Request $request): Response
+    public function newSkills(Request $request, AppManager $appManager): Response
     {
         if ($request->isMethod("POST")) {
             $skills = new Skills();
-            $this->saveSkills($request, $skills);
+            $appManager->saveSkills($request, $skills);
             return $this->redirectToRoute('admin_skills');
         }else{
             return $this->render('admin/skills/new.html.twig', [
@@ -386,11 +338,11 @@ class AdminController extends AbstractDashboardController
     }
 
     #[Route('/admin/skills/{id}', name: 'admin_skills_edit')]
-    public function editSkills($id, Request $request): Response
+    public function editSkills($id, Request $request, AppManager $appManager): Response
     {
-        $skills = $this->em->getRepository(Skills::class)->find($id);
+        $skills = $appManager->getSkill($id);
         if ($request->isMethod("POST")) {
-            $this->saveSkills($request, $skills);
+            $appManager->saveSkills($request, $skills);
             return $this->redirectToRoute('admin_skills');
         }else{
             return $this->render('admin/skills/edit.html.twig', [
@@ -400,9 +352,9 @@ class AdminController extends AbstractDashboardController
     }
 
     #[Route('/admin/skills/{id}/delete', name: 'admin_skills_delete')]
-    public function deleteSkills($id, Request $request): Response
+    public function deleteSkills($id, Request $request, AppManager $appManager): Response
     {
-        $skills = $this->em->getRepository(Skills::class)->find($id);
+        $skills = $appManager->getSkill($id);
         if ($request->isMethod("POST")) {
             try {
                 $this->em->remove($skills);
@@ -419,84 +371,136 @@ class AdminController extends AbstractDashboardController
         }
     }
 
-    #[Route('/logout', name: 'app_logout')]
-    public function logout(): Response
+    
+    #[Route('/admin/works', name: 'admin_works')]
+    public function indexWorks(AppManager $appManager): Response
     {
+        $works = $appManager->getWorks();
+        return $this->render('admin/works/index.html.twig', [
+            'works' => $works
+        ]);
     }
 
-    private function saveCategorie(Request $request, Categories $categorie)
+    #[Route('/admin/works/new', name: 'admin_works_new')]
+    public function newWork(Request $request, AppManager $appManager): Response
     {
-        try {
-            $categorie->setName($request->request->get('name'));
-            $categorie->setCode($this->getCode($request->request->get('name')));
-            $this->em->persist($categorie);
-            $this->em->flush();
-        } catch (\Throwable $th) {
-            throw $th;
+        if ($request->isMethod("POST")) {
+            $works = new Works();
+            $appManager->saveWorks($request, $works);
+            return $this->redirectToRoute('admin_works');
+        }else{
+            return $this->render('admin/works/new.html.twig', [
+            ]);
         }
     }
 
-    private function saveSpecialities(Request $request, Specialties $specialitie)
+    #[Route('/admin/works/{id}', name: 'admin_works_edit')]
+    public function editWork($id, Request $request, AppManager $appManager): Response
     {
-        try {
-            $specialitie->setName($request->request->get('name'));
-            $specialitie->setIcon($request->request->get('icon'));
-            $specialitie->setPosition($request->request->get('position'));
-            $specialitie->setContent($request->request->get('content'));
-            $this->em->persist($specialitie);
-            $this->em->flush();
-        } catch (\Throwable $th) {
-            throw $th;
+        $works = $appManager->getWork($id);
+        if ($request->isMethod("POST")) {
+            $appManager->saveWorks($request, $works);
+            return $this->redirectToRoute('admin_works');
+        }else{
+            return $this->render('admin/works/edit.html.twig', [
+                'works' => $works
+            ]);
         }
     }
 
-    private function saveSkills(Request $request, Skills $skill)
+    #[Route('/admin/works/{id}/delete', name: 'admin_works_delete')]
+    public function deleteWork($id, Request $request, AppManager $appManager): Response
     {
-        try {
-            $skill->setName($request->request->get('name'));
-            $skill->setIcon($request->request->get('icon'));
-            $skill->setPosition($request->request->get('position'));
-            $skill->setPercent($request->request->get('percent'));
-            $this->em->persist($skill);
-            $this->em->flush();
-        } catch (\Throwable $th) {
-            throw $th;
-        }
-    }
-
-    private function saveProject(Request $request, Projects $project)
-    {
-        try {
-            $project->setName($request->request->get('name'));
-            $project->setCode($this->getCode($request->request->get('name')));
-
-            $project->setExcerpt($request->request->get('excerpt'));
-            $project->setThumbnail($request->request->get('thumbnail'));
-            $project->setUrl($request->request->get('url'));
-            $project->setContent($request->request->get('content'));
-            $project->setWork($this->em->getRepository(Works::class)->find($request->request->get('work')));
-
-            $project->getCategorie()->clear();
-            foreach ($request->request->all('categories') as $idCategorie) {
-                $project->addCategorie($this->em->getRepository(Categories::class)->find($idCategorie));
+        $works = $appManager->getWork($id);
+        if ($request->isMethod("POST")) {
+            try {
+                $this->em->remove($works);
+                $this->em->flush();
+            } catch (\Throwable $th) {
+                throw $th;
             }
-            $project->setCreatedAt(new \DateTime($request->request->get('createdAt')));
-
-            $this->em->persist($project);
-            $this->em->flush();
-        } catch (\Throwable $th) {
-            throw $th;
+            return $this->redirectToRoute('admin_works');
+        }else{
+            return $this->render('admin/works/delete.html.twig',
+            [
+                'works' => $works
+            ]);
         }
     }
 
-    private function getCode($string)
-    {
-        $code = str_replace(' ', '-', $string);
-        $code = strtolower($code);
-        // Remove accent
-        $code = strtr($code, 'àáâãäåçèéêëìíîïñòóôõöùúûüýÿ', 'aaaaaaceeeeiiiinooooouuuuyy');
-        // Remove special characters
-        $code = preg_replace('/([^.a-z0-9]+)/i', '-', $code);
-        return $code;
-    }
+    // private function saveCategorie(Request $request, Categories $categorie)
+    // {
+    //     try {
+    //         $categorie->setName($request->request->get('name'));
+    //         $categorie->setCode($this->getCode($request->request->get('name')));
+    //         $this->em->persist($categorie);
+    //         $this->em->flush();
+    //     } catch (\Throwable $th) {
+    //         throw $th;
+    //     }
+    // }
+
+    // private function saveSpecialities(Request $request, Specialties $specialitie)
+    // {
+    //     try {
+    //         $specialitie->setName($request->request->get('name'));
+    //         $specialitie->setIcon($request->request->get('icon'));
+    //         $specialitie->setPosition($request->request->get('position'));
+    //         $specialitie->setContent($request->request->get('content'));
+    //         $this->em->persist($specialitie);
+    //         $this->em->flush();
+    //     } catch (\Throwable $th) {
+    //         throw $th;
+    //     }
+    // }
+
+    // private function saveSkills(Request $request, Skills $skill)
+    // {
+    //     try {
+    //         $skill->setName($request->request->get('name'));
+    //         $skill->setIcon($request->request->get('icon'));
+    //         $skill->setPosition($request->request->get('position'));
+    //         $skill->setPercent($request->request->get('percent'));
+    //         $this->em->persist($skill);
+    //         $this->em->flush();
+    //     } catch (\Throwable $th) {
+    //         throw $th;
+    //     }
+    // }
+
+    // private function saveProject(Request $request, Projects $project)
+    // {
+    //     try {
+    //         $project->setName($request->request->get('name'));
+    //         $project->setCode($this->getCode($request->request->get('name')));
+
+    //         $project->setExcerpt($request->request->get('excerpt'));
+    //         $project->setThumbnail($request->request->get('thumbnail'));
+    //         $project->setUrl($request->request->get('url'));
+    //         $project->setContent($request->request->get('content'));
+    //         $project->setWork($this->em->getRepository(Works::class)->find($request->request->get('work')));
+
+    //         $project->getCategorie()->clear();
+    //         foreach ($request->request->all('categories') as $idCategorie) {
+    //             $project->addCategorie($this->em->getRepository(Categories::class)->find($idCategorie));
+    //         }
+    //         $project->setCreatedAt(new \DateTime($request->request->get('createdAt')));
+
+    //         $this->em->persist($project);
+    //         $this->em->flush();
+    //     } catch (\Throwable $th) {
+    //         throw $th;
+    //     }
+    // }
+
+    // private function getCode($string)
+    // {
+    //     $code = str_replace(' ', '-', $string);
+    //     $code = strtolower($code);
+    //     // Remove accent
+    //     $code = strtr($code, 'àáâãäåçèéêëìíîïñòóôõöùúûüýÿ', 'aaaaaaceeeeiiiinooooouuuuyy');
+    //     // Remove special characters
+    //     $code = preg_replace('/([^.a-z0-9]+)/i', '-', $code);
+    //     return $code;
+    // }
 }
