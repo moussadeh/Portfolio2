@@ -10,18 +10,20 @@
     <table class="datagrid">
         <thead>
             <tr>
-                <td>position</td>
-                <td>icon</td>
-                <td>name</td>
+                <td>Name</td>
+                <td>Position</td>
+                <td>Icon</td>
+                <td>Pourcentage</td>
                 <td>Action</td>
             </tr>
         </thead>
         <tbody>
             {% for data in skills %}
                 <tr>
+                    <td>{{ data.name ?? "" }}</td>
                     <td>{{ data.position ?? "" }}</td>
                     <td>{{ data.icon ?? "" }}</td>
-                    <td>{{ data.name ?? "" }}</td>
+                    <td>{{ data.percent ?? "" }}</td>
                     <td>
                         <a class="btn btn-secondary" href="{{path('admin_skills_edit', {'id': data.id})}}"><i class="fa-solid fa-pen"></i></a>
                         <a class="btn btn-danger" href="{{path('admin_skills_delete', {'id': data.id})}}"><i class="fa-solid fa-trash"></i></a>

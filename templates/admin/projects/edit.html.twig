@@ -12,7 +12,7 @@
         </div>
         <div class="mb-3">
             <label for="work" class="form-label">Work</label>
-            <select class="form-select bg-transparent" name="work" id="work" required> 
+            <select class="form-select bg-transparent" name="work" id="work"> 
                 {% for work in works %}
                     <option value="{{ work.id }}" {% if work.id == project.work.id %}selected{% endif %}>{{ work.name }}</option>
                 {% endfor %}

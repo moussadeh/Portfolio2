@@ -442,7 +442,7 @@ class AdminController extends AbstractDashboardController
     {
         if ($request->isMethod("POST")) {
             $works = new Works();
-            $appManager->saveWorks($request, $works);
+            $appManager->saveWork($request, $works);
             return $this->redirectToRoute('admin_works');
         }else{
             return $this->render('admin/works/new.html.twig', [
@@ -457,11 +457,14 @@ class AdminController extends AbstractDashboardController
     {
         $works = $appManager->getWork($id);
         if ($request->isMethod("POST")) {
-            $appManager->saveWorks($request, $works);
+            $appManager->saveWork($request, $works);
             return $this->redirectToRoute('admin_works');
         }else{
+            // dd($works);
             return $this->render('admin/works/edit.html.twig', [
-                'works' => $works
+                'works' => $works,
+                'worksTypes' => $appManager->getWorksTypes(),
+                'projects'=> $appManager->getProjects($request->query->all())
             ]);
         }
     }
@@ -472,6 +475,7 @@ class AdminController extends AbstractDashboardController
         $works = $appManager->getWork($id);
         if ($request->isMethod("POST")) {
             try {
+                $works->getProjects()->clear();
                 $this->em->remove($works);
                 $this->em->flush();
             } catch (\Throwable $th) {

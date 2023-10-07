@@ -30,8 +30,8 @@ class AppManager{
         $this->repoSpecialties = $this->em->getRepository(Specialties::class);
     }
 
-    public function getProjects($request){
-        return $this->repoProjects->findByFilter($request);
+    public function getProjects($filters = []){
+        return $this->repoProjects->findByFilter($filters);
     }
 
     public function getProject($id){
@@ -62,11 +62,15 @@ class AppManager{
         return $this->repoWorksTypes->findAll();
     }
 
+    public function getWorksType($id){
+        return $this->repoWorksTypes->find($id);
+    }
+
     public function getSkills(){
         return $this->repoSkills->findAll();
     }
 
-    public function getSkill(){
+    public function getSkill($id){
         return $this->repoSkills->find($id);
     }
 
@@ -97,6 +101,35 @@ class AppManager{
             $project->setCreatedAt(new \DateTime($request->request->get('createdAt')));
 
             $this->em->persist($project);
+            $this->em->flush();
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+    }
+
+    public function saveWork(Request $request, Works $work)
+    {
+        try {
+            $work->setName($request->request->get('name'));
+            $work->setCode($this->getCode($request->request->get('name')));
+            $work->setJob($request->request->get('job'));
+
+            $work->setUrl($request->request->get('url', null));
+
+            $work->setType($this->getWorksType($request->request->get('type')));
+            $work->setContent($request->request->get('content'));
+
+            $work->setStartAt(new \DateTimeImmutable($request->request->get('startAt')));
+
+            if ($request->request->get('endAt', null) != null) {
+                $work->setEndAt(new \DateTimeImmutable($request->request->get('endAt')));
+            }
+
+            $work->getProjects()->clear();
+            foreach ($request->request->all('projects') as $project) {
+                $work->addProject($this->getProject($project));
+            }
+            $this->em->persist($work);
             $this->em->flush();
         } catch (\Throwable $th) {
             throw $th;

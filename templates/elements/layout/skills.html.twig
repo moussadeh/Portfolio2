@@ -12,14 +12,14 @@
         </div>
         {% include "elements/components/specialities.html.twig" %}
         <ul class="list-h gap-4 justify-center px-4 relative z-10">
-            {% for skill in skills %}
-                <li class="skill__item" tabindex="0" aria-label="{{skill.name}} - {{skill.value}}%">
+            {% for skill in skills|sort((a, b) => a.position <=> b.position) %}
+                <li class="skill__item" tabindex="0" aria-label="{{skill.name}} - {{skill.percent}}%">
                     <div class="flex gap-4 items-center">
                         <i class="{{skill.icon}}"></i>
                         <h3 class="skill__name">{{skill.name}}</h3>
                     </div>
                         <div class="skill__progress">
-                            <div class="skill__progress-bar" style="width: {{skill.value}}%" role="progressbar" aria-valuenow="{{skill.value}}" aria-valuemin="0" aria-valuemax="100" aria-valuetext="{{skill.name}} - {{skill.value}}%" aria-label="{{skill.name}} - {{skill.value}}%"></div>
+                            <div class="skill__progress-bar" style="width: {{skill.percent}}%" role="progressbar" aria-valuenow="{{skill.percent}}" aria-valuemin="0" aria-valuemax="100" aria-valuetext="{{skill.name}} - {{skill.percent}}%" aria-label="{{skill.name}} - {{skill.percent}}%"></div>
                         </div>
                 </li>
             {% endfor %}

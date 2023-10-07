@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Projects;
+use App\Service\AppManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bridge\Twig\Mime\TemplatedEmail;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -19,11 +20,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class AppController extends AbstractController
 {
     #[Route('/', name: 'home')]
-    public function index(EntityManagerInterface $entityManager): Response
+    public function index(EntityManagerInterface $entityManager, AppManager $appManager): Response
     {
-        $projects = $entityManager->getRepository(Projects::class)->findByFilter();
+        $projects = $appManager->getProjects();
+        $works = $appManager->getWorks();
+        $skills = $appManager->getSkills();
+        $specialties = $appManager->getSpecialities();
+
         return $this->render('pages/home.html.twig',[
-            'projects' => $projects
+            'projects' => $projects,
+            'works' => $works,
+            'skills' => $skills,
+            'specialties' => $specialties
         ]);
     }
     

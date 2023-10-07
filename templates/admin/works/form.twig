@@ -1,27 +1,27 @@
-<form action="{{ formAction }}" method="POST" class="mb-3">
+<form action="{{ formAction }}" method="POST" class="mb-3" autocomplete="off">
     <div class="mb-3">
         <label for="name" class="form-label">Name</label>
-        <input type="text" name="name" id="name" class="form-control bg-transparent" required value="{{work.name ?? ''}}">
+        <input type="text" name="name" id="name" class="form-control bg-transparent" required value="{{works.name ?? ''}}">
     </div>
     <div class="mb-3">
         <label for="job" class="form-label">Job</label>
-        <input type="text" name="job" id="job" class="form-control bg-transparent" required value="{{work.job ?? ''}}">
+        <input type="text" name="job" id="job" class="form-control bg-transparent" required value="{{works.job ?? ''}}">
     </div>
     <div class="mb-3">
         <label for="url" class="form-label">Url</label>
-        <input type="url" name="url" id="url" class="form-control bg-transparent" required value="{{work.url ?? ''}}">
+        <input type="url" name="url" id="url" class="form-control bg-transparent" value="{{works.url ?? ''}}">
     </div>
     <div class="mb-3">
         <label for="startAt" class="form-label">Start At</label>
-        <input type="date" name="date" id="startAt" class="form-control bg-transparent" required value="{{work.startAt ?? ''}}">
+        <input type="date" name="startAt" id="startAt" class="form-control bg-transparent" required value="{{works.startAt ? works.startAt|date("Y-m-d") : ''}}">
     </div>
     <div class="mb-3">
         <label for="endAt" class="form-label">End At</label>
-        <input type="date" name="date" id="endAt" class="form-control bg-transparent" required value="{{work.endAt ?? ''}}">
+        <input type="date" name="endAt" id="endAt" class="form-control bg-transparent" value="{{works.endAt ? works.endAt|date("Y-m-d") : ''}}">
     </div>
     <div class="mb-3">
         <label for="type" class="form-label">Type</label>
-        <select class="form-select bg-transparent" name="type" id="type" required> 
+        <select class="form-select bg-transparent" name="type" id="type"> 
             {% for worksType in worksTypes %}
                 <option value="{{ worksType.id }}">{{ worksType.name }}</option>
             {% endfor %}
@@ -29,7 +29,7 @@
     </div>
     <div class="mb-3">
         <label for="projects" class="form-label">Projects</label>
-        <select class="form-select bg-transparent" name="projects[]" id="projects" required multiple> 
+        <select class="form-select bg-transparent" name="projects[]" id="projects" multiple> 
             {% for project in projects %}
                 <option value="{{ project.id }}">{{ project.name }}</option>
             {% endfor %}
@@ -37,7 +37,7 @@
     </div>
     <div class="mb-3">
         <label for="content" class="form-label">Content</label>
-        <textarea name="content" id="content" cols="30" rows="10" class="form-control bg-transparent" required>{{work.content ?? ''}}</textarea>
+        <textarea name="content" id="content" cols="30" rows="10" class="form-control bg-transparent" required>{{works.content ?? ''}}</textarea>
     </div>
     <button type="submit" class="btn btn-primary">{{btn}}</button>
 </form>

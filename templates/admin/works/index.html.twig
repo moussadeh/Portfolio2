@@ -10,9 +10,9 @@
     <table class="datagrid">
         <thead>
             <tr>
-                <td>code</td>
-                <td>name</td>
-                <td>type</td>
+                <td>Code</td>
+                <td>Name</td>
+                <td>Job</td>
                 <td>Action</td>
             </tr>
         </thead>
@@ -21,7 +21,7 @@
                 <tr>
                     <td>{{ data.code ?? "" }}</td>
                     <td>{{ data.name ?? "" }}</td>
-                    <td>{{ data.type ?? "" }}</td>
+                    <td>{{ data.job ?? "" }}</td>
                     <td>
                         <a class="btn btn-secondary" href="{{path('admin_works_edit', {'id': data.id})}}"><i class="fa-solid fa-pen"></i></a>
                         <a class="btn btn-danger" href="{{path('admin_works_delete', {'id': data.id})}}"><i class="fa-solid fa-trash"></i></a>
