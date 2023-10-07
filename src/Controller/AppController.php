@@ -24,6 +24,10 @@ class AppController extends AbstractController
     {
         $projects = $appManager->getProjects();
         $works = $appManager->getWorks();
+        // Exclude mydigitalschool
+        $works = array_filter($works, function($work){
+            return $work->getCode() != 'mydigitalschool';
+        });
         $skills = $appManager->getSkills();
         $specialties = $appManager->getSpecialities();
 
