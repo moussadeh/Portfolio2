@@ -7,6 +7,7 @@ use App\Entity\Projects;
 use App\Entity\Skills;
 use App\Entity\Specialties;
 use App\Entity\Works;
+use App\Entity\WorksTypes;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -24,6 +25,7 @@ class AppManager{
         $this->repoProjects = $this->em->getRepository(Projects::class);
         $this->repoCategories = $this->em->getRepository(Categories::class);
         $this->repoWorks = $this->em->getRepository(Works::class);
+        $this->repoWorksTypes = $this->em->getRepository(WorksTypes::class);
         $this->repoSkills = $this->em->getRepository(Skills::class);
         $this->repoSpecialties = $this->em->getRepository(Specialties::class);
     }
@@ -54,6 +56,10 @@ class AppManager{
 
     public function getWork($id){
         return $this->repoWorks->find($id);
+    }
+
+    public function getWorksTypes(){
+        return $this->repoWorksTypes->findAll();
     }
 
     public function getSkills(){

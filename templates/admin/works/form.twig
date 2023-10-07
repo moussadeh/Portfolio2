@@ -1,19 +1,43 @@
 <form action="{{ formAction }}" method="POST" class="mb-3">
     <div class="mb-3">
-        <label for="position" class="form-label">Position</label>
-        <input type="number" name="position" id="position" class="form-control bg-transparent" required value="{{skills.position ?? ''}}">
-    </div>
-    <div class="mb-3">
         <label for="name" class="form-label">Name</label>
-        <input type="text" name="name" id="name" class="form-control bg-transparent" required value="{{skills.name ?? ''}}">
+        <input type="text" name="name" id="name" class="form-control bg-transparent" required value="{{work.name ?? ''}}">
     </div>
     <div class="mb-3">
-        <label for="icon" class="form-label">Icon</label>
-        <input type="text" name="icon" id="icon" class="form-control bg-transparent" required value="{{skills.icon ?? ''}}">
+        <label for="job" class="form-label">Job</label>
+        <input type="text" name="job" id="job" class="form-control bg-transparent" required value="{{work.job ?? ''}}">
     </div>
     <div class="mb-3">
-        <label for="percent" class="form-label">Pourcentage</label>
-        <input type="number" name="percent" id="percent" class="form-control bg-transparent" required value="{{skills.percent ?? ''}}">
+        <label for="url" class="form-label">Url</label>
+        <input type="url" name="url" id="url" class="form-control bg-transparent" required value="{{work.url ?? ''}}">
+    </div>
+    <div class="mb-3">
+        <label for="startAt" class="form-label">Start At</label>
+        <input type="date" name="date" id="startAt" class="form-control bg-transparent" required value="{{work.startAt ?? ''}}">
+    </div>
+    <div class="mb-3">
+        <label for="endAt" class="form-label">End At</label>
+        <input type="date" name="date" id="endAt" class="form-control bg-transparent" required value="{{work.endAt ?? ''}}">
+    </div>
+    <div class="mb-3">
+        <label for="type" class="form-label">Type</label>
+        <select class="form-select bg-transparent" name="type" id="type" required> 
+            {% for worksType in worksTypes %}
+                <option value="{{ worksType.id }}">{{ worksType.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="projects" class="form-label">Projects</label>
+        <select class="form-select bg-transparent" name="projects[]" id="projects" required multiple> 
+            {% for project in projects %}
+                <option value="{{ project.id }}">{{ project.name }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="content" class="form-label">Content</label>
+        <textarea name="content" id="content" cols="30" rows="10" class="form-control bg-transparent" required>{{work.content ?? ''}}</textarea>
     </div>
     <button type="submit" class="btn btn-primary">{{btn}}</button>
 </form>

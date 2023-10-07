@@ -371,6 +371,62 @@ class AdminController extends AbstractDashboardController
         }
     }
 
+    #[Route('/admin/specialities', name: 'admin_specialities')]
+    public function indexSpecialities(AppManager $appManager): Response
+    {
+        $specialities = $appManager->getSpecialities();
+        return $this->render('admin/specialities/index.html.twig', [
+            'specialities' => $specialities
+        ]);
+    }
+
+    #[Route('/admin/specialities/new', name: 'admin_specialities_new')]
+    public function newSpecialities(Request $request, AppManager $appManager): Response
+    {
+        if ($request->isMethod("POST")) {
+            $specialities = new Specialties();
+            $appManager->saveSpecialities($request, $specialities);
+            return $this->redirectToRoute('admin_specialities');
+        }else{
+            return $this->render('admin/specialities/new.html.twig', [
+            ]);
+        }
+    }
+
+    #[Route('/admin/specialities/{id}', name: 'admin_specialities_edit')]
+    public function editSpecialities($id, Request $request, AppManager $appManager): Response
+    {
+        $specialities = $appManager->getSpecialitie($id);
+        if ($request->isMethod("POST")) {
+            $appManager->saveSpecialities($request, $specialities);
+            return $this->redirectToRoute('admin_specialities');
+        }else{
+            return $this->render('admin/specialities/edit.html.twig', [
+                'specialities' => $specialities
+            ]);
+        }
+    }
+
+    #[Route('/admin/specialities/{id}/delete', name: 'admin_specialities_delete')]
+    public function deleteSpecialities($id, Request $request, AppManager $appManager): Response
+    {
+        $specialities = $appManager->getSpecialitie($id);
+        if ($request->isMethod("POST")) {
+            try {
+                $this->em->remove($specialities);
+                $this->em->flush();
+            } catch (\Throwable $th) {
+                throw $th;
+            }
+            return $this->redirectToRoute('admin_specialities');
+        }else{
+            return $this->render('admin/specialities/delete.html.twig',
+            [
+                'specialities' => $specialities
+            ]);
+        }
+    }
+
     
     #[Route('/admin/works', name: 'admin_works')]
     public function indexWorks(AppManager $appManager): Response
@@ -390,6 +446,8 @@ class AdminController extends AbstractDashboardController
             return $this->redirectToRoute('admin_works');
         }else{
             return $this->render('admin/works/new.html.twig', [
+                'worksTypes' => $appManager->getWorksTypes(),
+                'projects'=> $appManager->getProjects($request->query->all())
             ]);
         }
     }
