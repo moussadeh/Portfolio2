@@ -60,16 +60,16 @@ class AppController extends AbstractController
                 'message' => 'Token Csrf est invalide'
             ]);
         }
-        // dd($request->request->all());
 
-        try {
-            $errors = $this->validate($request, [
-                'firstname' => 'required',
-                'lastname' => 'required',
-                'email' => 'required|email',
-                'subject' => 'required',
-                'message' => 'required',
+        $resp = $this->validateFormContact($request->request->all());
+        if ($resp['success'] == false) {
+            return $this->json([
+                'success' => false,
+                'message' => $resp['message']
             ]);
+        }
+        try {
+            
             $username = $request->request->get('firstname') .' '.$request->request->get('lastname');
             $email = (new TemplatedEmail())
             ->from(new Address($request->request->get('email'), 'Contact : '. $username))
@@ -91,8 +91,44 @@ class AppController extends AbstractController
         } catch (\Throwable $th) {
             return $this->json([
                 'success' => false,
-                'message' => 'Une erreur est survenue, veuillez réessayer'
+                'message' => $_ENV['APP_ENV'] == 'dev' ? $th->getMessage() : 'Une erreur est survenue, veuillez réessayer'
             ]);
+        }
+    }
+
+    private function validateFormContact($data): ?array
+    {
+        try {
+            if (!isset($data['firstname']) || empty($data['firstname'])) {
+                throw new \Exception('Veuillez renseigner votre prénom');
+            }
+            if (!isset($data['lastname']) || empty($data['lastname'])) {
+                throw new \Exception('Veuillez renseigner votre nom');
+            }
+            if (!isset($data['email']) || empty($data['email'])) {
+                throw new \Exception('Veuillez renseigner votre email');
+            }
+            // Vérif email valide 
+            if (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                throw new \Exception('Veuillez renseigner un email valide');
+            }
+            if (!isset($data['subject']) || empty($data['subject'])) {
+                throw new \Exception('Veuillez renseigner le sujet de votre message');
+            }
+            if (!isset($data['message']) || empty($data['message'])) {
+                throw new \Exception('Veuillez renseigner votre message');
+            }
+
+
+            return [
+                'success' => true,
+            ];
+        } catch (\Throwable $th) {
+            //throw $th;
+            return [
+                'success' => false,
+                'message' => $th->getMessage()
+            ];
         }
     }
 

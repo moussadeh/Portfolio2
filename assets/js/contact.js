@@ -21,6 +21,7 @@ const sendMail = async (form, FormData) => {
             Notiflix.Loading.remove();
             if ((response.status == 200 || response.ok) && data.success == true) {
                 Notiflix.Notify.success(data.message);
+                formContact.reset();
                 return true;
             } else {
                 if (data.message) {
