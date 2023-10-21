@@ -29,7 +29,7 @@ specialties:
 
 contact:
   title: "Me contacter"
-  content: "Si vous avez un projet ou une question, n'hésitez pas à me contacter en utilisant le formulaire ci-dessous ou en m'envoyant un e-mail à l'adresse suivante"
+  content: "Si vous avez un projet ou une question, n'hésitez pas à me contacter en utilisant le formulaire ci-dessous ou en m'envoyant un e-mail à l'adresse suivante :"
 
 erreur:
   4xx: 

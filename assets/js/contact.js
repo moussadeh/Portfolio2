@@ -39,3 +39,13 @@ const sendMail = async (form, FormData) => {
         return false;
     }
 };
+
+const btnMailto = document.querySelectorAll('.btn-mailto');
+btnMailto.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        // const mailto = btn.dataset.mailto;
+        const mailto = btn.dataset.name + '@' + btn.dataset.domain;
+        window.location.href = `mailto:${mailto}`;
+    });
+});

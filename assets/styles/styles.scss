@@ -23,6 +23,12 @@ main{
     
 }
 
+.btn-mailto{
+    &::after{
+        content: attr(data-name) '@' attr(data-domain);
+    }
+}
+
 // .section__padding{
 //     padding: space(1) 0;
 //     @media screen and (min-width: 768px){
