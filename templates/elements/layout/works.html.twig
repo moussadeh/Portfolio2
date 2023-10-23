@@ -9,7 +9,7 @@
         </div>
         <div class="works__content w-full">
             <nav aria-label="{{"works.nav"|trans}}">
-                <ul class="works__cards" role="tablist" aria-label="{{"works.list"|trans}}">
+                <div class="works__cards" role="tablist" aria-label="{{"works.list"|trans}}">
                     {% for work in works %}
                         {% if work.endAt is not defined or work.endAt == null or work.endAt == "null" %}
                             {% set endAt = "now"|date() %}
@@ -25,41 +25,39 @@
                             {% set duration = duration.m ~ " mois" %}
                         {% endif %}
                         {% set workName = work.name|trans %}
-                        <li class="" role="presentation">
-                            <a href="#works-{{loop.index}}" role="tab" aria-label="{{workName}}" aria-selected="{{loop.index == 1 ? 'true' : 'false'}}" aria-controls="works-{{loop.index}}" class="works__card card">
-                                <p class="title__h3 card__name">{{workName}}</p>
-                                <ul class="list-v font-medium w-full text-lg">
-                                    <li class="inline-flex items-center gap-2">
-                                        <i class="fa-solid fa-briefcase icon"></i>
-                                        <p>{{work.type.name}}</p>
-                                    </li>
-                                    <li class="inline-flex items-center gap-2">
-                                        <i class="fa-solid fa-user-tie icon"></i>
-                                        <p class="text-primary">{{work.job|trans}}</p>
-                                    </li>
-                                    <li class="inline-flex items-center gap-2">
-                                        <i class="fa-solid fa-clock icon"></i>
-                                        <p>{{duration}}</p>
-                                    </li>
-                                    <li class="inline-flex items-center gap-2 font-normal text-base text-light">
-                                        <p>{{startAt|date('d/m/Y')}}</p>
-                                        <span class="card__timeline"></span>
-                                        {% if work.endAt is not defined or work.endAt == null or work.endAt == "null" %}
-                                            <p>{{'date.today'|trans}}</p>
-                                        {% else %}
-                                            <p>{{endAt|date('d/m/Y')}}</p>
-                                        {% endif %}
-                                    </li>
-                                </ul>
-                            </a>
-                        </li>
+                        <button id="work-tab-{{loop.index}}" role="tab" aria-label="{{workName}}" aria-selected="{{loop.index == 1 ? 'true' : 'false'}}" aria-controls="works-{{loop.index}}" class="works__card card">
+                            <p class="title__h3 card__name">{{workName}}</p>
+                            <ul class="list-v font-medium w-full text-lg">
+                                <li class="inline-flex items-center gap-2">
+                                    <i class="fa-solid fa-briefcase icon"></i>
+                                    <p>{{work.type.name}}</p>
+                                </li>
+                                <li class="inline-flex items-center gap-2">
+                                    <i class="fa-solid fa-user-tie icon"></i>
+                                    <p class="text-primary">{{work.job|trans}}</p>
+                                </li>
+                                <li class="inline-flex items-center gap-2">
+                                    <i class="fa-solid fa-clock icon"></i>
+                                    <p>{{duration}}</p>
+                                </li>
+                                <li class="inline-flex items-center gap-2 font-normal text-base text-light">
+                                    <p>{{startAt|date('d/m/Y')}}</p>
+                                    <span class="card__timeline"></span>
+                                    {% if work.endAt is not defined or work.endAt == null or work.endAt == "null" %}
+                                        <p>{{'date.today'|trans}}</p>
+                                    {% else %}
+                                        <p>{{endAt|date('d/m/Y')}}</p>
+                                    {% endif %}
+                                </li>
+                            </ul>
+                        </button>
                     {% endfor %}
-                </ul>
+                </div>
             </nav>
             <ul class="works__list w-full">
                 {% for work in works %}
                     {% set workName = work.name %}
-                    <li id="works-{{loop.index}}" class="works__item {{loop.index == 1 ? '' : 'hidden'}}" role="tabpanel" aria-label="{{workName}}}">
+                    <li id="works-{{loop.index}}" class="works__item {{loop.index == 1 ? '' : 'hidden'}}" role="tabpanel" aria-labelledby="work-tab-{{loop.index}}">
                         <h3 class="title__h3 mb-4 !text-3xl md:!text-4xl !text-primary">{{workName}}</h3>
                         <p>{{work.content|raw}}</p>
                         <div class="w-full flex justify-end mt-8">

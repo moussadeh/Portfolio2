@@ -56,6 +56,7 @@
         }
     }
     &__card{
+        cursor: pointer;
         width: 100%;
         min-width: 300px;
         &:first-child{

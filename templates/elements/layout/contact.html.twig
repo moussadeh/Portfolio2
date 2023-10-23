@@ -6,7 +6,7 @@
             <div class="custom-line-center custom-line-secondary titles__header js-title-move">
                 <h2 class="title__h2 text-white">{{"contact.title"|trans}}</h2>
             </div>
-            <p class=" lg:w-2/3 text-white">{{"contact.content"|trans}} <a class="text-white hover:text-white focus:text-white btn-mailto" href="#" data-name="{{CONTACT_EMAIL_NAME}}" data-domain="{{CONTACT_EMAIL_DOMAIN}}" rel="nofollow"></a></p>
+            <p class=" lg:w-2/3 text-white">{{"contact.content"|trans}} <a class="text-white hover:text-white focus:text-white btn-mailto" href="#" data-name="{{CONTACT_EMAIL_NAME}}" data-domain="{{CONTACT_EMAIL_DOMAIN}}" rel="nofollow" aria-label="{{CONTACT_EMAIL_NAME}}@{{CONTACT_EMAIL_DOMAIN}}"></a></p>
 
         </div>
         <form id="form-contact" action="{{path('send_mail')}}" method="POST" class="flex flex-col gap-4 mx-auto w-full max-w-screen-md">

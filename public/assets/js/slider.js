@@ -4,7 +4,7 @@ const project = new Splide('#project-slider', {
     autoWidth: true,
     autoHeight: true,
     // heightRatio: 0.5,
-    autoplay: true,
+    autoplay: false,
     gap: '2rem',
     arrows:false,
     pauseOnHover: true,
@@ -20,7 +20,7 @@ const project = new Splide('#project-slider', {
             // pagination:false,
             isNavigation: true,
             // arrows:true,
-            drag: true,
+            // drag: true,
         },
     }
 });
