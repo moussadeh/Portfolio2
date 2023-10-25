@@ -1,6 +1,6 @@
 hero:
-  title: "Webdesigner et développeur web"
-  content: "Je suis Webdesigner et Développeur fullstack, mes collègues me surnomme <strong class=\"text-white\">Le couteau suisse</strong>. Ma curiosité et mon appétence pour le développement ainsi que les autres domaines du web m'ont permis d'acquérir un panel de compétence diversifié"
+  title: "Développeur web & Webdesigner"
+  content: "Je suis Développeur fullstack et Webdesigner, mes collègues me surnomme <strong class=\"text-white\">Le couteau suisse</strong>. Ma curiosité et mon appétence pour le développement ainsi que les autres domaines du web m'ont permis d'acquérir un panel de compétence diversifié"
 
 btn:
   linkedin: "Me contacter sur Linkedin"
@@ -11,7 +11,7 @@ btn:
 
 aboutMe:
   title: "À propos de moi"
-  content: "Je suis passionné par la découverte et la compréhension du fonctionnement des objets, des mécanismes et des technologies. Attiré par le monde de la technologie et du numérique, j'ai décidé de me diriger vers le domaine du digital.<br><br> Après le bac j'ai intégré l'école MyDigitalSchool d'Angers, où j'ai suivi une formation de 3 ans en Webdesign et développement web. J'ai pu y acquérir des compétences en développement web, webdesign, communication, marketing, gestion de projet et bien d'autres."
+  content: "Je suis passionné par la découverte et la compréhension du fonctionnement des objets, des mécanismes et des technologies. Attiré par le monde de la technologie et du numérique, j'ai décidé de me diriger vers le domaine du digital.<br><br> Après le bac j'ai intégré l'école MyDigitalSchool d'Angers, où j'ai suivi un bachelor en Webdesign et développement web. Après l'obtention du diplôme j'ai continué avec un Master Développeur Fullstack. J'ai pu y acquérir des compétences en développement web, webdesign, communication, marketing, gestion de projet et bien d'autres."
 
 works:
   title: "Expérience professionnelle"
