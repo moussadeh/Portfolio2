@@ -59,7 +59,7 @@
                     {% set workName = work.name %}
                     <li id="works-{{loop.index}}" class="works__item {{loop.index == 1 ? '' : 'hidden'}}" role="tabpanel" aria-labelledby="work-tab-{{loop.index}}">
                         <h3 class="title__h3 mb-4 !text-3xl md:!text-4xl !text-primary">{{workName}}</h3>
-                        <p>{{work.content|raw}}</p>
+                        <p>{{work.content|raw|trans}}</p>
                         <div class="w-full flex justify-end mt-8">
                             <a href="{{work.url}}" rel="nofollow" target="_blank" class="btn-white">{{workName}} <i class="ml-2 fa-solid fa-arrow-up-right-from-square"></i></a>
                         </div>
